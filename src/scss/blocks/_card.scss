@@ -5,22 +5,23 @@
   flex-direction: column;
   scroll-snap-align: center;
   flex-shrink: 0;
-  // min-height: 30.3rem;
   min-height: 25.3rem;
   height: auto;
   border-radius: 1.6rem;
   overflow: hidden;
-  background: var(--bg);
-  border: 0.1rem solid var(--beige);
+  background-color: var(--card-bg-color);
+  border: 0.1rem solid var(--card-border-color);
 
   position: relative;
 
-  #hookahs & {
-    // min-height: 27.6rem;
-  }
+  #hookahs & {}
 
   * {
     transition: all 0.3s ease;
+  }
+
+  &__head {
+    padding: 0.3rem 0.3rem 0 0.3rem;
   }
 
   &__tags {
@@ -29,8 +30,8 @@
     gap: 0.2rem;
 
     position: absolute;
-    top: 0.5rem;
-    left: 0.5rem;
+    top: 0.6rem;
+    left: 0.6rem;
     z-index: 1;
 
     &-item {
@@ -54,28 +55,28 @@
     }
 
     &-top {
-      background-color: var(--aqua-light);
+      background-color: var(--tags-top);
     }
 
     &-hot {
-      background-color: var(--red);
+      background-color: var(--tags-hot);
     }
 
     &-vega {
-      background-color: var(--green-light);
+      background-color: var(--tags-vega);
     }
 
     &-chef {
-      background-color: var(--orange-light);
+      background-color: var(--tags-chef);
     }
 
     &-business {
-      background-color: #37AEE2;
+      background-color: var(--tags-business);
     }
   }
 
   &__img {
-    border-radius: 1.6rem;
+    border-radius: 1.2rem;
     overflow: hidden;
   }
 
@@ -103,9 +104,9 @@
     width: fit-content;
     padding: 0.3rem 0.55rem;
     border-radius: 1.6rem;
-    background-color: var(--orange-light);
+    background-color: var(--rating-bg-color);
 
-    color: var(--bg);
+    color: var(--rating-color);
 
     &-text {
       font-weight: 700;
@@ -134,7 +135,7 @@
     font-weight: 500;
     font-size: 1rem;
     line-height: 120%;
-    color: var(--black-50);
+    color: var(--card-weight-color);
   }
 
   &__items {
@@ -150,11 +151,10 @@
     gap: 0.4rem;
 
     i {
-      border-radius: 0.5rem;
-      background-color: var(--white);
+      background-color: var(--card-item-i-bg-color);
 
       font-size: 1.6rem;
-      color: var(--green);
+      color: var(--card-item-i-color);
     }
 
     &-text {
@@ -162,6 +162,7 @@
       font-size: 1rem;
       line-height: 120%;
       white-space: nowrap;
+      color: var(--card-item-color);
     }
   }
 
@@ -175,7 +176,7 @@
     font-weight: 500;
     font-size: 1rem;
     line-height: 120%;
-    color: var(--black-50);
+    color: var(--card-desc-color);
   }
 
   &__foot {
@@ -191,16 +192,15 @@
     align-items: center;
     padding: 0.7rem 1.25rem;
     border-radius: 1.6rem;
-    background-color: var(--green);
+    background-color: var(--card-price-bg-color);
 
     font-weight: 700;
     font-size: 1.2rem;
     line-height: 100%;
-    color: var(--white);
+    color: var(--card-price-color);
 
     &:hover {
-      background-color: var(--white);
-      color: var(--aqua);
+      background-color: var(--card-price-bg-color-hover);
     }
   }
 
@@ -211,14 +211,14 @@
     width: 3rem;
     height: 3rem;
     border-radius: 50%;
-    background-color: var(--white);
+    background-color: var(--card-like-bg-color);
 
-    color: var(--green);
+    color: var(--card-like-color);
 
     &.like-is-active {
-      background-color: var(--green);
+      background-color: var(--card-like-bg-color-hover);
 
-      color: var(--white);
+      color: var(--card-like-color-hover);
     }
 
     i {

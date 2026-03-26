@@ -87,7 +87,7 @@
     height: 2.2rem;
 
     font-size: 2.2rem;
-    color: var(--bg);
+    color: var(--base-bg);
   }
 
   &__points {
@@ -106,7 +106,7 @@
     font-weight: 700;
     font-size: 1.4rem;
     line-height: 100%;
-    color: var(--bg);
+    color: var(--base-bg);
 
     .login & {
       display: flex;

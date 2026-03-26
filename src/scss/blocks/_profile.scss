@@ -87,7 +87,7 @@
 
       &-title {
         opacity: 0.5;
-        color: var(--black);
+        color: var(--profile-menu-item-title-color);
 
         .login & {
           opacity: 1;

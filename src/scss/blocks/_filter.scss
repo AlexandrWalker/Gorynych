@@ -24,10 +24,6 @@
     font-weight: 700;
   }
 
-  .popup__wrap {
-    background-image: url(./../images/temp/full-bg.png);
-  }
-
   &__items {
     display: flex;
     flex-direction: column;
@@ -64,7 +60,7 @@
     display: flex;
     width: 2.4rem;
     height: 2.4rem;
-    background: var(--bg);
+    background: var(--base-bg);
     border-radius: 0.4rem;
     flex-shrink: 0;
     position: relative;

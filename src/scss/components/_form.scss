@@ -18,7 +18,7 @@
     padding: 0 2rem;
     border-radius: 0.4rem;
     border: 0.1rem solid var(--beige);
-    background-color: var(--bg);
+    background-color: var(--base-bg);
     transition: all 0.3s ease;
 
     font-weight: 500;
@@ -75,7 +75,7 @@
     padding: 1.6rem 2rem;
     border-radius: 0.4rem;
     border: 0.1rem solid var(--beige);
-    background-color: var(--bg);
+    background-color: var(--base-bg);
     resize: none;
 
     font-weight: 500;
@@ -102,7 +102,7 @@
     width: 8.4rem;
     height: 5.6rem;
     border-radius: 0.4rem;
-    background-color: var(--bg);
+    background-color: var(--base-bg);
 
     &::before {
       content: "";
@@ -155,7 +155,7 @@
     padding: 2.4rem 1rem 2.3rem;
     border-radius: 0.4rem;
     border: 0.1rem solid var(--beige);
-    background-color: var(--bg);
+    background-color: var(--base-bg);
     outline: none;
 
     font-family: var(--second-family);
@@ -191,7 +191,7 @@
     &-icon {
       width: 5rem;
       height: 5rem;
-      background-color: var(--bg);
+      background-color: var(--base-bg);
       border-radius: 5rem;
       flex-shrink: 0;
 
@@ -205,7 +205,7 @@
       align-items: center;
       width: 100%;
       padding: 1rem 1.6rem 1rem 2rem;
-      background-color: var(--bg);
+      background-color: var(--base-bg);
       border-radius: 5rem;
 
       * {

@@ -1,8 +1,8 @@
 @use './../mixins' as *;
 
 .btn {
-  --btn-color: var(--black);
-  --btn-background: var(--bg);
+  --btn-color: #888A87;
+  --btn-background: #FFFFFF1A;
 
   display: flex;
   justify-content: center;
@@ -30,15 +30,15 @@
     border-radius: var(--btn-icon-radius);
   }
 
-  &--beige {
-    --btn-background: var(--bg);
-
-    border: 0.1rem solid var(--beige);
+  &--accent {
+    --btn-color: #FFFFFF;
+    --btn-background: #D51216;
   }
 
-  &--green {
-    --btn-color: var(--white);
-    --btn-background: var(--green);
+  &--beige {
+    --btn-background: var(--base-bg);
+
+    border: 0.1rem solid var(--beige);
   }
 
   &--icon {
@@ -77,11 +77,10 @@
     border-radius: 50%;
     background-color: var(--red);
 
-    font-family: var(--third-family);
-    font-weight: 800;
+    font-weight: 700;
     font-size: 1rem;
     line-height: 100%;
-    color: var(--bg);
+    color: var(--white);
     text-align: center;
 
     position: absolute;

@@ -329,17 +329,40 @@ document.addEventListener('DOMContentLoaded', () => {
       document.documentElement.classList.toggle('popup-open', stack.length > 0);
     }
 
-    /**
-     * Плавно показывает или скрывает оверлей через CSS transition.
-     *
-     * @param {boolean} visible  - true = показать, false = скрыть
-     * @param {number}  duration - длительность перехода (секунды, по умолчанию 0.3)
-     */
+    const overlayBase = document.getElementById('popup-overlay-base');
+
     function updateOverlay(visible, duration = 0.3) {
-      overlay.style.transition = `opacity \${duration}s ease`;
-      overlay.style.opacity = visible ? '1' : '0';
-      // Скрытый оверлей не должен перехватывать клики
-      overlay.style.pointerEvents = visible ? 'all' : 'none';
+      if (visible && stack.length) {
+        const firstZ = parseInt(stack[0].style.zIndex);
+        const topZ = parseInt(stack[stack.length - 1].style.zIndex);
+
+        // Базовый оверлей — всегда под первым попапом, появляется сразу
+        overlayBase.style.transition = `opacity \${duration}s ease`;
+        overlayBase.style.zIndex = firstZ - 1;
+        overlayBase.style.opacity = '1';
+
+        if (stack.length > 1) {
+          // Второй оверлей — плавно перемещаем под верхний
+          // z-index меняем мгновенно пока opacity = 0
+          overlay.style.transition = 'none';
+          overlay.style.opacity = '0';
+          overlay.style.zIndex = topZ - 1;
+
+          requestAnimationFrame(() => {
+            overlay.style.transition = `opacity \${duration}s ease`;
+            overlay.style.opacity = '1';
+          });
+        } else {
+          overlay.style.transition = `opacity \${duration}s ease`;
+          overlay.style.opacity = '0';
+        }
+
+      } else {
+        overlay.style.transition = `opacity \${duration}s ease`;
+        overlay.style.opacity = '0';
+        overlayBase.style.opacity = '0';
+        overlay.style.pointerEvents = 'none';
+      }
     }
 
     /**
@@ -2678,7 +2701,7 @@ document.addEventListener('DOMContentLoaded', () => {
   (function () {
     const preloaders = document.querySelector('.preloader');
 
-    if(!preloaders) return;
+    if (!preloaders) return;
 
     document.body.classList.add('no-scroll');
 

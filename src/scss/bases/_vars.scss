@@ -11,17 +11,104 @@
   --container-padding: 1.5rem;
   --container-width: 37.2rem;
   --header-height: 7.6rem;
-  --wrapper-padding: 7.3rem;
-  --panel-height: 6.8rem;
+  --wrapper-padding: 9.1rem;
+  --panel-height: 7.7rem;
   --safe-area-top: env(safe-area-inset-top, 0px);
 
+  // base
+  --base-bg: #1A1A1A;
+  --base-color: #EEF0ED;
+  --base-list-dot-color: #888A87;
+
+  // global
+  --tags-top: #25D366;
+  --tags-hot: #D51216;
+  --tags-vega: #25D366;
+  --tags-chef: #FF9F5F;
+  --tags-business: #37AEE2;
+
+  --rating-bg-color: #D51216;
+  --rating-color: #F9FAF8;
+
+  // layout
+  --layout-title-color: #D51216;
+
+  --layout-counts-bg-color: #FFFFFF1A;
+  --layout-counts-color: #F9FAF8;
+
+  --layout-share-bg-color: #FFFFFF1A;
+  --layout-share-color: #EEF0ED;
+
+  --layout-content-weight-color: #EEF0ED;
+  --layout-content-weight-btn-bg-color: #323232;
+  --layout-content-weight-btn-color: #A9ADA5;
+
+  --layout-content-time-bg-color: #FFFFFF1A;
+  --layout-content-time-i-color: #D51216;
+
+  --layout-block-desc-color: #888A87;
+
+  --layout-block-list-color: #888A87;
+  
+  --layout-block-value-bg-color: #FFFFFF1A;
+  --layout-block-value-i-color: #A9ADA5;
+  --layout-block-value-color: #888A87;
+
+  --layout-head-psevdoelement: #1A1A1A;
+
+  --layout-card-block-bg-color: #D51216;
+  --layout-card-guerss-bg-color: #EEF0ED;
+  --layout-card-guerss-color: #0A2533;
+
+  --layout-head-content-link-color: #888A87;
+
+  // card
+  --card-bg-color: #1A1A1A;
+  --card-border-color: #313330;
+
+  --card-weight-color: #888A87;
+
+  --card-item-color: #888A87;
+  --card-item-i-color: #A9ADA5;
+  --card-item-i-bg-color: rgba(255, 255, 255, 0.1);
+
+  --card-desc-color: #EEF0ED;
+
+  --card-price-color: #EEF0ED;
+  --card-price-bg-color: rgba(236, 241, 232, 0.1);
+  --card-price-bg-color-hover: #D51216;
+
+  --card-like-color: #A9ADA5;
+  --card-like-bg-color: #ECF1E81A;
+  --card-like-color-hover: #ECF1E8;
+  --card-like-bg-color-hover: #D51216;
+
+  // popup
+  --popup-bg-color: rgba(26, 26, 26, 0.95);
+
+  --popup-area-color: #FFFFFF80;
+  --popup-area-close-color: #ffffffbe;
+
+  // menu
+  --menu-item-icon-bg-color: #292929;
+  --menu-item-icon-color: #D51216;
+
+  --menu-item-title-bg-color: #292929;
+  --menu-item-title-color: #EEF0ED;
+
+  // profile
+  --porfile-menu-item-title-color: #EEF0ED;
+
+  // colors
+  --popup-bg: #1A1A1A;
   --accent: #D51216;
 
-  --bg: #1A1A1A;
   --white: #FFFFFF;
   --white-50: rgba(255, 255, 255, 0.5);
+
   --black: #0A2533;
   --black-50: rgba(10, 37, 51, 0.5);
+
   --aqua: #06A5AA;
   --aqua-light: #00D0C5;
   --aqua-dark: #041818;

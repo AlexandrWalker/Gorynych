@@ -96,7 +96,8 @@
 
     <!-- Панель -->
     @@include('blocks/panel.html')
-    <!-- overlay для блокировки скролла при открытых попапах -->
+    <!-- overlay -->
+    <div id="popup-overlay-base"></div>
     <div id="popup-overlay"></div>
     <!-- Контент -->
     <main id="main" class="main">
@@ -280,43 +281,43 @@
 
             <div class="afisha__items stories-items">
               <div class="afisha__item stories-item banner" data-story-index="0" data-banners='[
-    {"img":"./images/temp/stories-cover.jpg", "btnHref":"/registration.lo.cards/?hash=LI6y3C9PugnDlU09", "btnText":"Зарегистрироваться"},
-    {"img":"./images/temp/afisha-full-1.png"},
-    {"img":"./images/temp/afisha-full-1.png"}
-  ]'>
+                {"img":"./images/temp/stories-cover.jpg", "btnHref":"/", "btnText":"Ссылка"},
+                {"img":"./images/temp/afisha-full-1.png"},
+                {"img":"./images/temp/afisha-full-1.png"}
+              ]'>
                 <div class="afisha__item-img">
                   <img src="./../images/temp/new-afisha-1.png" alt="">
                 </div>
-                <!-- <div class="afisha__item-date">
-      10.12.2025
-    </div> -->
+                <div class="afisha__item-date">
+                  13.03.2026
+                </div>
                 <i class="icon-chevron-right"></i>
               </div>
               <div class="afisha__item stories-item banner" data-story-index="1" data-banners='[
-    {"img":"./images/temp/afisha-full-2.png"},
-    {"img":"./images/temp/afisha-full-2.png"}
-  ]'>
+                {"img":"./images/temp/afisha-full-2.png"},
+                {"img":"./images/temp/afisha-full-2.png"}
+              ]'>
                 <div class="afisha__item-img">
                   <img src="./../images/temp/new-afisha-2.png" alt="">
                 </div>
-                <!-- <div class="afisha__item-date">
-      10.12.2025
-    </div> -->
+                <div class="afisha__item-date">
+                  13.03.2026
+                </div>
                 <i class="icon-chevron-right"></i>
               </div>
               <div class="afisha__item stories-item banner" data-story-index="2" data-banners='[
-    {"img":"./images/temp/afisha-full-1.png"},
-    {"img":"./images/temp/afisha-full-2.png"}
-  ]'>
+                {"img":"./images/temp/afisha-full-1.png"},
+                {"img":"./images/temp/afisha-full-2.png"}
+              ]'>
                 <div class="afisha__item-img">
-                  <!-- <img src="./../images/temp/new-afisha-3.png" alt=""> -->
+                  <!-- <img src="./../images/temp/new-afisha-1.png" alt=""> -->
                   <video autoplay muted playsinline loop disablepictureinpicture>
                     <source src="./video/reviews-banner.mp4">
                   </video>
                 </div>
-                <!-- <div class="afisha__item-date">
-      10.12.2025
-    </div> -->
+                <div class="afisha__item-date">
+                  13.03.2026
+                </div>
                 <i class="icon-chevron-right"></i>
               </div>
               <div class="trigger-line"></div>
@@ -345,81 +346,21 @@
           </div>
         </div>
       </section>
-      <!-- Сезонные Specials -->
-      <section class="layout">
+      <!-- Горячее -->
+      <section class="layout" id="osnovnoe">
         <div class="container">
           <div class="layout__inner">
 
             <div class="layout__head">
               <div class="layout__title">
                 <h2>
-                  Сезонные <span>Новинки</span>
+                  Горячее
                 </h2>
               </div>
             </div>
 
             <div class="layout__items">
-              @@loop('./elements/card-item-specials.html', './data/card-items-specials.json')
-            </div>
-
-          </div>
-        </div>
-      </section>
-      <!-- Кальяны -->
-      <section class="layout" id="hookahs">
-        <div class="container">
-          <div class="layout__inner">
-
-            <div class="layout__head">
-              <div class="layout__title">
-                <h2>
-                  Кальяны
-                </h2>
-              </div>
-            </div>
-
-            <div class="layout__time">
-              <i class="icon-clock"></i>
-              <div class="layout__time-text">
-                Бронь 2 часа; продление — при новом заказе (если нет следующей брони); от 5 гостей — минимум 2 кальяна;
-                цены без НДС, +5% к счёту.
-              </div>
-            </div>
-
-            <div class="layout__nav">
-              <button class="layout__nav-item active" type="button" data-nav="bowl-hookahs">
-                Кальяны на чаше
-              </button>
-              <button class="layout__nav-item" type="button" data-nav="fruit-hookahs">
-                Кальяны на фруктах
-              </button>
-              <button class="layout__nav-item" type="button" data-nav="business-hookahs">
-                Бизнес кальяны
-              </button>
-            </div>
-
-            <div class="layout__items">
-              @@loop('./elements/card-item-hookahs-bowl.html', './data/card-items-hookahs-bowl.json')
-            </div>
-
-            <div class="layout__items">
-              <div class="layout__subtitle">
-                Кальяны на фруктах
-              </div>
-              @@loop('./elements/card-item-hookahs-fruit.html', './data/card-items-hookahs-fruit.json')
-            </div>
-
-            <div class="layout__items">
-              <div class="layout__subtitle">
-                Бизнес кальяны
-              </div>
-              <div class="layout__time">
-                <i class="icon-clock"></i>
-                <div class="layout__time-text">
-                  По будням с 12:00 до 17:00
-                </div>
-              </div>
-              @@loop('./elements/card-item-hookahs-business.html', './data/card-items-hookahs-business.json')
+              @@loop('./elements/card-item-osnovnoe.html', './data/card-items-osnovnoe.json')
             </div>
 
           </div>
@@ -452,188 +393,6 @@
           </div>
         </div>
       </section>
-      <!-- Бизнес-ланч -->
-      <section class="layout" id="business-lunch">
-        <div class="container">
-          <div class="layout__inner">
-
-            <div class="layout__head">
-              <div class="layout__title">
-                <h2>
-                  Бизнес-ланч
-                </h2>
-              </div>
-            </div>
-
-            <div class="layout__time">
-              <i class="icon-clock"></i>
-              <div class="layout__time-text">
-                По будням с 12:00 до 17:00. Меню обновляется каждую неделю
-              </div>
-            </div>
-
-            <div class="layout__items">
-              @@loop('./elements/card-item-business-lunch.html', './data/card-items-business-lunch.json')
-            </div>
-
-          </div>
-        </div>
-      </section>
-      <!-- Салаты -->
-      <section class="layout" id="salads">
-        <div class="container">
-          <div class="layout__inner">
-
-            <div class="layout__head">
-              <div class="layout__title">
-                <h2>
-                  Салаты
-                </h2>
-              </div>
-            </div>
-
-            <div class="layout__items">
-              @@loop('./elements/card-item-salads.html', './data/card-items-salads.json')
-            </div>
-
-          </div>
-        </div>
-      </section>
-      <!-- Горячее -->
-      <section class="layout" id="osnovnoe">
-        <div class="container">
-          <div class="layout__inner">
-
-            <div class="layout__head">
-              <div class="layout__title">
-                <h2>
-                  Горячее
-                </h2>
-              </div>
-            </div>
-
-            <div class="layout__nav">
-              <button class="layout__nav-item active" type="button" data-nav="hot">
-                Горячее
-              </button>
-              <button class="layout__nav-item" type="button" data-nav="pasta">
-                Паста
-              </button>
-              <button class="layout__nav-item" type="button" data-nav="sides">
-                Гарниры
-              </button>
-              <button class="layout__nav-item" type="button" data-nav="soups">
-                Супы
-              </button>
-            </div>
-
-            <div class="layout__items">
-              @@loop('./elements/card-item-osnovnoe.html', './data/card-items-osnovnoe.json')
-            </div>
-
-          </div>
-        </div>
-      </section>
-      <!-- Закуски -->
-      <section class="layout" id="zakuski">
-        <div class="container">
-          <div class="layout__inner">
-
-            <div class="layout__head">
-              <div class="layout__title">
-                <h2>
-                  Закуски
-                </h2>
-              </div>
-            </div>
-
-            <div class="layout__nav">
-              <button class="layout__nav-item active" type="button" data-nav="hot-zakuski">
-                Горячие закуски 
-              </button>
-              <button class="layout__nav-item" type="button" data-nav="cold-zakuski">
-                Холодные закуски
-              </button>
-            </div>
-
-            <div class="layout__items">
-              @@loop('./elements/card-item-zakuski.html', './data/card-items-zakuski.json')
-            </div>
-
-          </div>
-        </div>
-      </section>
-      <!-- Напитки -->
-      <section class="layout" id="napitki">
-        <div class="container">
-          <div class="layout__inner">
-
-            <div class="layout__head">
-              <div class="layout__title">
-                <h2>
-                  Напитки
-                </h2>
-              </div>
-            </div>
-
-            <div class="layout__nav">
-              <button class="layout__nav-item active" type="button" data-nav="hot-napitki">
-                Горячие
-              </button>
-              <button class="layout__nav-item" type="button" data-nav="cold-napitki">
-                Холодные
-              </button>
-            </div>
-
-            <div class="layout__items">
-              @@loop('./elements/card-item-drinks.html', './data/card-items-drinks.json')
-            </div>
-
-          </div>
-        </div>
-      </section>
-      <!-- Фабричные коктейли -->
-      <section class="layout" id="cocktail">
-        <div class="container">
-          <div class="layout__inner">
-
-            <div class="layout__head">
-              <div class="layout__title">
-                <h2>
-                  Фабричные коктейли
-                </h2>
-              </div>
-            </div>
-
-            <div class="layout__nav">
-              <button class="layout__nav-item active" type="button" data-nav="aclo-cocktail">
-                Безалкогольные
-              </button>
-              <button class="layout__nav-item" type="button" data-nav="fabric-cocktail">
-                Фабричный алкоголь
-              </button>
-              <button class="layout__nav-item" type="button" data-nav="togo-cocktail">
-                Настойки и вино ту го 
-              </button>
-            </div>
-
-            <div class="layout__items">
-              <div class="layout__subtitle">
-                Коктейли
-              </div>
-              @@loop('./elements/card-item-cocktails.html', './data/card-items-cocktails.json')
-            </div>
-            <div class="layout__items">
-              <div class="layout__subtitle">
-                Вино
-              </div>
-              @@loop('./elements/card-item-vino.html', './data/card-items-vino.json')
-            </div>
-
-          </div>
-        </div>
-      </section>
-
       <!-- Stories Overlay -->
       <div class="stories-overlay" id="storiesOverlay">
         <div class="stories-container">
