@@ -1,0 +1,177 @@
+@use './../mixins' as *;
+
+/* Тут я поменял позиционирование с bottom на top. Также установил 100dvh для панели */
+.panel {
+  display: flex;
+  align-items: flex-end;
+  width: 100vw;
+  width: 100dvw;
+  // height: 100vh;
+  // height: 100dvh;
+  pointer-events: none;
+
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 500;
+  z-index: 1000;
+
+  @include domd {
+    display: none;
+  }
+
+  * {
+    transition: height 400ms cubic-bezier(.4, 0, .2, 1), transform 400ms cubic-bezier(.4, 0, .2, 1);
+  }
+
+  &::before {
+    content: "";
+    width: 100%;
+    height: 13rem;
+    background: linear-gradient(0deg, #0A2533 22.45%, rgba(255, 255, 255, 0) 86.33%);
+    pointer-events: none;
+
+    position: absolute;
+    top: auto;
+    right: 0;
+    left: 0;
+    z-index: -1;
+
+    .popup-open & {
+      height: 10rem;
+    }
+  }
+
+  &__inner {
+    width: 100%;
+    // background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAyIiBoZWlnaHQ9Ijc3IiB2aWV3Qm94PSIwIDAgNDAyIDc3IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPg0KPHBhdGggZD0iTTAgMjEuNDQ1OEMwIDkuNjAxNjEgOS41OTkwMiAwIDIxLjQ0IDBIMTQ1Ljc5NkMxNTIuNzc0IDAgMTU4LjczNyAyLjAyNjAzIDE2Mi44OSA3LjYzNDc4QzE3MS40MTYgMTkuMTUwNiAxNzguNTQ5IDM1LjM4NTUgMjAxIDM1LjM4NTVDMjIzLjQ5MSAzNS4zODU1IDIzMS4yODQgMTkuMDkyIDI0MC4xMTIgNy41NzI0N0MyNDQuMzU3IDIuMDMzMjcgMjUwLjI5OCAwIDI1Ny4yNzYgMEgzODAuNTZDMzkyLjQwMSAwIDQwMiA5LjYwMTYgNDAyIDIxLjQ0NThWNzdIMFYyMS40NDU4WiIgZmlsbD0iI0ZERjZFQyIvPg0KPC9zdmc+DQo=);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    // background-color: var(--white);
+    padding: 0 var(--container-padding);
+    padding-bottom: env(safe-area-inset-bottom);
+    height: var(--panel-height);
+    pointer-events: all;
+    border-radius: 2.4rem 2.4rem 0 0;
+
+    .popup-open & {}
+  }
+
+  &__btns {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+  &__btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.3rem;
+    width: 7rem;
+    height: 7rem;
+    padding: 1.2rem 0 1.8rem;
+
+    position: relative;
+
+    color: var(--black);
+
+    perspective: 100rem;
+    -webkit-perspective: 1000px;
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    transition: transform 0.7s cubic-bezier(0.65, 0, 0.35, 1);
+
+    i {
+      font-size: 3rem;
+      color: var(--accent);
+
+      position: relative;
+    }
+
+    span {
+      font-weight: 700;
+      font-size: 1rem;
+      line-height: 120%;
+    }
+
+    .btn--count {
+      top: 0.5rem;
+      right: 1rem;
+    }
+
+    &--mid {
+      border-radius: 50%;
+      background-color: var(--accent);
+      transform: translateY(-4.1rem);
+
+      color: var(--white);
+
+      i {
+        font-size: 2.8rem;
+        color: var(--white);
+      }
+
+      .popup-open & {
+        transform: translateY(-0.5rem);
+      }
+
+      .btn--count {
+        top: 0;
+        right: 0;
+      }
+    }
+
+    &>.panel__btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      transform-style: preserve-3d;
+      -webkit-transform-style: preserve-3d;
+      inset: 0;
+      transition: transform 0.6s cubic-bezier(.4, .2, .2, 1);
+
+      position: absolute;
+    }
+
+    &--visible {
+      transform: rotateY(0deg);
+      z-index: 2;
+
+      html.popup-open & {
+        transform: rotateY(180deg);
+      }
+    }
+
+    &--hidden {
+      transform: rotateY(180deg);
+
+      html.popup-open & {
+        transform: rotateY(0deg);
+      }
+    }
+  }
+
+  &__mask {
+    width: 100%;
+    height: 6.8rem;
+
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+
+    svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  }
+}

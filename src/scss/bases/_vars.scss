@@ -1,0 +1,53 @@
+@use './../mixins' as *;
+
+:root {
+  --font-family: Poppins, Arial, sans-serif;
+  --second-family: SFPro, Arial, sans-serif;
+  --third-family: TTTrailersTrial, Arial, sans-serif;
+  --fourth-family: PlayfairDisplay, Arial, sans-serif;
+  --fifth-family: Inter, Arial, sans-serif;
+  --sixth-family: Lobster, Arial, sans-serif;
+
+  --container-padding: 1.5rem;
+  --container-width: 37.2rem;
+  --header-height: 7.6rem;
+  --wrapper-padding: 7.3rem;
+  --panel-height: 6.8rem;
+  --safe-area-top: env(safe-area-inset-top, 0px);
+
+  --accent: #D51216;
+
+  --bg: #1A1A1A;
+  --white: #FFFFFF;
+  --white-50: rgba(255, 255, 255, 0.5);
+  --black: #0A2533;
+  --black-50: rgba(10, 37, 51, 0.5);
+  --aqua: #06A5AA;
+  --aqua-light: #00D0C5;
+  --aqua-dark: #041818;
+  --green-dark: #0B3136;
+  --green: #185D66;
+  --green-30: rgba(24, 93, 102, 0.3);
+  --green-50: rgba(24, 93, 102, 0.5);
+  --green-light: #25D366;
+  --green-2: #114349;
+  --orange-light: #FF9F5F;
+  --red: #D93128;
+  --beige: #313330;
+  --sun: #FFCA8C;
+  --sun-50: rgba(255, 202, 140, 0.5);
+
+  --background-color: #1b1d20;
+  --slide-width: 34.4rem;
+  --slide-shadow: 0 4px 20px 2px rgba(0, 0, 0, 0.4);
+  --slide-thumb-height: 0.3rem;
+  --slide-thumb-default-color: rgba(0, 0, 0, 0.4);
+  --slide-thumb-active-color: rgba(255, 255, 255, 0.9);
+
+  @include domd {
+    --container-padding: 40rem;
+    --container-width: 112rem;
+    --header-height: 11rem;
+    --wrapper-padding: 13rem;
+  }
+}

@@ -1,0 +1,147 @@
+@use './../mixins' as *;
+
+.afisha {
+
+  &__items {
+    display: flex;
+    flex-direction: row;
+    gap: 0.8rem;
+
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scroll-padding-left: var(--container-padding);
+
+    padding: 0.3rem var(--container-padding);
+    margin-left: calc(var(--container-padding) * -1);
+    width: 100vw;
+    width: calc(100% + (var(--container-padding) * 2));
+
+    @include domd {
+      gap: 2rem;
+    }
+
+    &::-webkit-scrollbar {
+      display: none;
+      width: 0;
+      height: 0;
+      padding: 0;
+      margin: 0;
+    }
+  }
+
+  &__item {
+    --progress: 0;
+
+    width: 22rem;
+    height: 18rem;
+    border-radius: 1.6rem;
+    flex-shrink: 0;
+    // scroll-snap-align: center;
+    scroll-snap-align: start;
+    isolation: isolate;
+
+    position: relative;
+
+    @include domd {
+      width: calc(25% - (6rem / 4));
+      height: 22rem;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: -0.3rem;
+      border-radius: calc(1.6rem + 0.3rem);
+      border: 0.2rem solid #ff9f5f;
+      pointer-events: none;
+
+      --start: 45deg;
+      --spread: calc(var(--progress) * 180deg);
+
+      -webkit-mask-image: conic-gradient(from var(--start),
+          white 0deg,
+          white var(--spread),
+          transparent var(--spread),
+          transparent calc(360deg - var(--spread)),
+          white calc(360deg - var(--spread)),
+          white 360deg);
+      mask-image: conic-gradient(from var(--start),
+          white 0deg,
+          white var(--spread),
+          transparent var(--spread),
+          transparent calc(360deg - var(--spread)),
+          white calc(360deg - var(--spread)),
+          white 360deg);
+    }
+
+    i {
+      background-color: var(--white);
+      border-radius: 50%;
+
+      font-size: 3rem;
+      color: var(--green);
+
+      position: absolute;
+      right: 2rem;
+      bottom: 2rem;
+    }
+
+    &:hover i {
+
+      @include domd {
+        background-color: var(--green);
+
+        color: var(--white);
+      }
+    }
+
+    &-img {
+      width: 100%;
+      height: 100%;
+      border-radius: 1.6rem;
+      overflow: hidden;
+
+      @include domd {
+        height: 100%;
+      }
+
+      img {
+
+        @include domd {
+          height: 100%;
+        }
+      }
+
+      video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    &-date {
+      font-weight: 400;
+      font-size: 1.2rem;
+      line-height: 120%;
+      color: var(--white);
+
+      position: absolute;
+      bottom: 2.8rem;
+      left: 2rem;
+    }
+  }
+}
+
+.trigger-line {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 0.1rem;
+  height: 100%;
+  background: transparent;
+  pointer-events: none;
+  z-index: 999;
+}
