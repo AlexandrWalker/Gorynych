@@ -60,14 +60,14 @@
     display: flex;
     width: 2.4rem;
     height: 2.4rem;
-    background: var(--base-bg);
+    background: var(--filter-check-bg-color);
     border-radius: 0.4rem;
     flex-shrink: 0;
     position: relative;
 
     &::before {
       content: "";
-      background: var(--green);
+      background: var(--filter-check-before-color);
       border-radius: 0.2rem;
       width: 1.4rem;
       height: 1.4rem;

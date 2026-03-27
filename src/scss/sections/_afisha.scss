@@ -39,7 +39,6 @@
     height: 18rem;
     border-radius: 1.6rem;
     flex-shrink: 0;
-    // scroll-snap-align: center;
     scroll-snap-align: start;
     isolation: isolate;
 
@@ -55,7 +54,7 @@
       position: absolute;
       inset: -0.3rem;
       border-radius: calc(1.6rem + 0.3rem);
-      border: 0.2rem solid #ff9f5f;
+      border: 0.2rem solid var(--afisha-item-border-color);
       pointer-events: none;
 
       --start: 45deg;
@@ -78,11 +77,11 @@
     }
 
     i {
-      background-color: var(--white);
+      background-color: var(--afisha-i-bg-color);
       border-radius: 50%;
 
       font-size: 3rem;
-      color: var(--green);
+      color: var(--afisha-i-color);
 
       position: absolute;
       right: 2rem;

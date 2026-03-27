@@ -13,8 +13,8 @@
     height: 5rem;
     padding: 0 2rem;
     border-radius: 0.4rem;
-    border: 0.1rem solid var(--beige);
-    background-color: var(--base-bg);
+    border: 0.1rem solid var(--dropdown-selected-border-color);
+    background-color: var(--dropdown-selected-bg-color);
     transition: all 0.3s ease;
 
     position: relative;
@@ -22,39 +22,43 @@
     i {
       transform: rotate(90deg);
       border-radius: 50%;
-      background-color: var(--white);
+      background-color: var(--dropdown-selected-i-bg-color);
 
       font-size: 2.4rem;
-      color: var(--green);
+      color: var(--dropdown-selected-i-color);
 
       .dropdown.is-active & {
         transform: rotate(-90deg);
+        color: var(--dropdown-selected-active-i-color);
       }
     }
 
     &-label--js {
 
       .filled & {
-        color: var(--black);
+        color: var(--dropdown-label-active-color);
       }
     }
 
     &--js {
 
       .filled & {
-        border-color: var(--green);
-        background-color: var(--white);
+        border-color: var(--dropdown-selected-active-border-color);
+        background-color: var(--dropdown-selected-active-bg-color);
       }
     }
   }
 
   &__label {
+    display: block;
+    width: 100%;
+
     font-weight: 500;
     font-size: 1.4rem;
     line-height: 120%;
-    color: var(--black);
+    color: var(--dropdown-label-color);
     white-space: nowrap;
-
+    cursor: pointer;
     overflow: hidden;
     text-overflow: ellipsis;
   }
@@ -79,9 +83,9 @@
     flex-direction: column;
     gap: 1.5rem;
     padding: 1.6rem 2rem;
-    background-color: var(--white);
+    background-color: var(--dropdown-content-bg-color);
     border-radius: 0.4rem;
-    border: 0.1rem solid var(--beige);
+    border: 0.1rem solid var(--dropdown-content-border-color);
     transform: translateY(-100%);
     will-change: transform;
     transition: transform 0.3s ease;
@@ -89,17 +93,10 @@
     .dropdown.is-active & {
       transform: translateY(0);
     }
-  }
 
-  &__label {
-    display: block;
-    width: 100%;
-
-    font-weight: 500;
-    font-size: 1.4rem;
-    line-height: 120%;
-    color: var(--black-50);
-    cursor: pointer;
+    .dropdown__label {
+      color: var(--dropdown-content-label-color);
+    }
   }
 
   &__radio {

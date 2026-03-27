@@ -5,7 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // Глобальные константы
   // Длительность плавного скролла страницы (мс) - используется в smoothScrollTo
   const SCROLL_DURATION = 1500;
-  const NAV_HEIGHT_REM = 16.5;
+  // const NAV_HEIGHT_REM = 16.5;
+  const NAV_HEIGHT_REM = 20;
 
   // Регистрируем плагин ScrollTrigger из библиотеки GSAP.
   // Должен вызываться один раз до создания любых триггеров.
@@ -1301,6 +1302,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Отступ от верха viewport при скролле к карточке (rem).
     // Должен соответствовать высоте фиксированного хедера + nav.
+    // const DEFAULT_OFFSET_REM = 21.8;
     const DEFAULT_OFFSET_REM = 21.8;
 
     // Уменьшенный отступ внутри попапа (popup имеет собственный хедер меньшей высоты)

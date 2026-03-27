@@ -1,6 +1,6 @@
 <div id="reviewsWrite" class="reviews reviews-write popup" data-lenis-prevent>
   <div class="popup__wrap">
-        <div class="popup__area" data-popup-head>
+    <div class="popup__area" data-popup-head>
       <div class="popup__close">
         <i class="icon-close"></i>
       </div>
@@ -41,14 +41,18 @@
 
                 <div class="form-group">
                   <label class="form-label">
-                    Имя*
-                    <input class="form-input" type="text" name="name" placeholder="Ваше имя">
+                    <div class="form-label-wrap">
+                      Имя <span>*</span>
+                    </div>
+                    <input class="form-input" type="text" name="name" placeholder="Ваше имя" required>
                   </label>
                 </div>
 
                 <div class="form-group">
                   <label class="form-label">
-                    Поделитесь мнением*
+                    <div class="form-label-wrap">
+                      Поделитесь мнением <span>*</span>
+                    </div>
                     <textarea class="form-textarea" name="comment" rows="7"></textarea>
                   </label>
                 </div>

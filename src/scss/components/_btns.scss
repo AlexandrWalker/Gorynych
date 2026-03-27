@@ -3,6 +3,7 @@
 .btn {
   --btn-color: #888A87;
   --btn-background: #FFFFFF1A;
+  --btn-disabled-bg-color: #D5121680;
 
   display: flex;
   justify-content: center;
@@ -60,12 +61,10 @@
 
   &--remove {
     --btn-color: var(--red);
-
-    // font-weight: 700;
   }
 
   &:disabled {
-    --btn-background: var(--green-50);
+    --btn-background: var(--btn-disabled-bg-color);
 
     pointer-events: none;
   }

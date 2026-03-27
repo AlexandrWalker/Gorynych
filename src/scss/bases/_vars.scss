@@ -30,6 +30,16 @@
   --rating-bg-color: #D51216;
   --rating-color: #F9FAF8;
 
+  // header
+  --header-search-i-color: #888A87;
+
+  --header-points-bg-color: #0000001A;
+  --header-points-color: #000000;
+  --header-points-i-color: #D71920;
+
+  --header-lang-bg-color: #0000001A;
+  --header-lang-color: #000000;
+
   // layout
   --layout-title-color: #D51216;
 
@@ -49,7 +59,7 @@
   --layout-block-desc-color: #888A87;
 
   --layout-block-list-color: #888A87;
-  
+
   --layout-block-value-bg-color: #FFFFFF1A;
   --layout-block-value-i-color: #A9ADA5;
   --layout-block-value-color: #888A87;
@@ -61,6 +71,24 @@
   --layout-card-guerss-color: #0A2533;
 
   --layout-head-content-link-color: #888A87;
+
+  --layout-foot-inner-bg-color: transparent;
+
+  // search
+  --layout-search-icon-color: #888A87;
+  --layout-stars-icon-color: #A9ADA5;
+
+  // nav
+  --nav-item-bg-color: #292929;
+  --nav-item-color: #EEF0ED;
+  --nav-item-icon-color: #D71920;
+  --nav-item-active-bg-color: #D71920;
+  --nav-item-active-icon-color: #FFFFFF;
+
+  // afisha
+  --afisha-item-border-color: #D71920;
+  --afisha-i-bg-color: #D71920;
+  --afisha-i-color: #FFFFFF;
 
   // card
   --card-bg-color: #1A1A1A;
@@ -98,6 +126,50 @@
 
   // profile
   --porfile-menu-item-title-color: #EEF0ED;
+
+  // form
+  --form-input-border-color: #2F2F2E;
+  --form-input-color: #D51216;
+  --form-input-ph-color: #D51216;
+  --form-input-active-border-color: #D51216;
+  --form-label-color: #888A87;
+  --form-label-span-color: #D51216;
+  --form-file-bg-color: #353332;
+  --form-rating-color: #E95322;
+  --form-code-border-color: #2F2F2E;
+  --form-code-bg-color: transparent;
+  --form-code-color: #D51216;
+  --form-code-ph-color: #EEF0ED;
+  --form-text-color: #EEF0ED80;
+  --form-checkbox-border-color: #888A87;
+  --form-checkbox-before-bg-color: transparent;
+  --form-checkbox-after-bg-color: transparent;
+  --form-checkbox-checked-after-bg-color: #D51216;
+  --form-radio-icon-bg-color: #292929;
+  --form-radio-icon-color: #D51216;
+  --form-radio-title-bg-color: #292929;
+  --form-radio-remove-color: #888A87;
+  --form-radio-input-border-color: #888A87;
+  --form-radio-input-before-bg-color: transparent;
+  --form-radio-input-checked-before-bg-color: #D51216;
+
+  // dropdown
+  --dropdown-selected-active-border-color: #D51216;
+  --dropdown-selected-active-bg-color: transparent;
+  --dropdown-selected-border-color: #2F2F2E;
+  --dropdown-selected-bg-color: transparent;
+  --dropdown-selected-i-bg-color: #323232;
+  --dropdown-selected-i-color: #EEF0ED;
+  --dropdown-selected-active-i-color: #D51216;
+  --dropdown-label-color: #D51216;
+  --dropdown-label-active-color: #D51216;
+  --dropdown-content-border-color: #292929;
+  --dropdown-content-bg-color: #292929;
+  --dropdown-content-label-color: #EEF0ED;
+
+  // filter
+  --filter-check-bg-color: #353332;
+  --filter-check-before-color: #D51216;
 
   // colors
   --popup-bg: #1A1A1A;
