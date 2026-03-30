@@ -293,7 +293,20 @@
                 </h2>
               </div>
             </div>
-
+            <div class="layout__nav">
+              <button class="layout__nav-item active" type="button" data-nav="hot">
+                Горячее
+              </button>
+              <button class="layout__nav-item" type="button" data-nav="pasta">
+                Паста
+              </button>
+              <button class="layout__nav-item" type="button" data-nav="sides">
+                Гарниры
+              </button>
+              <button class="layout__nav-item" type="button" data-nav="soups">
+                Супы
+              </button>
+            </div>
             <div class="layout__items">
               @@loop('./elements/card-item-osnovnoe.html', './data/card-items-osnovnoe.json')
             </div>

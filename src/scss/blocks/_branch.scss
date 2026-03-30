@@ -26,11 +26,16 @@
 
     &__content {
 
+      .layout__block-title {
+        font-weight: 700;
+        color: var(--layout-content-block-title-color);
+      }
+
       .layout__block-text {
 
         * {
           font-weight: 700;
-          color: var(--green);
+          color: var(--layout-content-block-text-color);
         }
       }
     }
@@ -42,6 +47,13 @@
         * {
           font-weight: 500;
           font-size: 1.4rem;
+        }
+      }
+
+      &-btns {
+
+        .btn:not(.btn--remove) {
+          --btn-color: var(--btanchselect-layout-block-btn-color);
         }
       }
     }

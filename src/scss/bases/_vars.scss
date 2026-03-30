@@ -56,6 +56,10 @@
   --layout-content-time-bg-color: #FFFFFF1A;
   --layout-content-time-i-color: #D51216;
 
+  --layout-content-block-title-color: #D51216;
+  --layout-content-block-text-color: #8B8C8B;
+  --layout-content-block-text-color: #8B8C8B;
+
   --layout-block-desc-color: #888A87;
 
   --layout-block-list-color: #888A87;
@@ -65,6 +69,7 @@
   --layout-block-value-color: #888A87;
 
   --layout-head-psevdoelement: #1A1A1A;
+  --layout-head-change-color: #D51216;
 
   --layout-card-block-bg-color: #D51216;
   --layout-card-guerss-bg-color: #EEF0ED;
@@ -73,6 +78,19 @@
   --layout-head-content-link-color: #888A87;
 
   --layout-foot-inner-bg-color: transparent;
+
+  --layout-nav-item-bg-color: #292929;
+  --layout-nav-item-color: #FFFFFF;
+  --layout-nav-item-active-bg-color: #D51216;
+
+  --layout-cashback-bg-color: #292929;
+  --layout-cashback-progress-bg-color: #D5121680;
+  --layout-cashback-progress-value-bg-color: #D51216;
+  --layout-cashback-i-color: #EEF0ED;
+  --layout-cashback-i-bg-color: #323232;
+
+  // branchSelect
+  --btanchselect-layout-block-btn-color: #EEF0ED;
 
   // search
   --layout-search-icon-color: #888A87;
@@ -170,6 +188,11 @@
   // filter
   --filter-check-bg-color: #353332;
   --filter-check-before-color: #D51216;
+
+  // libs
+  --swiper-pagination-bg-color: transparent;
+  --swiper-pagination-color: rgba(255, 255, 255, 0.5);
+  --swiper-pagination-active-color: #FFFFFF;
 
   // colors
   --popup-bg: #1A1A1A;

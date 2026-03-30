@@ -109,14 +109,6 @@ li:last-child {
 @font-face {
   font-family: Inter;
   font-display: swap;
-  src: url("../fonts/Inter-Black.woff2") format("woff2"), url("../fonts/Inter-Black.woff") format("woff");
-  font-weight: 900;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: Inter;
-  font-display: swap;
   src: url("../fonts/Inter-Bold.woff2") format("woff2"), url("../fonts/Inter-Bold.woff") format("woff");
   font-weight: 700;
   font-style: normal;
@@ -125,8 +117,8 @@ li:last-child {
 @font-face {
   font-family: Inter;
   font-display: swap;
-  src: url("../fonts/Inter-ExtraLight.woff2") format("woff2"), url("../fonts/Inter-ExtraLight.woff") format("woff");
-  font-weight: 200;
+  src: url("../fonts/Inter-Black.woff2") format("woff2"), url("../fonts/Inter-Black.woff") format("woff");
+  font-weight: 900;
   font-style: normal;
 }
 
@@ -149,6 +141,14 @@ li:last-child {
 @font-face {
   font-family: Inter;
   font-display: swap;
+  src: url("../fonts/Inter-ExtraLight.woff2") format("woff2"), url("../fonts/Inter-ExtraLight.woff") format("woff");
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Inter;
+  font-display: swap;
   src: url("../fonts/Inter-Medium.woff2") format("woff2"), url("../fonts/Inter-Medium.woff") format("woff");
   font-weight: 500;
   font-style: normal;
@@ -157,16 +157,16 @@ li:last-child {
 @font-face {
   font-family: Inter;
   font-display: swap;
-  src: url("../fonts/Inter-Regular.woff2") format("woff2"), url("../fonts/Inter-Regular.woff") format("woff");
-  font-weight: 400;
+  src: url("../fonts/Inter-SemiBold.woff2") format("woff2"), url("../fonts/Inter-SemiBold.woff") format("woff");
+  font-weight: 600;
   font-style: normal;
 }
 
 @font-face {
   font-family: Inter;
   font-display: swap;
-  src: url("../fonts/Inter-SemiBold.woff2") format("woff2"), url("../fonts/Inter-SemiBold.woff") format("woff");
-  font-weight: 600;
+  src: url("../fonts/Inter-Regular.woff2") format("woff2"), url("../fonts/Inter-Regular.woff") format("woff");
+  font-weight: 400;
   font-style: normal;
 }
 
@@ -465,7 +465,7 @@ li:last-child {
   height: auto;
   padding: 0.4rem;
   border-radius: 3rem;
-  background-color: var(--base-bg);
+  background-color: var(--swiper-pagination-bg-color);
   line-height: 0;
   bottom: 1rem;
   right: unset;
@@ -479,11 +479,11 @@ li:last-child {
   width: 0.7rem;
   height: 0.7rem;
   margin: 0 0.2rem !important;
-  background-color: var(--green-50) !important;
+  background-color: var(--swiper-pagination-color) !important;
 }
 
 .swiper-pagination-bullet-active {
-  background-color: var(--green) !important;
+  background-color: var(--swiper-pagination-active-color) !important;
 }
 
 /* Reset and base styles  */
@@ -677,17 +677,30 @@ body {
   --layout-content-weight-btn-color: #A9ADA5;
   --layout-content-time-bg-color: #FFFFFF1A;
   --layout-content-time-i-color: #D51216;
+  --layout-content-block-title-color: #D51216;
+  --layout-content-block-text-color: #8B8C8B;
+  --layout-content-block-text-color: #8B8C8B;
   --layout-block-desc-color: #888A87;
   --layout-block-list-color: #888A87;
   --layout-block-value-bg-color: #FFFFFF1A;
   --layout-block-value-i-color: #A9ADA5;
   --layout-block-value-color: #888A87;
   --layout-head-psevdoelement: #1A1A1A;
+  --layout-head-change-color: #D51216;
   --layout-card-block-bg-color: #D51216;
   --layout-card-guerss-bg-color: #EEF0ED;
   --layout-card-guerss-color: #0A2533;
   --layout-head-content-link-color: #888A87;
   --layout-foot-inner-bg-color: transparent;
+  --layout-nav-item-bg-color: #292929;
+  --layout-nav-item-color: #FFFFFF;
+  --layout-nav-item-active-bg-color: #D51216;
+  --layout-cashback-bg-color: #292929;
+  --layout-cashback-progress-bg-color: #D5121680;
+  --layout-cashback-progress-value-bg-color: #D51216;
+  --layout-cashback-i-color: #EEF0ED;
+  --layout-cashback-i-bg-color: #323232;
+  --btanchselect-layout-block-btn-color: #EEF0ED;
   --layout-search-icon-color: #888A87;
   --layout-stars-icon-color: #A9ADA5;
   --nav-item-bg-color: #292929;
@@ -758,6 +771,9 @@ body {
   --dropdown-content-label-color: #EEF0ED;
   --filter-check-bg-color: #353332;
   --filter-check-before-color: #D51216;
+  --swiper-pagination-bg-color: transparent;
+  --swiper-pagination-color: rgba(255, 255, 255, 0.5);
+  --swiper-pagination-active-color: #FFFFFF;
   --popup-bg: #1A1A1A;
   --accent: #D51216;
   --white: #FFFFFF;
@@ -1638,6 +1654,7 @@ body {
 
 .layout__head-title {
   font-family: var(--third-family);
+  text-transform: uppercase;
 }
 
 .layout__head-slider {
@@ -1761,12 +1778,21 @@ body {
   gap: 1rem;
 }
 
+.layout__head-content h2 {
+  font-family: var(--third-family);
+  font-weight: 900;
+}
+
 .layout__head-content a,
 .layout__head-content button {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
   color: var(--layout-head-content-link-color);
+}
+
+.layout__head-content .layout__head-change {
+  color: var(--layout-head-change-color);
 }
 
 .layout__head-tel {
@@ -1880,8 +1906,9 @@ body {
 }
 
 .layout__content-name {
-  font-weight: 900;
-  font-size: 2rem;
+  font-family: var(--third-family);
+  font-weight: 700;
+  font-size: 3rem;
   line-height: 100%;
 }
 
@@ -2163,6 +2190,7 @@ body {
 }
 
 .layout__block-btns .btn {
+  --btn-background: #232323;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
@@ -2348,7 +2376,7 @@ html[lang=en] .layout__block-item[data-lang=en] {
   -webkit-transition: top 0.5s ease;
   transition: top 0.5s ease;
   position: sticky;
-  top: 16.5rem;
+  top: 20rem;
   z-index: 2;
 }
 
@@ -2385,7 +2413,7 @@ html[lang=en] .layout__block-item[data-lang=en] {
   width: fit-content;
   height: 4rem;
   padding: 1rem 2rem;
-  background-color: var(--base-bg);
+  background-color: var(--layout-nav-item-bg-color);
   border-radius: 3rem;
   -ms-flex-negative: 0;
   flex-shrink: 0;
@@ -2393,11 +2421,11 @@ html[lang=en] .layout__block-item[data-lang=en] {
   font-weight: 500;
   font-size: 1.4rem;
   line-height: 120%;
+  color: var(--layout-nav-item-color);
 }
 
 .layout__nav-item.active {
-  background-color: var(--green);
-  color: var(--white);
+  background-color: var(--layout-nav-item-active-bg-color);
 }
 
 .layout__items {
@@ -2706,7 +2734,7 @@ html[lang=en] .layout__block-item[data-lang=en] {
   flex-direction: column;
   gap: 2.2rem;
   padding: 2rem;
-  background-color: var(--base-bg);
+  background-color: var(--layout-cashback-bg-color);
   border-radius: 1.6rem;
   position: relative;
 }
@@ -2738,24 +2766,24 @@ html[lang=en] .layout__block-item[data-lang=en] {
   width: 100%;
   height: 0.8rem;
   border-radius: 0.4rem;
-  background-color: var(--green);
+  background-color: var(--layout-cashback-progress-bg-color);
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
 }
 
 .layout__cashback-progressbar progress::-webkit-progress-bar {
-  background-color: var(--green);
+  background-color: var(--layout-cashback-progress-bg-color);
   border-radius: 0.4rem;
 }
 
 .layout__cashback-progressbar progress::-webkit-progress-value {
-  background-color: var(--aqua);
+  background-color: var(--layout-cashback-progress-value-bg-color);
   border-radius: 0.4rem;
 }
 
 .layout__cashback-progressbar progress::-moz-progress-bar {
-  background-color: var(--aqua);
+  background-color: var(--layout-cashback-progress-value-bg-color);
   border-radius: 0.4rem;
 }
 
@@ -2783,10 +2811,10 @@ html[lang=en] .layout__block-item[data-lang=en] {
   align-items: center;
   width: 2.4rem;
   height: 2.4rem;
-  background-color: var(--white);
+  background-color: var(--layout-cashback-i-bg-color);
   border-radius: 50%;
   font-size: 2.4rem;
-  color: var(--green);
+  color: var(--layout-cashback-i-color);
   position: absolute;
   top: 2rem;
   right: 2rem;
@@ -3285,14 +3313,23 @@ p {
   padding-bottom: 8rem;
 }
 
+#branchSelect .layout__content .layout__block-title {
+  font-weight: 700;
+  color: var(--layout-content-block-title-color);
+}
+
 #branchSelect .layout__content .layout__block-text * {
   font-weight: 700;
-  color: var(--green);
+  color: var(--layout-content-block-text-color);
 }
 
 #branchSelect .layout__block-text * {
   font-weight: 500;
   font-size: 1.4rem;
+}
+
+#branchSelect .layout__block-btns .btn:not(.btn--remove) {
+  --btn-color: var(--btanchselect-layout-block-btn-color);
 }
 
 .card {
@@ -3760,10 +3797,6 @@ p {
   font-weight: 700;
 }
 
-.favorite .card__like {
-  background-color: var(--green);
-}
-
 .favorite .card__like i {
   font-weight: 700;
   font-size: 2.2rem;
@@ -3771,7 +3804,7 @@ p {
 }
 
 .favorite .card__like i::before {
-  content: "\e915";
+  content: "\e929";
 }
 
 .filter .layout__inner {
