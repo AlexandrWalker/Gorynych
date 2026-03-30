@@ -347,8 +347,27 @@
               </div>
             </div>
 
+            <div class="layout__nav">
+              <button class="layout__nav-item active" type="button" data-nav="alco-napitki">
+                Алкогольные напитки
+              </button>
+              <button class="layout__nav-item" type="button" data-nav="noalco-napitki">
+                Безалкогольные напитки
+              </button>
+            </div>
+
             <div class="layout__items">
-              @@loop('./elements/card-item-osnovnoe.html', './data/card-items-osnovnoe.json')
+              <div class="layout__subtitle">
+                Алкогольные напитки
+              </div>
+              @@loop('./elements/card-item-drinks.html', './data/card-items-drinks-alco.json')
+            </div>
+
+            <div class="layout__items">
+              <div class="layout__subtitle">
+                Безалкогольные напитки
+              </div>
+              @@loop('./elements/card-item-drinks.html', './data/card-items-drinks-noalco.json')
             </div>
 
           </div>
