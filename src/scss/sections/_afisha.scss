@@ -91,9 +91,9 @@
     &:hover i {
 
       @include domd {
-        background-color: var(--green);
+        background-color: var(--afisha-hover-i-bg-color);
 
-        color: var(--white);
+        color: var(--afisha-hover-i-color);
       }
     }
 

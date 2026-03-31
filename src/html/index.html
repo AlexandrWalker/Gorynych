@@ -16,6 +16,8 @@
     @@include('./popups/dish.html')
     <!-- Вина -->
     @@include('./popups/dish-vino.html')
+    <!-- Лимонад -->
+    @@include('./popups/dish-lemonade.html')
     <!-- Кальяны -->
     @@include('./popups/dish-hookah.html')
     <!-- Фильтр -->
@@ -84,6 +86,8 @@
     @@include('./popups/sostav.html')
     <!-- Смена языка -->
     @@include('./popups/language.html')
+    <!-- События -->
+    @@include('./popups/events.html')
 
     <!-- Куки -->
     @@include('./popups/cookie.html')
@@ -187,14 +191,14 @@
       <section class="banners">
         <div class="container">
           <div class="banners__inner">
-            <div class="hero__banners">
-              <div class="hero__banners-link" data-popup-target="offersInner">
+            <div class="banners__links">
+              <div class="banners__link" data-popup-target="offersInner">
                 <img src="./../images/temp/hero-banner-1.png" alt="">
               </div>
-              <div class="hero__banners-link" data-popup-target="offersInner">
+              <div class="banners__link" data-popup-target="offersInner">
                 <img src="./../images/temp/hero-banner-2.png" alt="">
               </div>
-              <div class="hero__banners-link" data-popup-target="offersInner">
+              <div class="banners__link" data-popup-target="offersInner">
                 <img src="./../images/temp/hero-banner-3.png" alt="">
               </div>
             </div>
@@ -216,9 +220,9 @@
 
             <div class="afisha__items stories-items">
               <div class="afisha__item stories-item banner" data-story-index="0" data-banners='[
-                {"img":"./images/temp/stories-cover.jpg", "btnHref":"/", "btnText":"Ссылка"},
-                {"img":"./images/temp/afisha-full-1.png"},
-                {"img":"./images/temp/afisha-full-1.png"}
+                {"img":"./images/temp/stories-cover.jpg"},
+                {"img":"./images/temp/stories-cover.jpg"},
+                {"img":"./images/temp/stories-cover.jpg"}
               ]'>
                 <div class="afisha__item-img">
                   <img src="./../images/temp/new-afisha-1.png" alt="">
@@ -229,8 +233,8 @@
                 <i class="icon-chevron-right"></i>
               </div>
               <div class="afisha__item stories-item banner" data-story-index="1" data-banners='[
-                {"img":"./images/temp/afisha-full-2.png"},
-                {"img":"./images/temp/afisha-full-2.png"}
+                {"img":"./images/temp/stories-cover.jpg"},
+                {"img":"./images/temp/stories-cover.jpg"}
               ]'>
                 <div class="afisha__item-img">
                   <img src="./../images/temp/new-afisha-2.png" alt="">
@@ -240,12 +244,11 @@
                 </div>
                 <i class="icon-chevron-right"></i>
               </div>
-              <div class="afisha__item stories-item banner" data-story-index="2" data-banners='[
-                {"img":"./images/temp/afisha-full-1.png"},
-                {"img":"./images/temp/afisha-full-2.png"}
+              <!-- <div class="afisha__item stories-item banner" data-story-index="2" data-banners='[
+                {"img":"./images/temp/stories-cover.jpg"},
+                {"img":"./images/temp/stories-cover.jpg"}
               ]'>
                 <div class="afisha__item-img">
-                  <!-- <img src="./../images/temp/new-afisha-1.png" alt=""> -->
                   <video autoplay muted playsinline loop disablepictureinpicture>
                     <source src="./video/reviews-banner.mp4">
                   </video>
@@ -254,7 +257,7 @@
                   13.03.2026
                 </div>
                 <i class="icon-chevron-right"></i>
-              </div>
+              </div> -->
               <div class="trigger-line"></div>
             </div>
 

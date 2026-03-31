@@ -31,30 +31,40 @@
     }
 
     #search & {
-      border-radius: 3rem;
-      height: 4.4rem;
+      // border-radius: 3rem;
+      // height: 4.4rem;
     }
 
     &.filled,
     &:focus,
     &:active {
       border-color: var(--form-input-active-border-color);
+
+      &+.form-input-btn {
+        color: var(--form-input-active-btn-color);
+      }
     }
 
     &-btn {
       --btn-size: 2.2rem;
 
+      display: flex;
+      justify-content: center;
+      align-items: center;
       width: var(--btn-size);
       height: var(--btn-size);
 
       font-size: var(--btn-size);
+      color: var(--form-input-btn-color);
 
       position: absolute;
       top: 50%;
       right: 1.1rem;
       transform: translateY(-50%);
 
-      i {}
+      i {
+
+      }
     }
   }
 
@@ -281,6 +291,7 @@
 
       font-weight: 500;
       font-size: 1.4rem;
+      color: var(--form-results-color);
 
       &::before {
         display: none;

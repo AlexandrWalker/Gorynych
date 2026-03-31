@@ -1,0 +1,13 @@
+@use './../mixins' as *;
+
+.events {
+
+  .layout__head-title {
+    font-family: var(--font-family);
+    text-transform: none;
+
+    * {
+      font-size: 2rem;
+    }
+  }
+}

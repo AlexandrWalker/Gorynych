@@ -17,11 +17,11 @@
     }
 
     i {
-      background-color: var(--white);
+      background-color: var(--afisha-i-bg-color);
       border-radius: 50%;
 
       font-size: 3rem;
-      color: var(--green);
+      color: var(--afisha-i-color);
 
       position: absolute;
       bottom: 2rem;
@@ -31,9 +31,9 @@
     &:hover i {
 
       @include domd {
-        background-color: var(--green);
+        background-color: var(--afisha-hover-i-bg-color);
 
-        color: var(--white);
+        color: var(--afisha-hover-i-color);
       }
     }
   }

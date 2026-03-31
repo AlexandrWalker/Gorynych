@@ -1,5 +1,6 @@
 [
   {
+    "popup": "dish-vino",
     "dish": "alco-napitki",
     "img": "./../../images/temp/drinks-1.png",
     "tags": "<div class=\"card__tags-item card__tags-top\"><i class=\"icon-top\"></i>Топчик</div>",
@@ -14,6 +15,7 @@
     "price": "500 ₽"
   },
   {
+    "popup": "dish-vino",
     "dish": "alco-napitki",
     "img": "./../../images/temp/drinks-1.png",
     "tags": "<div class=\"card__tags-item card__tags-top\"><i class=\"icon-top\"></i>Топчик</div>",
@@ -28,6 +30,7 @@
     "price": "500 ₽"
   },
   {
+    "popup": "dish-vino",
     "dish": "alco-napitki",
     "img": "./../../images/temp/drinks-2.png",
     "tags": "<div class=\"card__tags-item card__tags-top\"><i class=\"icon-top\"></i>Топчик</div>",
@@ -42,6 +45,7 @@
     "price": "500 ₽"
   },
   {
+    "popup": "dish-vino",
     "dish": "alco-napitki",
     "img": "./../../images/temp/drinks-2.png",
     "tags": "<div class=\"card__tags-item card__tags-top\"><i class=\"icon-top\"></i>Топчик</div>",

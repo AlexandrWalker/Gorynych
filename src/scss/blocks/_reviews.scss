@@ -14,6 +14,11 @@
         margin-left: calc(var(--container-padding) * -1);
       }
     }
+
+    &__btn {
+      --btn-color: #EEF0ED;
+      --btn-background: #D51216;
+    }
   }
 
   &__items {
@@ -30,7 +35,7 @@
     &-title {
       margin-bottom: 0.5rem;
 
-      font-weight: 900;
+      font-weight: 700;
       font-size: 2rem;
       line-height: 100%;
     }
@@ -45,6 +50,7 @@
       font-weight: 700;
       font-size: 1.4rem;
       line-height: 120%;
+      color: var(--reviews-item-name-color);
     }
 
     &-rating {
@@ -55,15 +61,17 @@
 
       i {
         font-size: 1.2rem;
-        color: var(--orange-light);
+        color: var(--reviews-item-rating-icon-color);
       }
     }
 
     &-date {
       font-size: 1rem;
+      color: var(--reviews-item-date-color);
     }
 
     &-text {
+      color: var(--reviews-item-text-color);
 
       * {
         font-size: 1.4rem;

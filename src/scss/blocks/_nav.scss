@@ -28,8 +28,13 @@
 
     &:hover {
 
-      @include domd {
-        background: var(--aqua-dark);
+      .nav__item-img {
+
+        @include domd {
+          background: var(--nav-item-active-bg-color);
+          
+          color: var(--nav-item-active-icon-color);
+        }
       }
     }
 
