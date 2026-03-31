@@ -253,14 +253,6 @@ li:last-child {
 @font-face {
   font-family: Poppins;
   font-display: swap;
-  src: url("../fonts/Poppins-Light.woff2") format("woff2"), url("../fonts/Poppins-Light.woff") format("woff");
-  font-weight: 300;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: Poppins;
-  font-display: swap;
   src: url("../fonts/Poppins-ExtraBold.woff2") format("woff2"), url("../fonts/Poppins-ExtraBold.woff") format("woff");
   font-weight: 800;
   font-style: normal;
@@ -277,16 +269,24 @@ li:last-child {
 @font-face {
   font-family: Poppins;
   font-display: swap;
-  src: url("../fonts/Poppins-Medium.woff2") format("woff2"), url("../fonts/Poppins-Medium.woff") format("woff");
-  font-weight: 500;
+  src: url("../fonts/Poppins-Regular.woff2") format("woff2"), url("../fonts/Poppins-Regular.woff") format("woff");
+  font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: Poppins;
   font-display: swap;
-  src: url("../fonts/Poppins-Regular.woff2") format("woff2"), url("../fonts/Poppins-Regular.woff") format("woff");
-  font-weight: 400;
+  src: url("../fonts/Poppins-Light.woff2") format("woff2"), url("../fonts/Poppins-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Poppins;
+  font-display: swap;
+  src: url("../fonts/Poppins-Medium.woff2") format("woff2"), url("../fonts/Poppins-Medium.woff") format("woff");
+  font-weight: 500;
   font-style: normal;
 }
 
@@ -309,16 +309,16 @@ li:last-child {
 @font-face {
   font-family: SFPro;
   font-display: swap;
-  src: url("../fonts/SFPro-Black.woff2") format("woff2"), url("../fonts/SFPro-Black.woff") format("woff");
-  font-weight: 900;
+  src: url("../fonts/SFPro-Bold.woff2") format("woff2"), url("../fonts/SFPro-Bold.woff") format("woff");
+  font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
   font-family: SFPro;
   font-display: swap;
-  src: url("../fonts/SFPro-Bold.woff2") format("woff2"), url("../fonts/SFPro-Bold.woff") format("woff");
-  font-weight: 700;
+  src: url("../fonts/SFPro-Black.woff2") format("woff2"), url("../fonts/SFPro-Black.woff") format("woff");
+  font-weight: 900;
   font-style: normal;
 }
 
@@ -1147,9 +1147,9 @@ body {
   border-color: var(--form-input-active-border-color);
 }
 
-.form-input.filled+.form-input-btn,
-.form-input:focus+.form-input-btn,
-.form-input:active+.form-input-btn {
+.form-input.filled + .form-input-btn,
+.form-input:focus + .form-input-btn,
+.form-input:active + .form-input-btn {
   color: var(--form-input-active-btn-color);
 }
 
@@ -1510,11 +1510,11 @@ body {
   display: none;
 }
 
-.form-checkbox:checked+label .form-checkbox--item::after {
+.form-checkbox:checked + label .form-checkbox--item::after {
   background-color: var(--form-checkbox-checked-after-bg-color);
 }
 
-.form-checkbox+label {
+.form-checkbox + label {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3907,15 +3907,6 @@ p {
   font-weight: 700;
 }
 
-.events .layout__head-title {
-  font-family: var(--font-family);
-  text-transform: none;
-}
-
-.events .layout__head-title * {
-  font-size: 2rem;
-}
-
 .favorite .card__like i {
   font-weight: 700;
   font-size: 2.2rem;
@@ -3983,7 +3974,7 @@ p {
   display: none;
 }
 
-.filter__item input:checked+.filter__check::before {
+.filter__item input:checked + .filter__check::before {
   opacity: 1;
 }
 
@@ -4535,7 +4526,7 @@ p {
   right: 0;
 }
 
-.panel__btn>.panel__btn {
+.panel__btn > .panel__btn {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4886,8 +4877,8 @@ html.popup-open .panel__btn--hidden {
 
 canvas {
   display: block;
-  width: 18.5rem;
-  height: 17.9rem;
+  width: 28rem;
+  height: 6rem;
   -ms-flex-negative: 0;
   flex-shrink: 0;
   -webkit-transition: opacity 0.3s ease, visibility 0.3s ease;
