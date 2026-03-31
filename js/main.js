@@ -2749,8 +2749,8 @@ document.addEventListener('DOMContentLoaded', () => {
     logoWhite.onerror = onImageLoaded;
     logoCyan.onerror = onImageLoaded;
 
-    logoWhite.src = './images/logo/preloader-logo-white.svg';
-    logoCyan.src = './images/logo/preloader-logo-cyan.svg';
+    logoWhite.src = './images/logo/preloader-logo-black.svg';
+    logoCyan.src = './images/logo/preloader-logo-red.svg';
 
     function draw() {
       ctx.clearRect(0, 0, logoWidth, logoHeight);
@@ -2759,7 +2759,7 @@ document.addEventListener('DOMContentLoaded', () => {
       ctx.drawImage(logoWhite, 0, 0, logoWidth, logoHeight);
 
       ctx.globalCompositeOperation = 'source-atop';
-      ctx.fillStyle = '#06A5AA';
+      ctx.fillStyle = '#D71920';
 
       var rectY = logoHeight - fillHeight;
       ctx.fillRect(0, rectY, logoWidth, fillHeight);
@@ -2851,7 +2851,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const cookiesNotify = document.getElementById('plate-cookie');
     if (cookiesNotify) {
       // Показываем плашку (translateY(100%) -- translateY(0))
-      cookiesNotify.style.transform = 'translateY(0)';
+      cookiesNotify.style.transform = 'translateX(0)';
     }
   }
 
@@ -2874,7 +2874,7 @@ function checkCookies() {
   if (!plate) return;
 
   // Уезжает вниз с CSS transition
-  plate.style.transform = 'translateY(100%)';
+  plate.style.transform = 'translateX(100%)';
 
   // Полностью удаляем из DOM после завершения анимации (5с)
   setTimeout(() => plate.remove(), 5000);
