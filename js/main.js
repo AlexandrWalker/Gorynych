@@ -2232,6 +2232,15 @@ document.addEventListener('DOMContentLoaded', () => {
     overlay.addEventListener('touchend', function (e) {
       if (navHandled) { navHandled = false; return; }
 
+      // Тап по затемнённому фону оверлея вне stories-container - закрываем сторис.
+      // closest проверяет сам элемент и всех его родителей вверх по DOM дереву.
+      // Если .stories-container не найден - тач был по фону.
+      // is-viewed логика отрабатывает внутри closeStories автоматически.
+      if (!e.target.closest('.stories-container')) {
+        closeStories();
+        return;
+      }
+
       const dx = e.changedTouches[0].clientX - touchStartX;
       const dy = e.changedTouches[0].clientY - touchStartY;
       const absDx = Math.abs(dx);
