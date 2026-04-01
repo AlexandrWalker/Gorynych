@@ -2223,23 +2223,21 @@ document.addEventListener('DOMContentLoaded', () => {
       goPrevBanner();
     }, { passive: true });
 
-    overlay.addEventListener('touchstart', function (e) {
+    container.addEventListener('touchstart', function (e) {
       touchStartX = e.touches[0].clientX;
       touchStartY = e.touches[0].clientY;
       if (!isSliding) pauseTimer();
     }, { passive: true });
 
-    overlay.addEventListener('touchend', function (e) {
-      if (navHandled) { navHandled = false; return; }
-
-      // Тап по затемнённому фону оверлея вне stories-container - закрываем сторис.
-      // closest проверяет сам элемент и всех его родителей вверх по DOM дереву.
-      // Если .stories-container не найден - тач был по фону.
-      // is-viewed логика отрабатывает внутри closeStories автоматически.
+    // На оверлее - закрытие если тач начался вне stories-container
+    overlay.addEventListener('touchstart', function (e) {
       if (!e.target.closest('.stories-container')) {
         closeStories();
-        return;
       }
+    }, { passive: true });
+
+    container.addEventListener('touchend', function (e) {
+      if (navHandled) { navHandled = false; return; }
 
       const dx = e.changedTouches[0].clientX - touchStartX;
       const dy = e.changedTouches[0].clientY - touchStartY;
@@ -2260,11 +2258,11 @@ document.addEventListener('DOMContentLoaded', () => {
       resumeTimer();
     }, { passive: true });
 
-    overlay.addEventListener('touchcancel', function () {
+    container.addEventListener('touchcancel', function () {
       if (!isSliding) resumeTimer();
     });
 
-    overlay.addEventListener('touchmove', function (e) {
+    container.addEventListener('touchmove', function (e) {
       e.preventDefault();
     }, { passive: false });
 
@@ -2288,6 +2286,27 @@ document.addEventListener('DOMContentLoaded', () => {
       el.addEventListener('click', function () {
         openStories(parseInt(el.dataset.storiesOpen, 10) || 0);
       });
+    });
+
+    // Закрываем сторис при любом клике или тапе вне stories-container.
+    // Это нужно для случаев когда поверх оверлея находятся элементы шапки -
+    // ссылки, кнопки и т.д. Обычные обработчики на overlay их не поймают
+    // потому что шапка лежит в другом слое DOM дерева.
+    // Проверяем два условия:
+    // 1. Сторис сейчас открыт
+    // 2. Клик или тап произошёл вне .stories-container
+    document.addEventListener('touchstart', function (e) {
+      if (!overlay.classList.contains('is-active')) return;
+      if (!e.target.closest('.stories-container')) {
+        closeStories();
+      }
+    }, { passive: true });
+
+    document.addEventListener('mousedown', function (e) {
+      if (!overlay.classList.contains('is-active')) return;
+      if (!e.target.closest('.stories-container')) {
+        closeStories();
+      }
     });
 
     // Просмотренные
