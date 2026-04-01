@@ -80,9 +80,11 @@
       }
 
       &-tags {
-        transform: scale(var(--dish-head-progress));
-        transform-origin: top left;
-        will-change: transform;
+        // transform: scale(var(--dish-head-progress));
+        // transform-origin: top left;
+        will-change: transform, top;
+
+        top: calc(1rem * var(--dish-head-progress));
       }
 
       &-cover {
