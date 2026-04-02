@@ -8,7 +8,7 @@ html {
   --refRes: 402;
   font-size: calc(100vw / var(--refRes) * 10);
   scroll-padding-top: 16.5rem;
-  background-color: var(--white);
+  background: var(--base-color);
 }
 
 html.header-out {
@@ -17,7 +17,9 @@ html.header-out {
 
 body {
   min-width: 320px;
-  background-color: var(--base-bg);
+  background: var(--base-bg);
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
   font-family: var(--font-family);
   font-weight: 400;
   font-size: 1.2rem;
@@ -2475,13 +2477,12 @@ html[lang=en] .layout__block-item[data-lang=en] {
   -webkit-overflow-scrolling: touch;
   background-color: var(--base-bg);
   padding: 0.5rem var(--container-padding);
-  margin-top: -0.5rem;
   margin-left: calc(var(--container-padding) * -1);
   width: calc(100% + var(--container-padding) * 2);
   -webkit-transition: top 0.5s ease;
   transition: top 0.5s ease;
   position: sticky;
-  top: 20rem;
+  top: 19.5rem;
   z-index: 2;
 }
 
