@@ -9,7 +9,7 @@ html {
 
   // scroll-behavior: smooth;
   scroll-padding-top: 16.5rem;
-  background-color: var(--white);
+  background: var(--base-color);
 
   @include domd {
     --refRes: 1920;
@@ -22,7 +22,9 @@ html {
 
 body {
   min-width: 320px;
-  background-color: var(--base-bg);
+  background: var(--base-bg);
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
 
   font-family: var(--font-family);
   font-weight: 400;

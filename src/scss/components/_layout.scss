@@ -760,13 +760,14 @@
 
     background-color: var(--base-bg);
     padding: 0.5rem var(--container-padding);
-    margin-top: -0.5rem;
+    // margin-top: -0.5rem;
     margin-left: calc(var(--container-padding) * -1);
     width: calc(100% + (var(--container-padding) * 2));
     transition: top 0.5s ease;
 
     position: sticky;
-    top: 20rem;
+    // top: 20rem;
+    top: 19.5rem;
     z-index: 2;
 
     &::-webkit-scrollbar {
