@@ -1303,7 +1303,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Отступ от верха viewport при скролле к карточке (rem).
     // Должен соответствовать высоте фиксированного хедера + nav.
     // const DEFAULT_OFFSET_REM = 21.8;
-    // const DEFAULT_OFFSET_REM = 21.8;
     const DEFAULT_OFFSET_REM = 25;
 
     // Уменьшенный отступ внутри попапа (popup имеет собственный хедер меньшей высоты)
