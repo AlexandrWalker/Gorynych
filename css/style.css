@@ -55,7 +55,7 @@ body {
   -ms-flex: 1 0 auto;
   flex: 1 0 auto;
   padding-top: var(--header-height);
-  padding-bottom: 13rem;
+  padding-bottom: 18rem;
 }
 
 .footer {
@@ -130,14 +130,6 @@ li:last-child {
 @font-face {
   font-family: Inter;
   font-display: swap;
-  src: url("../fonts/Inter-Bold.woff2") format("woff2"), url("../fonts/Inter-Bold.woff") format("woff");
-  font-weight: 700;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: Inter;
-  font-display: swap;
   src: url("../fonts/Inter-ExtraBold.woff2") format("woff2"), url("../fonts/Inter-ExtraBold.woff") format("woff");
   font-weight: 800;
   font-style: normal;
@@ -148,6 +140,14 @@ li:last-child {
   font-display: swap;
   src: url("../fonts/Inter-ExtraLight.woff2") format("woff2"), url("../fonts/Inter-ExtraLight.woff") format("woff");
   font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Inter;
+  font-display: swap;
+  src: url("../fonts/Inter-Bold.woff2") format("woff2"), url("../fonts/Inter-Bold.woff") format("woff");
+  font-weight: 700;
   font-style: normal;
 }
 
