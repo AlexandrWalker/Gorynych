@@ -41,6 +41,8 @@
     left: 0;
     z-index: -1;
 
+    display: none;
+
     .popup-open & {
       // height: 10rem;
       height: 8.5rem;

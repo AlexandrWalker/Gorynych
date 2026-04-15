@@ -14,8 +14,14 @@
   <meta name="format-detection" content="address=no">
   <meta name="format-detection" content="email=no">
   <!-- favicon -->
+  <link rel="icon" type="image/png" href="./images/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="./images/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="./images/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="./images/favicon/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="Горыныч" />
+  <link rel="manifest" href="./images/favicon/site.webmanifest" />
   <!-- title -->
-  <title>Фабрика</title>
+  <title>Горыныч</title>
   <!-- icons -->
   <link rel="stylesheet" href="icons/style.css">
   <!-- swiper styles -->
@@ -28,6 +34,47 @@
   <!-- Прелоадер -->
   <div class="preloader">
   <canvas id="logo-canvas" width="185" height="179"></canvas>
+</div>
+   <!-- Welcome-screen -->
+  <div id="welcome" class="welcome">
+  <div class="container">
+    <div class="welcome__inner">
+
+      <div class="welcome__content">
+        <div class="welcome__logo">
+          <img src="./images/logo/logo-big.svg" alt="Горыныч">
+        </div>
+        <div class="welcome__text">
+          <p>
+            Зарегистрируйтесь или войдите в приложение что бы получать бонусы и скидки!
+          </p>
+        </div>
+        <div class="welcome__btns">
+          <button class="welcome__btn btn btn--accent layout__btn--login" data-log="login" type="button">
+            Войти
+          </button>
+          <button class="welcome__btn btn btn--gray" type="button" data-popup-target="reg">
+            Регистрация
+          </button>
+        </div>
+      </div>
+
+      <div class="welcome__lang">
+        <button class="welcome__lang-btn" data-lang="ru" data-popup-target="language">
+          <div class="welcome__lang-img">
+            <img src="./images/temp/language-icon-ru.svg" alt="">
+          </div>
+          <div class="welcome__lang-text">
+            <p>
+              Русский
+            </p>
+            <i class="icon-chevron-right"></i>
+          </div>
+        </button>
+      </div>
+
+    </div>
+  </div>
 </div>
   <div class="bg"></div>
   <!-- main -->
@@ -96,7 +143,7 @@
                     <i class="icon-menu-microphone"></i>
                   </div>
                   <div class="menu__item-title">
-                    Афиша
+                    Мероприятия
                   </div>
                 </div>
                 <div class="menu__item" data-popup-target="rules">
@@ -104,7 +151,7 @@
                     <i class="icon-menu-list"></i>
                   </div>
                   <div class="menu__item-title">
-                    Фабричные правила
+                    Правила
                   </div>
                 </div>
                 <div class="menu__item" data-popup-target="rassadka">
@@ -113,14 +160,6 @@
                   </div>
                   <div class="menu__item-title">
                     Рассадка
-                  </div>
-                </div>
-                <div class="menu__item" data-popup-target="catering">
-                  <div class="menu__item-icon">
-                    <i class="icon-menu-catering"></i>
-                  </div>
-                  <div class="menu__item-title">
-                    Кальянный кейтеринг
                   </div>
                 </div>
                 <div class="menu__item" data-popup-target="loyalty">
@@ -139,20 +178,20 @@
                     Контакты
                   </div>
                 </div>
-                <div class="menu__item" data-popup-target="slang">
+                <div class="menu__item" data-popup-target="privacy">
                   <div class="menu__item-icon">
-                    <i class="icon-menu-slang"></i>
+                    <i class="icon-privacy"></i>
                   </div>
                   <div class="menu__item-title">
-                    Фабричный сленг
+                    Политика конфиденциальности
                   </div>
                 </div>
-                <div class="menu__item" data-popup-target="language">
+                <div class="menu__item" data-popup-target="agreement">
                   <div class="menu__item-icon">
-                    <i class="icon-language"></i>
+                    <i class="icon-agreement"></i>
                   </div>
                   <div class="menu__item-title">
-                    Язык русский
+                    Пользовательское соглашение
                   </div>
                 </div>
               </div>
@@ -2085,7 +2124,7 @@
     <!-- Филиал -->
     <div id="branch" class="branch popup" data-lenis-prevent>
   <div class="popup__wrap">
-        <div class="popup__area" data-popup-head>
+    <div class="popup__area" data-popup-head>
       <div class="popup__close">
         <i class="icon-close"></i>
       </div>
@@ -2111,7 +2150,7 @@
                   <div class="layout__block-text">
                     <div class="layout__block-address">
                       ​Советская улица, 33
-                      <a href="/">
+                      <a href="javascript: void(0)" data-popup-target="branchChange">
                         Выбрать
                       </a>
                     </div>
@@ -2122,7 +2161,7 @@
                   <div class="layout__block-text">
                     <div class="layout__block-address">
                       ​Красный проспект, 11
-                      <a href="/">
+                      <a href="javascript: void(0)" data-popup-target="branchChange">
                         Выбрать
                       </a>
                     </div>
@@ -2140,7 +2179,7 @@
                   <div class="layout__block-text">
                     <div class="layout__block-address">
                       ​Проспект Ленина, 77а
-                      <a href="/">
+                      <a href="javascript: void(0)" data-popup-target="branchChange">
                         Выбрать
                       </a>
                     </div>
@@ -2159,7 +2198,7 @@
                     <div class="layout__block-address">
                       ​Советская улица, 8Б, пгт Шерегеш, Таштагольский муниципальный район, Кемеровская область —
                       Кузбасс
-                      <a href="/">
+                      <a href="javascript: void(0)" data-popup-target="branchChange">
                         Выбрать
                       </a>
                     </div>
@@ -3240,7 +3279,7 @@
     <!-- Профиль -->
     <div id="profile" class="profile popup" data-lenis-prevent>
   <div class="popup__wrap">
-        <div class="popup__area" data-popup-head>
+    <div class="popup__area" data-popup-head>
       <div class="popup__close">
         <i class="icon-close"></i>
       </div>
@@ -3333,17 +3372,6 @@
                     Мои данные
                   </div>
                 </div>
-                <div class="menu__item" data-popup-target="favorite">
-                  <div class="menu__item-icon">
-                    <i class="icon-menu-like"></i>
-                    <div class="btn--count">
-                      5
-                    </div>
-                  </div>
-                  <div class="menu__item-title">
-                    Нравится
-                  </div>
-                </div>
                 <div class="menu__item" data-popup-target="offers">
                   <div class="menu__item-icon">
                     <i class="icon-menu-personal-offers"></i>
@@ -3353,6 +3381,25 @@
                   </div>
                   <div class="menu__item-title">
                     Персональные предложения
+                  </div>
+                </div>
+                <div class="menu__item" data-popup-target="pointsHistory">
+                  <div class="menu__item-icon">
+                    <i class="icon-history"></i>
+                  </div>
+                  <div class="menu__item-title">
+                    История списаний
+                  </div>
+                </div>
+                <div class="menu__item" data-popup-target="favorite">
+                  <div class="menu__item-icon">
+                    <i class="icon-menu-like"></i>
+                    <div class="btn--count">
+                      5
+                    </div>
+                  </div>
+                  <div class="menu__item-title">
+                    Нравится
                   </div>
                 </div>
                 <div class="menu__item" data-popup-target="branchSelect">
@@ -3377,6 +3424,22 @@
                   </div>
                   <div class="menu__item-title">
                     Мои отзывы (5)
+                  </div>
+                </div>
+                <div class="menu__item" data-popup-target="clientService">
+                  <div class="menu__item-icon">
+                    <i class="icon-client-services"></i>
+                  </div>
+                  <div class="menu__item-title">
+                    Клиентский сервис
+                  </div>
+                </div>
+                <div class="menu__item" data-popup-target="notifications">
+                  <div class="menu__item-icon">
+                    <i class="icon-menu-notifications"></i>
+                  </div>
+                  <div class="menu__item-title">
+                    Уведомления
                   </div>
                 </div>
               </div>
@@ -4633,6 +4696,9 @@
   </div>
 </div>
                     </div>
+                    <button class="layout__btn btn btn--accent">
+                      Вызвать официанта
+                    </button>
                   </div>
                 </div>
 
@@ -5294,9 +5360,9 @@
   </div>
 </div>
     <!-- Удаление карты -->
-    <div id="cardsDelete" class="cards cards--delete popup" data-lenis-prevent>
+    <div id="cardsDelete" class="cards cards--delete popup popup-inner" data-lenis-prevent>
   <div class="popup__wrap">
-        <div class="popup__area" data-popup-head>
+    <div class="popup__area" data-popup-head>
       <div class="popup__close">
         <i class="icon-close"></i>
       </div>
@@ -5307,13 +5373,21 @@
         <div class="container">
           <div class="layout__inner">
 
+            <div class="layout__head">
+              <div class="layout__head-title">
+                <h2>
+                  Вы хотите удалить <br> карту 4489?
+                </h2>
+              </div>
+            </div>
+
             <div class="layout__body">
               <div class="layout__foot-inner">
                 <button class="btn btn--accent popup__close">
-                  Отменить
+                  Нет
                 </button>
                 <button class="btn btn--remove popup__close">
-                  Удалить
+                  Да
                 </button>
               </div>
             </div>
@@ -5437,6 +5511,427 @@
                     </div>
                   </div>
                   <i class="icon-chevron-right"></i>
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+    <!-- История списаний -->
+    <div id="pointsHistory" class="points-history popup" data-lenis-prevent>
+  <div class="popup__wrap">
+    <div class="popup__area" data-popup-head>
+      <div class="popup__close">
+        <i class="icon-close"></i>
+      </div>
+    </div>
+    <div class="popup__inner">
+
+      <div class="layout" data-popup-scroll>
+        <div class="container">
+          <div class="layout__inner">
+
+            <div class="layout__head">
+              <div class="layout__head-title">
+                <h2>
+                  История начислений <br> и списаний
+                </h2>
+              </div>
+            </div>
+
+            <div class="layout__body">
+
+              <div class="layout__history-items">
+                <div class="layout__history-item">
+                  <div class="layout__history-head">
+                    <div class="layout__history-title">
+                      Горыныч Новосибирск
+                    </div>
+                    <div class="layout__history-date">
+                      12.10.2025, 21:05
+                    </div>
+                  </div>
+                  <div class="layout__history-body">
+                    <div class="layout__history-order">
+                      <div class="h6">
+                        Сумма заказа
+                      </div>
+                      <div class="h6">
+                        1500 ₽
+                      </div>
+                    </div>
+                    <div class="layout__history-points">
+                      <p>
+                        Начислено баллов
+                      </p>
+                      <p>
+                        100
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="layout__history-item">
+                  <div class="layout__history-head">
+                    <div class="layout__history-title">
+                      Горыныч Новосибирск
+                    </div>
+                    <div class="layout__history-date">
+                      12.10.2025, 21:05
+                    </div>
+                  </div>
+                  <div class="layout__history-body">
+                    <div class="layout__history-order">
+                      <div class="h6">
+                        Сумма заказа
+                      </div>
+                      <div class="h6">
+                        1500 ₽
+                      </div>
+                    </div>
+                    <div class="layout__history-points">
+                      <p>
+                        Начислено баллов
+                      </p>
+                      <p>
+                        100
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="layout__history-item">
+                  <div class="layout__history-head">
+                    <div class="layout__history-title">
+                      Горыныч Новосибирск
+                    </div>
+                    <div class="layout__history-date">
+                      12.10.2025, 21:05
+                    </div>
+                  </div>
+                  <div class="layout__history-body">
+                    <div class="layout__history-order">
+                      <div class="h6">
+                        Сумма заказа
+                      </div>
+                      <div class="h6">
+                        1500 ₽
+                      </div>
+                    </div>
+                    <div class="layout__history-points">
+                      <p>
+                        Начислено баллов
+                      </p>
+                      <p>
+                        100
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="layout__history-item">
+                  <div class="layout__history-head">
+                    <div class="layout__history-title">
+                      Горыныч Новосибирск
+                    </div>
+                    <div class="layout__history-date">
+                      12.10.2025, 21:05
+                    </div>
+                  </div>
+                  <div class="layout__history-body">
+                    <div class="layout__history-order">
+                      <div class="h6">
+                        Сумма заказа
+                      </div>
+                      <div class="h6">
+                        1500 ₽
+                      </div>
+                    </div>
+                    <div class="layout__history-points">
+                      <p>
+                        Начислено баллов
+                      </p>
+                      <p>
+                        100
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="layout__history-item">
+                  <div class="layout__history-head">
+                    <div class="layout__history-title">
+                      Горыныч Новосибирск
+                    </div>
+                    <div class="layout__history-date">
+                      12.10.2025, 21:05
+                    </div>
+                  </div>
+                  <div class="layout__history-body">
+                    <div class="layout__history-order">
+                      <div class="h6">
+                        Сумма заказа
+                      </div>
+                      <div class="h6">
+                        1500 ₽
+                      </div>
+                    </div>
+                    <div class="layout__history-points">
+                      <p>
+                        Начислено баллов
+                      </p>
+                      <p>
+                        100
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+    <!-- Обратная связь -->
+    <div id="callback" class="callback popup" data-lenis-prevent>
+  <div class="popup__wrap">
+    <div class="popup__area" data-popup-head>
+      <div class="popup__close">
+        <i class="icon-close"></i>
+      </div>
+    </div>
+    <div class="popup__inner">
+
+      <div class="layout" data-popup-scroll>
+        <div class="container">
+          <div class="layout__inner">
+
+            <div class="layout__head">
+              <div class="layout__head-title">
+                <h2>
+                  Обратная связь
+                </h2>
+              </div>
+            </div>
+
+            <div class="layout__body">
+
+              <form action="#" class="layout__form">
+                <div class="form-wrap">
+                  <div class="form-group">
+                    <label class="filter__item">
+                      <input type="radio" name="sub1">
+                      <span class="filter__check"></span>
+                      <div class="filter__item-text">
+                        Сообщить о проблеме
+                      </div>
+                      <i class="icon-chevron"></i>
+                    </label>
+                  </div>
+                  <div class="form-group">
+                    <label class="filter__item">
+                      <input type="radio" name="sub1">
+                      <span class="filter__check"></span>
+                      <div class="filter__item-text">
+                        Идея для улучшения
+                      </div>
+                      <i class="icon-chevron"></i>
+                    </label>
+                  </div>
+                </div>
+                <div class="form-body">
+                  <div class="form-group">
+                    <label class="form-label">
+                      <input class="form-input" type="text" name="reg_name" placeholder="Имя" required>
+                    </label>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">
+                      <input class="form-input" type="tel" name="reg_tel" placeholder="Телефон" required>
+                    </label>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">
+                      <input class="form-input" type="email" name="reg_tel" placeholder="Эл. почта" required>
+                    </label>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">
+                      <textarea class="form-textarea" name="comment" rows="7" placeholder="Сообщение"></textarea>
+                    </label>
+                  </div>
+                </div>
+                <div class="form-foot">
+                  <button class="btn btn--accent" type="button" data-popup-target="callbackSuccess">
+                    Отправить
+                  </button>
+                  <div class="form-group form-text">
+                    <input id="form-checkbox-9" class="form-checkbox" type="checkbox" required="">
+                    <label for="form-checkbox-9">
+                      <div class="form-checkbox--item"></div>
+                      <p>
+                        Я согласен на <a href="javascript:void(0)" data-popup-target="policy">обработку персональных
+                          данных</a>
+                      </p>
+                    </label>
+                  </div>
+                  <div class="form-group form-text">
+                    <input id="form-checkbox-10" class="form-checkbox" type="checkbox">
+                    <label for="form-checkbox-10">
+                      <div class="form-checkbox--item"></div>
+                      <p>
+                        Я согласен на <a href="javascript:void(0)">рекламные уведомления</a>
+                      </p>
+                    </label>
+                  </div>
+                  <div class="form-text">
+                    <p>
+                      Нажимая на кнопку, Вы соглашаетесь с обработкой персональных данный в рамках <a
+                        href="javascript:void(0)" data-popup-target="policy">Политики персональных данных </a>
+                    </p>
+                  </div>
+                </div>
+              </form>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+    <!-- Обратная связь - успех -->
+    <div id="callbackSuccess" class="callback popup" data-lenis-prevent>
+  <div class="popup__wrap">
+    <div class="popup__area" data-popup-head>
+      <div class="popup__close">
+        <i class="icon-close"></i>
+      </div>
+    </div>
+    <div class="popup__inner">
+
+      <div class="layout" data-popup-scroll>
+        <div class="container">
+          <div class="layout__inner">
+
+            <div class="layout__head">
+              <div class="layout__head-title">
+                <h2>
+                  Ваше сообщение отправлено!
+                </h2>
+              </div>
+            </div>
+
+            <div class="layout__body">
+
+              <button class="btn btn--accent" type="button" data-close-all-popups>
+                Вернуться в меню
+              </button>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+    <!-- Клиентский сервис -->
+    <div id="clientService" class="client-service popup popup-inner" data-lenis-prevent>
+  <div class="popup__wrap">
+    <div class="popup__area" data-popup-head>
+      <div class="popup__close">
+        <i class="icon-close"></i>
+      </div>
+    </div>
+    <div class="popup__inner">
+
+      <div class="layout" data-popup-scroll>
+        <div class="container">
+          <div class="layout__inner">
+
+            <div class="layout__head">
+              <div class="layout__head-title">
+                <h2>
+                  Клиентский сервис
+                </h2>
+              </div>
+            </div>
+
+            <div class="layout__body">
+              <div class="menu__items">
+                <a class="menu__item" href="/">
+                  <div class="menu__item-icon">
+                    <i class="icon-tg"></i>
+                  </div>
+                  <div class="menu__item-title">
+                    Написать в Telegram
+                  </div>
+                </a>
+                <a class="menu__item" href="/">
+                  <div class="menu__item-icon">
+                    <i class="icon-max"></i>
+                  </div>
+                  <div class="menu__item-title">
+                    Написать в Max
+                  </div>
+                </a>
+                <a class="menu__item" href="/">
+                  <div class="menu__item-icon">
+                    <i class="icon-wa"></i>
+                  </div>
+                  <div class="menu__item-title">
+                    Написать в WhatsApp
+                  </div>
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+    <!-- Уведомления -->
+    <div id="notifications" class="notifications popup popup-inner" data-lenis-prevent>
+  <div class="popup__wrap">
+    <div class="popup__area" data-popup-head>
+      <div class="popup__close">
+        <i class="icon-close"></i>
+      </div>
+    </div>
+    <div class="popup__inner">
+
+      <div class="layout" data-popup-scroll>
+        <div class="container">
+          <div class="layout__inner">
+
+            <div class="layout__head">
+              <div class="layout__head-title">
+                <h2>
+                  Вы хотите получать уведомления?
+                </h2>
+              </div>
+            </div>
+
+            <div class="layout__body">
+              <div class="layout__btns">
+                <button class="btn btn--accent popup__close">
+                  Да
+                </button>
+                <button class="btn btn--remove popup__close">
+                  Нет
                 </button>
               </div>
             </div>

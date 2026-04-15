@@ -45,6 +45,27 @@
   right: 0;
   z-index: 600;
 
+  &-inner {
+    display: flex;
+    align-items: flex-end;
+
+    .popup {
+
+      &__wrap {
+        width: 100%;
+        height: fit-content;
+      }
+    }
+
+    .btn {
+      font-weight: 700;
+    }
+
+    .layout__inner {
+      gap: 2rem;
+    }
+  }
+
   &__wrap {
     display: flex;
     flex-direction: column;

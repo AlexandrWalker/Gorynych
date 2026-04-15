@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="ru" class="">
-@@include('blocks/head.html', {"title": "Фабрика"})
+@@include('blocks/head.html', {"title": "Горыныч"})
 
 <body>
   <!-- Прелоадер -->
   @@include('./blocks/preloader.html')
+   <!-- Welcome-screen -->
+  @@include('./blocks/welcome.html')
   <div class="bg"></div>
   <!-- main -->
   <div class="wrapper">
@@ -87,6 +89,16 @@
     @@include('./popups/sostav.html')
     <!-- Смена языка -->
     @@include('./popups/language.html')
+    <!-- История списаний -->
+    @@include('./popups/points-history.html')
+    <!-- Обратная связь -->
+    @@include('./popups/callback.html')
+    <!-- Обратная связь - успех -->
+    @@include('./popups/callback-success.html')
+    <!-- Клиентский сервис -->
+    @@include('./popups/client-service.html')
+    <!-- Уведомления -->
+    @@include('./popups/notifications.html')
 
     <!-- Куки -->
     @@include('./popups/cookie.html')

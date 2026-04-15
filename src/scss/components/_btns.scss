@@ -43,6 +43,11 @@
     border: 0.1rem solid var(--beige);
   }
 
+  &--gray {
+    --btn-color: #000000;
+    --btn-background: #3838381A;
+  }
+
   &--icon {
     --btn-icon-size: 2.4rem;
     --btn-icon-color: var(--white);

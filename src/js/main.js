@@ -332,7 +332,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const overlayBase = document.getElementById('popup-overlay-base');
 
+    let pendingOverlayRaf = null;
+
     function updateOverlay(visible, duration = 0.3) {
+
+      if (pendingOverlayRaf !== null) {
+        cancelAnimationFrame(pendingOverlayRaf);
+        pendingOverlayRaf = null;
+      }
+
       if (visible && stack.length) {
         const firstZ = parseInt(stack[0].style.zIndex);
         const topZ = parseInt(stack[stack.length - 1].style.zIndex);
@@ -349,9 +357,12 @@ document.addEventListener('DOMContentLoaded', () => {
           overlay.style.opacity = '0';
           overlay.style.zIndex = topZ - 1;
 
-          requestAnimationFrame(() => {
-            overlay.style.transition = `opacity \${duration}s ease`;
-            overlay.style.opacity = '1';
+          pendingOverlayRaf = requestAnimationFrame(() => {
+            pendingOverlayRaf = requestAnimationFrame(() => {
+              pendingOverlayRaf = null;
+              overlay.style.transition = `opacity \${duration}s ease`;
+              overlay.style.opacity = '1';
+            });
           });
         } else {
           overlay.style.transition = `opacity \${duration}s ease`;
@@ -361,8 +372,11 @@ document.addEventListener('DOMContentLoaded', () => {
       } else {
         overlay.style.transition = `opacity \${duration}s ease`;
         overlay.style.opacity = '0';
-        overlayBase.style.opacity = '0';
         overlay.style.pointerEvents = 'none';
+
+        overlayBase.style.transition = `opacity \${duration}s ease`;
+        overlayBase.style.opacity = '0';
+        overlayBase.style.pointerEvents = 'none';
       }
     }
 
@@ -1156,20 +1170,24 @@ document.addEventListener('DOMContentLoaded', () => {
    * CSS использует эти классы для показа/скрытия элементов UI.
    */
   (function () {
-    const loginBtn = document.querySelector('[data-log="login"]');
-    const logoutBtn = document.querySelector('[data-log="logout"]');
+    const loginBtns = document.querySelectorAll('[data-log="login"]');
+    const logoutBtns = document.querySelectorAll('[data-log="logout"]');
 
-    if (loginBtn) {
-      loginBtn.addEventListener('click', () => {
-        document.documentElement.classList.replace('logout', 'login') ||
-          document.documentElement.classList.add('login');
+    if (loginBtns.length) {
+      loginBtns.forEach(loginBtn => {
+        loginBtn.addEventListener('click', () => {
+          document.documentElement.classList.replace('logout', 'login') ||
+            document.documentElement.classList.add('login');
+        });
       });
     }
 
-    if (logoutBtn) {
-      logoutBtn.addEventListener('click', () => {
-        document.documentElement.classList.replace('login', 'logout') ||
-          document.documentElement.classList.add('logout');
+    if (logoutBtns.length) {
+      logoutBtns.forEach(logoutBtn => {
+        logoutBtn.addEventListener('click', () => {
+          document.documentElement.classList.replace('login', 'logout') ||
+            document.documentElement.classList.add('logout');
+        });
       });
     }
   })();
@@ -2729,9 +2747,38 @@ document.addEventListener('DOMContentLoaded', () => {
    * Прелоадер
    */
   (function () {
-    const preloaders = document.querySelector('.preloader');
+    // =========================
+    // ГЛОБАЛЬНАЯ НАСТРОЙКА
+    // =========================
+    window.PRELOADER_MODE = window.PRELOADER_MODE || {
+      // 'overlay'     -> как сейчас (белое лого + красная заливка)
+      // 'singleLogo' -> без наслоения (просто одно лого)
+      mode: 'singleLogo',
 
-    if (!preloaders) return;
+      // Пути к изображениям
+      assets: {
+        // можно поменять на разные файлы, если у вас реально разные варианты
+        logoWhiteSrc: './images/logo/preloader-logo.svg',
+        // для совместимости с вашим overlay-режимом
+        logoCyanSrc: './images/logo/preloader-logo.svg'
+      },
+
+      // Размеры (можно под вашу верстку)
+      logoWidth: 185,
+      logoHeight: 179,
+
+      // safety timeout
+      safetyTimeoutMs: 8000,
+
+      // delay перед скрытием после 100% (только overlay)
+      overlayHideDelayMs: 600
+    };
+
+    const config = window.PRELOADER_MODE;
+    const mode = config.mode;
+
+    const preloaderEl = document.querySelector('.preloader');
+    if (!preloaderEl) return;
 
     document.body.classList.add('no-scroll');
 
@@ -2741,117 +2788,35 @@ document.addEventListener('DOMContentLoaded', () => {
         preloader.style.display = 'none';
         restoreScroll();
       }
-    }, 8000);
+    }, config.safetyTimeoutMs);
 
     function restoreScroll() {
       document.body.classList.remove('no-scroll');
     }
 
-    var canvas = document.getElementById('logo-canvas');
-    var ctx = canvas.getContext('2d');
-
-    var logoWidth = 185;
-    var logoHeight = 179;
-
-    var dpr = window.devicePixelRatio || 1;
-    canvas.width = logoWidth * dpr;
-    canvas.height = logoHeight * dpr;
-    ctx.scale(dpr, dpr);
-
-    var fillHeight = 0;
-
-    var logoWhite = new Image();
-    var logoCyan = new Image();
-    var loadedImages = 0;
-
-    function onImageLoaded() {
-      loadedImages++;
-      if (loadedImages === 2) {
-        startPreloader();
-      }
+    function clearSafety() {
+      try { clearTimeout(safetyTimer); } catch (e) { }
     }
 
-    logoWhite.onload = onImageLoaded;
-    logoCyan.onload = onImageLoaded;
-    logoWhite.onerror = onImageLoaded;
-    logoCyan.onerror = onImageLoaded;
+    const canvas = document.getElementById('logo-canvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
 
-    logoWhite.src = './images/logo/preloader-logo-black.svg';
-    logoCyan.src = './images/logo/preloader-logo-red.svg';
-
-    function draw() {
-      ctx.clearRect(0, 0, logoWidth, logoHeight);
-
-      ctx.globalCompositeOperation = 'source-over';
-      ctx.drawImage(logoWhite, 0, 0, logoWidth, logoHeight);
-
-      ctx.globalCompositeOperation = 'source-atop';
-      ctx.fillStyle = '#D71920';
-
-      var rectY = logoHeight - fillHeight;
-      ctx.fillRect(0, rectY, logoWidth, fillHeight);
-
-      ctx.globalCompositeOperation = 'source-over';
-    }
-
-    function startPreloader() {
-      draw();
-
-      var progress = { val: 0 };
-
-      gsap.to(progress, {
-        val: 30,
-        duration: 0.4,
-        ease: 'power2.out',
-        onUpdate: function () {
-          fillHeight = (progress.val / 100) * logoHeight;
-          draw();
-        }
-      });
-
-      gsap.to(progress, {
-        val: 85,
-        duration: 2.5,
-        ease: 'power1.out',
-        delay: 0.4,
-        onUpdate: function () {
-          fillHeight = (progress.val / 100) * logoHeight;
-          draw();
-        }
-      });
-
-      window.addEventListener('load', function () {
-
-        gsap.killTweensOf(progress);
-
-        gsap.to(progress, {
-          val: 100,
-          duration: 0.4,
-          ease: 'power2.out',
-          onUpdate: function () {
-            fillHeight = (progress.val / 100) * logoHeight;
-            draw();
-          },
-          onComplete: function () {
-            setTimeout(hidePreloader, 600);
-          }
-        });
-      });
-    }
-
+    // =========================
+    // Hide (общая функция)
+    // =========================
     function hidePreloader() {
-      var preloader = document.querySelector('.preloader');
-
       gsap.set(canvas, { opacity: 0 });
 
-      gsap.to(preloader, {
+      gsap.to(preloaderEl, {
         scaleY: 0,
         duration: 0.7,
         ease: 'power2.inOut',
         transformOrigin: 'top center',
         onComplete: function () {
-          preloader.style.display = 'none';
+          preloaderEl.style.display = 'none';
           restoreScroll();
+          clearSafety();
         }
       });
 
@@ -2863,6 +2828,154 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
+    // =========================
+    // canvas init
+    // =========================
+    function initCanvas() {
+      const logoWidth = config.logoWidth;
+      const logoHeight = config.logoHeight;
+
+      const dpr = window.devicePixelRatio || 1;
+
+      canvas.width = logoWidth * dpr;
+      canvas.height = logoHeight * dpr;
+
+      // не накапливаем scale
+      if (ctx.setTransform) ctx.setTransform(1, 0, 0, 1, 0, 0);
+      ctx.scale(dpr, dpr);
+
+      return { logoWidth, logoHeight };
+    }
+
+    // =========================
+    // РЕЖИМ 1: overlay (как было)
+    // =========================
+    function startOverlayPreloader() {
+      const { logoWidth, logoHeight } = initCanvas();
+      let fillHeight = 0;
+
+      const logoWhite = new Image();
+      const logoCyan = new Image();
+      let loadedImages = 0;
+
+      function draw() {
+        ctx.clearRect(0, 0, logoWidth, logoHeight);
+
+        ctx.globalCompositeOperation = 'source-over';
+        ctx.drawImage(logoWhite, 0, 0, logoWidth, logoHeight);
+
+        ctx.globalCompositeOperation = 'source-atop';
+        ctx.fillStyle = '#D71920';
+
+        var rectY = logoHeight - fillHeight;
+        ctx.fillRect(0, rectY, logoWidth, fillHeight);
+
+        ctx.globalCompositeOperation = 'source-over';
+      }
+
+      function onImageLoaded() {
+        loadedImages++;
+        if (loadedImages === 2) start();
+      }
+
+      logoWhite.onload = onImageLoaded;
+      logoCyan.onload = onImageLoaded;
+      logoWhite.onerror = onImageLoaded;
+      logoCyan.onerror = onImageLoaded;
+
+      logoWhite.src = config.assets.logoWhiteSrc;
+      logoCyan.src = config.assets.logoCyanSrc;
+
+      function start() {
+        draw();
+
+        var progress = { val: 0 };
+
+        gsap.to(progress, {
+          val: 30,
+          duration: 0.4,
+          ease: 'power2.out',
+          onUpdate: function () {
+            fillHeight = (progress.val / 100) * logoHeight;
+            draw();
+          }
+        });
+
+        gsap.to(progress, {
+          val: 85,
+          duration: 2.5,
+          ease: 'power1.out',
+          delay: 0.4,
+          onUpdate: function () {
+            fillHeight = (progress.val / 100) * logoHeight;
+            draw();
+          }
+        });
+
+        window.addEventListener('load', function onWindowLoad() {
+          window.removeEventListener('load', onWindowLoad);
+
+          gsap.killTweensOf(progress);
+
+          gsap.to(progress, {
+            val: 100,
+            duration: 0.4,
+            ease: 'power2.out',
+            onUpdate: function () {
+              fillHeight = (progress.val / 100) * logoHeight;
+              draw();
+            },
+            onComplete: function () {
+              setTimeout(hidePreloader, config.overlayHideDelayMs);
+            }
+          });
+        });
+      }
+    }
+
+    // =========================
+    // РЕЖИМ 2: singleLogo (без наслоения)
+    // =========================
+    function startSingleLogoPreloader() {
+      const { logoWidth, logoHeight } = initCanvas();
+
+      const logo = new Image();
+      logo.onload = function () {
+        // Просто рисуем одно лого без заливки
+        ctx.clearRect(0, 0, logoWidth, logoHeight);
+        ctx.globalCompositeOperation = 'source-over';
+        ctx.drawImage(logo, 0, 0, logoWidth, logoHeight);
+        ctx.globalCompositeOperation = 'source-over';
+
+        // лёгкая анимация (опционально)
+        gsap.fromTo(canvas, { opacity: 0.2, scaleY: 0.98 }, { opacity: 1, scaleY: 1, duration: 0.4, ease: 'power2.out' });
+
+        window.addEventListener('load', function onWindowLoad() {
+          window.removeEventListener('load', onWindowLoad);
+          hidePreloader();
+        });
+      };
+
+      logo.onerror = function () {
+        // fallback: если не загрузилось — просто скрываем по load
+        window.addEventListener('load', function onWindowLoad() {
+          window.removeEventListener('load', onWindowLoad);
+          hidePreloader();
+        });
+      };
+
+      // берём путь из js-конфига
+      logo.src = config.assets.logoWhiteSrc;
+    }
+
+    // =========================
+    // START
+    // =========================
+    if (mode === 'singleLogo') {
+      startSingleLogoPreloader();
+    } else {
+      startOverlayPreloader();
+    }
   })();
 
   /**
@@ -2883,6 +2996,23 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 });
+
+/**
+ * Функция для блока welcome
+ */
+(function () {
+  const welcome = document.getElementById('welcome');
+
+  welcome.querySelectorAll('button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      welcome.classList.add('is-hidden');
+
+      welcome.addEventListener('transitionend', () => {
+        welcome.remove();
+      }, { once: true });
+    });
+  });
+})();
 
 //
 // Вызывается из HTML: onclick="checkCookies()"
