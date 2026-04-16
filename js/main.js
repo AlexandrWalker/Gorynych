@@ -1586,48 +1586,47 @@ document.addEventListener('DOMContentLoaded', () => {
    * Открывается кликом, закрывается кликом вне или выбором опции.
    */
   (function () {
+    const html = document.documentElement;
+
     const dropdowns = document.querySelectorAll('.dropdown--js');
     if (!dropdowns.length) return;
 
     dropdowns.forEach(dropdown => {
+      const isCityDropdown = dropdown.classList.contains('js-city-dropdown');
+
       const selectedJs = dropdown.querySelector('.dropdown__selected--js');
       const selectedInputJs = dropdown.querySelector('.dropdown__selected-input--js');
       const selectedLabelJs = dropdown.querySelector('.dropdown__selected-label--js');
       const dropdownRadios = dropdown.querySelectorAll('.dropdown__radio');
       const dropdownValue = dropdown.querySelector('.dropdown__value');
 
-      if (!selectedJs) return; // Структура дропдауна нарушена - пропускаем
+      if (!selectedJs) return;
 
-      /**
-       * Переключает состояние дропдауна по клику на заголовок.
-       * stopPropagation нужен чтобы document.click не закрыл его сразу же.
-       */
       selectedJs.addEventListener('click', e => {
         e.stopPropagation();
         dropdown.classList.toggle('is-active');
       });
 
-      /**
-       * Закрываем дропдаун при клике в любом месте документа за его пределами.
-       * Одна подписка на document работает для всех экземпляров дропдауна.
-       */
       document.addEventListener('click', e => {
         if (!dropdown.contains(e.target)) {
           dropdown.classList.remove('is-active');
         }
       });
 
-      /**
-       * При смене radio-опции обновляем заголовок и скрытый input,
-       * добавляем класс filled (для CSS-стилей) и закрываем список.
-       */
       dropdownRadios.forEach(radio => {
         radio.addEventListener('change', () => {
           if (!radio.checked) return;
 
-          if (selectedLabelJs) selectedLabelJs.textContent = radio.value;
-          if (selectedInputJs) selectedInputJs.value = radio.value;
-          if (dropdownValue) dropdownValue.value = radio.value;
+          const value = radio.value;
+
+          if (selectedLabelJs) selectedLabelJs.textContent = value;
+          if (selectedInputJs) selectedInputJs.value = value;
+          if (dropdownValue) dropdownValue.value = value;
+
+          // Только для dropdown с городами
+          if (isCityDropdown) {
+            html.setAttribute('data-city', value);
+          }
 
           dropdown.classList.remove('is-active');
           dropdown.classList.add('filled');

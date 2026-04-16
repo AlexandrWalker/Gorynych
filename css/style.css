@@ -306,6 +306,14 @@ li:last-child {
 @font-face {
   font-family: Poppins;
   font-display: swap;
+  src: url("../fonts/Poppins-SemiBold.woff2") format("woff2"), url("../fonts/Poppins-SemiBold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Poppins;
+  font-display: swap;
   src: url("../fonts/Poppins-Thin.woff2") format("woff2"), url("../fonts/Poppins-Thin.woff") format("woff");
   font-weight: 100;
   font-style: normal;
@@ -316,14 +324,6 @@ li:last-child {
   font-display: swap;
   src: url("../fonts/SFPro-Black.woff2") format("woff2"), url("../fonts/SFPro-Black.woff") format("woff");
   font-weight: 900;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: Poppins;
-  font-display: swap;
-  src: url("../fonts/Poppins-SemiBold.woff2") format("woff2"), url("../fonts/Poppins-SemiBold.woff") format("woff");
-  font-weight: 600;
   font-style: normal;
 }
 
@@ -434,22 +434,6 @@ li:last-child {
 @font-face {
   font-family: TTTrailersTrial;
   font-display: swap;
-  src: url("../fonts/TTTrailersTrial-Regular.woff2") format("woff2"), url("../fonts/TTTrailersTrial-Regular.woff") format("woff");
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: TTTrailersTrial;
-  font-display: swap;
-  src: url("../fonts/TTTrailersTrial-Thin.woff2") format("woff2"), url("../fonts/TTTrailersTrial-Thin.woff") format("woff");
-  font-weight: 100;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: TTTrailersTrial;
-  font-display: swap;
   src: url("../fonts/TTTrailersTrial-Light.woff2") format("woff2"), url("../fonts/TTTrailersTrial-Light.woff") format("woff");
   font-weight: 300;
   font-style: normal;
@@ -463,12 +447,52 @@ li:last-child {
   font-style: normal;
 }
 
+@font-face {
+  font-family: TTTrailersTrial;
+  font-display: swap;
+  src: url("../fonts/TTTrailersTrial-Regular.woff2") format("woff2"), url("../fonts/TTTrailersTrial-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: TTTrailersTrial;
+  font-display: swap;
+  src: url("../fonts/TTTrailersTrial-Thin.woff2") format("woff2"), url("../fonts/TTTrailersTrial-Thin.woff") format("woff");
+  font-weight: 100;
+  font-style: normal;
+}
+
 .login .layout__card-img [data-color=light] {
   display: none;
 }
 
 .login .layout__card-img [data-color=dark] {
   display: block;
+}
+
+html[data-city=Москва] [data-city=moscow] {
+  -webkit-box-ordinal-group: 0;
+  -ms-flex-order: -1;
+  order: -1;
+}
+
+html[data-city=Новосибирск] [data-city=novosibirsk] {
+  -webkit-box-ordinal-group: 0;
+  -ms-flex-order: -1;
+  order: -1;
+}
+
+html[data-city=Сочи] [data-city=sochi] {
+  -webkit-box-ordinal-group: 0;
+  -ms-flex-order: -1;
+  order: -1;
+}
+
+html[data-city=Воронеж] [data-city=voronezh] {
+  -webkit-box-ordinal-group: 0;
+  -ms-flex-order: -1;
+  order: -1;
 }
 
 .swiper-pagination {
@@ -668,7 +692,7 @@ body {
   --base-color: #EEF0ED;
   --base-list-dot-color: #888A87;
   --tags-color: #FFFFFF;
-  --tags-top: #25D366;
+  --tags-top: #00D0C5;
   --tags-hot: #D51216;
   --tags-vega: #25D366;
   --tags-chef: #FF9F5F;
@@ -747,11 +771,15 @@ body {
   --layout-history-date-color: rgba(136, 138, 135, 0.5);
   --layout-history-title-color: #D51216;
   --layout-history-body-color: #888A87;
+  --contacts-layout-block-title-color: #D51216;
+  --contacts-layout-block-text-color: #8B8C8B;
+  --contacts-layout-block-link-color: #8B8C8B;
+  --contacts-layout-block-mode-color: #8B8C8B80;
   --welcome-bg-color: #EEF0ED;
   --welcome-text-color: #000000;
-  --btanch-layout-block-title-color: #D51216;
-  --btanch-layout-block-text-span-color: #8B8C8B80;
-  --btanchselect-layout-block-btn-color: #EEF0ED;
+  --branch-layout-block-title-color: #D51216;
+  --branch-layout-block-text-span-color: #8B8C8B80;
+  --branchselect-layout-block-btn-color: #EEF0ED;
   --loyalty-layout-block-text-span-color: #8B8C8B80;
   --reviews-item-rating-icon-color: #E95322;
   --reviews-item-name-color: #D51216;
@@ -2418,6 +2446,10 @@ html[lang=en] .layout__block-item[data-lang=en] {
   color: var(--layout-block-item-i-color);
 }
 
+.layout__list {
+  opacity: 0.5;
+}
+
 .layout__list li {
   margin-bottom: 1.5rem;
 }
@@ -3529,11 +3561,11 @@ p {
 }
 
 .branch .layout__block-title {
-  color: var(--btanch-layout-block-title-color);
+  color: var(--branch-layout-block-title-color);
 }
 
 .branch .layout__block-text span {
-  color: var(--btanch-layout-block-text-span-color);
+  color: var(--branch-layout-block-text-span-color);
 }
 
 #branchSelect .layout__inner {
@@ -3556,7 +3588,7 @@ p {
 }
 
 #branchSelect .layout__block-btns .btn:not(.btn--remove) {
-  --btn-color: var(--btanchselect-layout-block-btn-color);
+  --btn-color: var(--branchselect-layout-block-btn-color);
 }
 
 .callback .layout__inner {
@@ -3896,13 +3928,48 @@ p {
   line-height: 100%;
 }
 
-.contacts .layout__block-text span {
-  font-size: 1rem;
+.contacts .layout__inner {
+  gap: 3rem;
 }
 
-.contacts .layout__block-text a {
+.contacts .layout__body {
+  gap: 3rem;
+}
+
+.contacts .layout__block {
+  gap: 2rem;
+  font-weight: 700;
+  font-size: 1.4rem;
+  line-height: 150%;
+}
+
+.contacts .layout__block-wrap {
+  gap: 0.5rem;
+}
+
+.contacts .layout__block-title {
+  color: var(--contacts-layout-block-title-color);
+}
+
+.contacts .layout__block-address {
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.contacts .layout__block-text {
+  color: var(--contacts-layout-block-text-color);
+}
+
+.contacts .layout__block-link {
   margin: 0;
+  color: var(--contacts-layout-block-link-color);
   text-decoration: none;
+}
+
+.contacts .layout__block-mode {
+  font-weight: 400;
+  font-size: 1.2rem;
+  color: var(--contacts-layout-block-mode-color);
 }
 
 .dish {
@@ -4034,7 +4101,7 @@ p {
 }
 
 .favorite .card__like i::before {
-  content: "\e92c";
+  content: "\e934";
 }
 
 .favorite .layout__btn {
@@ -5269,7 +5336,7 @@ canvas {
 }
 
 .rules .layout__inner {
-  gap: 1.5rem;
+  gap: 2rem;
 }
 
 .rules .layout__head {
