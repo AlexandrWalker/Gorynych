@@ -1,6 +1,6 @@
 <div id="contacts" class="contacts popup" data-lenis-prevent>
   <div class="popup__wrap">
-        <div class="popup__area" data-popup-head>
+    <div class="popup__area" data-popup-head>
       <div class="popup__close">
         <i class="icon-close"></i>
       </div>
@@ -17,168 +17,144 @@
                 </h2>
               </div>
             </div>
+
+            <form action="#" class="layout__form">
+              <div class="form-body">
+                <div class="form-group">
+                  <div class="dropdown dropdown--js js-city-dropdown">
+                    <div class="dropdown__selected dropdown__selected--js">
+                      <input class="dropdown__input dropdown__selected-input--js" type="hidden" value="">
+                      <label class="dropdown__label dropdown__selected-label--js">Выберите ваш город</label>
+                      <i class="icon-chevron-right"></i>
+                    </div>
+                    <div class="dropdown__container">
+                      <div class="dropdown__content">
+                        <div class="dropdown__option">
+                          <input id="contacts_place_1" class="dropdown__radio" name="contacts_place_city" type="radio"
+                            value="Москва">
+                          <label for="contacts_place_1" class="dropdown__label">Москва</label>
+                        </div>
+                        <div class="dropdown__option">
+                          <input id="contacts_place_2" class="dropdown__radio" name="contacts_place_city" type="radio"
+                            value="Новосибирск">
+                          <label for="contacts_place_2" class="dropdown__label">Новосибирск</label>
+                        </div>
+                        <div class="dropdown__option">
+                          <input id="contacts_place_2" class="dropdown__radio" name="contacts_place_city" type="radio"
+                            value="Сочи">
+                          <label for="contacts_place_2" class="dropdown__label">Сочи</label>
+                        </div>
+                        <div class="dropdown__option">
+                          <input id="contacts_place_3" class="dropdown__radio" name="contacts_place_city" type="radio"
+                            value="Воронеж">
+                          <label for="contacts_place_3" class="dropdown__label">Воронеж</label>
+                        </div>
+                      </div>
+                    </div>
+                    <input class="dropdown__value" type="hidden">
+                  </div>
+                </div>
+              </div>
+            </form>
             <div class="layout__body">
-              <div class="layout__block">
+              <div class="layout__block" data-city="moscow">
                 <div class="layout__block-title">
-                  Новосибирск. Филиал на Красном 
+                  Москва
                 </div>
                 <div class="layout__block-wrap">
-                  <div class="layout__block-text">
-                    <span>
-                      Адрес
-                    </span>
-                    <div class="layout__block-address">
-                      Красный проспект, 11
-                    </div>
+                  <div class="layout__block-address">
+                    Рождественский бульвар
                   </div>
                   <div class="layout__block-text">
-                    <span>
-                      Телефон
-                    </span>
-                    <a href="tel:+73832558005">
-                      8 (383) 255-80-05
-                    </a>
+                    Рождественский бульвар, 1
+                  </div>
+                  <a class="layout__block-link" href="tel:+74959373811">
+                    +7 (495) 937-38-11
+                  </a>
+                  <div class="layout__block-mode">
+                    Вс-Чт: 08:00 - 00:00, Пт-Сб: 08:00 - 02:00
+                  </div>
+                </div>
+                <div class="layout__block-wrap">
+                  <div class="layout__block-address">
+                    НОВАЯ РИГА
                   </div>
                   <div class="layout__block-text">
-                    <span>
-                      Telegram
-                    </span>
-                    <a href="https://t.me/hookahfactory.nsk" target="_blank" rel="noopener">
-                      @hookahfactory.nsk
-                    </a>
+                    М-9 Балтия, 26-й километр, 7А
+                  </div>
+                  <a class="layout__block-link" href="tel:+74951878338">
+                    +7 (495) 187-83-38
+                  </a>
+                  <div class="layout__block-mode">
+                    Пн-Вс: 10:00 - 00:00
+                  </div>
+                </div>
+                <div class="layout__block-wrap">
+                  <div class="layout__block-address">
+                    1905 ГОДА
                   </div>
                   <div class="layout__block-text">
-                    <span>
-                      Instagram
-                    </span>
-                    <a href="https://www.instagram.com/hookahfactory.nsk" target="_blank" rel="noopener">
-                      @hookahfactory.nsk
-                    </a>
+                    г. Москва, 2-я Звенигородская улица, 12 ст22
                   </div>
-                  <div class="layout__block-text">
-                    <span>
-                      Вконтакте
-                    </span>
-                    <a href="https://vk.com/hoookahfactory" target="_blank" rel="noopener">
-                      vk.com/hoookahfactory
-                    </a>
+                  <a class="layout__block-link" href="tel:+74991100740">
+                    +7 (499) 110-07-40
+                  </a>
+                  <div class="layout__block-mode">
+                    Пн-Вс: 12:00 - 00:00
                   </div>
                 </div>
               </div>
-              <div class="layout__block">
+              <div class="layout__block" data-city="novosibirsk">
                 <div class="layout__block-title">
-                  Новосибирск. Филиал в Центре
+                  Новосибирск
                 </div>
                 <div class="layout__block-wrap">
                   <div class="layout__block-text">
-                    <span>
-                      Адрес
-                    </span>
-                    <div class="layout__block-address">
-                      Советская улица, 33
-                    </div>
+                    Кирова, 50
                   </div>
-                  <div class="layout__block-text">
-                    <span>
-                      Телефон
-                    </span>
-                    <a href="tel:+73832550805">
-                      8 (383) 255-08-05
-                    </a>
-                  </div>
-                  <div class="layout__block-text">
-                    <span>
-                      Instagram
-                    </span>
-                    <a href="https://www.instagram.com/hookahfactory.nsk" target="_blank" rel="noopener">
-                      @hookahfactory.nsk
-                    </a>
-                  </div>
-                  <div class="layout__block-text">
-                    <span>
-                      Вконтакте
-                    </span>
-                    <a href="https://vk.com/hoookahfactory" target="_blank" rel="noopener">
-                      vk.com/hoookahfactory
-                    </a>
+                  <a class="layout__block-link" href="tel:+73833830593">
+                    +7(383) 383-05-93
+                  </a>
+                  <div class="layout__block-mode">
+                    Вс-Чт: 09:00 - 00:00, Пт-Сб: 09:00 - 01:00
                   </div>
                 </div>
               </div>
-              <div class="layout__block">
+              <div class="layout__block" data-city="sochi">
                 <div class="layout__block-title">
-                  Томск
+                  Сочи
                 </div>
                 <div class="layout__block-wrap">
-                  <div class="layout__block-text">
-                    <span>
-                      Адрес
-                    </span>
-                    <div class="layout__block-address">
-                      проспект Ленина, 77а
-                    </div>
+                  <div class="layout__block-address">
+                    РИВЬЕРА
                   </div>
                   <div class="layout__block-text">
-                    <span>
-                      Телефон
-                    </span>
-                    <a href="tel:+73832230252">
-                      8 (383) 223-02-52
-                    </a>
+                    г. Сочи, Ривьерский пер., 7
                   </div>
-                  <div class="layout__block-text">
-                    <span>
-                      Instagram
-                    </span>
-                    <a href="https://www.instagram.com/hoookafactory.tomsk" target="_blank" rel="noopener">
-                      @hoookafactory.tomsk
-                    </a>
-                  </div>
-                  <div class="layout__block-text">
-                    <span>
-                      Вконтакте
-                    </span>
-                    <a href="https://vk.com/hoookahfactory_tomsk" target="_blank" rel="noopener">
-                      vk.com/hoookahfactory_tomsk
-                    </a>
+                  <a class="layout__block-link" href="tel:+74959373811">
+                    +7 (495) 937-38-11
+                  </a>
+                  <div class="layout__block-mode">
+                    Пн-Вс: 09:00 - 23:00
                   </div>
                 </div>
               </div>
-              <div class="layout__block">
+              <div class="layout__block" data-city="voronezh">
                 <div class="layout__block-title">
-                  Шерегеш
+                  Воронеж
                 </div>
                 <div class="layout__block-wrap">
-                  <div class="layout__block-text">
-                    <span>
-                      Адрес
-                    </span>
-                    <div class="layout__block-address">
-                      Советская улица, 8б
-                    </div>
+                  <div class="layout__block-address">
+                    РИВЬЕРА
                   </div>
                   <div class="layout__block-text">
-                    <span>
-                      Телефон
-                    </span>
-                    <a href="tel:+73843209383">
-                      8 (384) 320-93-83
-                    </a>
+                    г. Сочи, Ривьерский пер., 7
                   </div>
-                  <div class="layout__block-text">
-                    <span>
-                      Instagram
-                    </span>
-                    <a href="https://www.instagram.com/hoookafactory.gesh" target="_blank" rel="noopener">
-                      @hoookafactory.gesh
-                    </a>
-                  </div>
-                  <div class="layout__block-text">
-                    <span>
-                      Вконтакте
-                    </span>
-                    <a href="https://vk.com/hoookahfactory_gesh" target="_blank" rel="noopener">
-                      vk.com/hoookahfactory_gesh
-                    </a>
+                  <a class="layout__block-link" href="tel:+74959373811">
+                    +7 (495) 937-38-11
+                  </a>
+                  <div class="layout__block-mode">
+                    Пн-Вс: 09:00 - 23:00
                   </div>
                 </div>
               </div>

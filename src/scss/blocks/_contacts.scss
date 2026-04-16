@@ -4,18 +4,49 @@
 
   .layout {
 
+    &__inner {
+      gap: 3rem;
+    }
+
+    &__body {
+      gap: 3rem;
+    }
+
     &__block {
+      gap: 2rem;
+
+      font-weight: 700;
+      font-size: 1.4rem;
+      line-height: 150%;
+
+      &-wrap {
+        gap: 0.5rem;
+      }
+
+      &-title {
+        color: var(--contacts-layout-block-title-color);
+      }
+
+      &-address {
+        font-weight: 700;
+        text-transform: uppercase;
+      }
 
       &-text {
+        color: var(--contacts-layout-block-text-color);
+      }
 
-        span {
-          font-size: 1rem;
-        }
+      &-link {
+        margin: 0;
 
-        a {
-          margin: 0;
-          text-decoration: none;
-        }
+        color: var(--contacts-layout-block-link-color);
+        text-decoration: none;
+      }
+
+      &-mode {
+        font-weight: 400;
+        font-size: 1.2rem;
+        color: var(--contacts-layout-block-mode-color);
       }
     }
   }

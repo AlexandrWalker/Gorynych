@@ -13,3 +13,34 @@
     }
   }
 }
+
+html {
+
+  &[data-city="Москва"] {
+
+    [data-city="moscow"] {
+      order: -1;
+    }
+  }
+
+  &[data-city="Новосибирск"] {
+
+    [data-city="novosibirsk"] {
+      order: -1;
+    }
+  }
+
+  &[data-city="Сочи"] {
+
+    [data-city="sochi"] {
+      order: -1;
+    }
+  }
+
+  &[data-city="Воронеж"] {
+
+    [data-city="voronezh"] {
+      order: -1;
+    }
+  }
+}
