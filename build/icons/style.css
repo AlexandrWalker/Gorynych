@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'GorynychIconFont';
-  src:  url('fonts/GorynychIconFont.eot?r2iohx');
-  src:  url('fonts/GorynychIconFont.eot?r2iohx#iefix') format('embedded-opentype'),
-    url('fonts/GorynychIconFont.ttf?r2iohx') format('truetype'),
-    url('fonts/GorynychIconFont.woff?r2iohx') format('woff'),
-    url('fonts/GorynychIconFont.svg?r2iohx#GorynychIconFont') format('svg');
+  src:  url('fonts/GorynychIconFont.eot?vkxque');
+  src:  url('fonts/GorynychIconFont.eot?vkxque#iefix') format('embedded-opentype'),
+    url('fonts/GorynychIconFont.ttf?vkxque') format('truetype'),
+    url('fonts/GorynychIconFont.woff?vkxque') format('woff'),
+    url('fonts/GorynychIconFont.svg?vkxque#GorynychIconFont') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -25,216 +25,219 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-chef:before {
+.icon-call:before {
   content: "\e900";
 }
-.icon-vega:before {
+.icon-chef:before {
   content: "\e901";
 }
-.icon-hot:before {
+.icon-vega:before {
   content: "\e902";
 }
-.icon-top:before {
+.icon-hot:before {
   content: "\e903";
 }
-.icon-napitki:before {
+.icon-top:before {
   content: "\e904";
 }
-.icon-deserty:before {
+.icon-napitki:before {
   content: "\e905";
 }
-.icon-zakuski:before {
+.icon-deserty:before {
   content: "\e906";
 }
-.icon-rolls:before {
+.icon-zakuski:before {
   content: "\e907";
 }
-.icon-salads:before {
+.icon-rolls:before {
   content: "\e908";
 }
-.icon-business-lunch:before {
+.icon-salads:before {
   content: "\e909";
 }
-.icon-null:before {
+.icon-business-lunch:before {
   content: "\e90a";
 }
-.icon-reviews:before {
+.icon-null:before {
   content: "\e90b";
 }
-.icon-notification:before {
+.icon-reviews:before {
   content: "\e90c";
 }
-.icon-callback:before {
+.icon-notification:before {
   content: "\e90d";
 }
-.icon-wa:before {
+.icon-callback:before {
   content: "\e90e";
 }
-.icon-max:before {
+.icon-wa:before {
   content: "\e90f";
 }
-.icon-tg:before {
+.icon-max:before {
   content: "\e910";
 }
-.icon-agreement:before {
+.icon-tg:before {
   content: "\e911";
 }
-.icon-privacy:before {
+.icon-agreement:before {
   content: "\e912";
 }
-.icon-client-services:before {
+.icon-privacy:before {
   content: "\e913";
 }
-.icon-history:before {
+.icon-client-services:before {
   content: "\e914";
 }
-.icon-time:before {
+.icon-history:before {
   content: "\e915";
 }
-.icon-sale:before {
+.icon-time:before {
   content: "\e916";
 }
-.icon-kuvshin:before {
+.icon-sale:before {
   content: "\e917";
 }
-.icon-cup:before {
+.icon-kuvshin:before {
   content: "\e918";
 }
-.icon-stars:before {
+.icon-cup:before {
   content: "\e919";
 }
-.icon-search:before {
+.icon-stars:before {
   content: "\e91a";
 }
-.icon-zavtrak:before {
+.icon-search:before {
   content: "\e91b";
 }
-.icon-bar:before {
+.icon-zavtrak:before {
   content: "\e91c";
 }
-.icon-grill:before {
+.icon-bar:before {
   content: "\e91d";
 }
-.icon-goryachee:before {
+.icon-grill:before {
   content: "\e91e";
 }
-.icon-menu-catering:before {
+.icon-goryachee:before {
   content: "\e91f";
 }
-.icon-add:before {
+.icon-menu-catering:before {
   content: "\e920";
 }
-.icon-share-2:before {
+.icon-add:before {
   content: "\e921";
 }
-.icon-butylka:before {
+.icon-share-2:before {
   content: "\e922";
 }
-.icon-bokal:before {
+.icon-butylka:before {
   content: "\e923";
 }
-.icon-language:before {
+.icon-bokal:before {
   content: "\e924";
 }
-.icon-home:before {
+.icon-language:before {
   content: "\e925";
 }
-.icon-menu-slang:before {
+.icon-home:before {
   content: "\e926";
 }
-.icon-menu-reviews:before {
+.icon-menu-slang:before {
   content: "\e927";
 }
-.icon-trash:before {
+.icon-menu-reviews:before {
   content: "\e928";
 }
-.icon-menu-rassadka:before {
+.icon-trash:before {
   content: "\e929";
 }
-.icon-qr:before {
+.icon-menu-rassadka:before {
   content: "\e92a";
 }
-.icon-points:before {
+.icon-qr:before {
   content: "\e92b";
 }
-.icon-menu-meatballs:before {
+.icon-points:before {
   content: "\e92c";
 }
-.icon-clock:before {
+.icon-menu-meatballs:before {
   content: "\e92d";
 }
-.icon-menu-personal-offers:before {
+.icon-clock:before {
   content: "\e92e";
 }
-.icon-star:before {
+.icon-menu-personal-offers:before {
   content: "\e92f";
 }
-.icon-menu-user:before {
+.icon-star:before {
   content: "\e930";
 }
-.icon-menu-like:before {
+.icon-menu-user:before {
   content: "\e931";
 }
-.icon-menu-geo:before {
+.icon-menu-like:before {
   content: "\e932";
 }
-.icon-menu-card:before {
+.icon-menu-geo:before {
   content: "\e933";
 }
-.icon-close:before {
+.icon-menu-card:before {
   content: "\e934";
 }
-.icon-user:before {
+.icon-close:before {
   content: "\e935";
 }
-.icon-question-mark:before {
+.icon-user:before {
   content: "\e936";
 }
-.icon-menu-contacts:before {
+.icon-question-mark:before {
   content: "\e937";
 }
-.icon-menu-loyalty-system:before {
+.icon-menu-contacts:before {
   content: "\e938";
 }
-.icon-menu-list:before {
+.icon-menu-loyalty-system:before {
   content: "\e939";
 }
-.icon-menu-microphone:before {
+.icon-menu-list:before {
   content: "\e93a";
 }
-.icon-meatballs:before {
+.icon-menu-microphone:before {
   content: "\e93b";
 }
-.icon-login:before {
+.icon-meatballs:before {
   content: "\e93c";
 }
-.icon-filter:before {
+.icon-login:before {
   content: "\e93d";
 }
-.icon-up:before {
+.icon-filter:before {
   content: "\e93e";
 }
-.icon-carbohydrates:before {
+.icon-up:before {
   content: "\e93f";
 }
-.icon-protein:before {
+.icon-carbohydrates:before {
   content: "\e940";
 }
-.icon-calories:before {
+.icon-protein:before {
   content: "\e941";
 }
-.icon-fat:before {
+.icon-calories:before {
   content: "\e942";
 }
-.icon-share:before {
+.icon-fat:before {
   content: "\e943";
 }
+.icon-share:before {
+  content: "\e944";
+}
 .icon-star-fill:before {
-  content: "\e944" !important;
+  content: "\e945" !important;
 }
 .icon-like:before {
-  content: "\e945";
+  content: "\e946";
 }
 .icon-chevron-right:before {
-  content: "\e946";
+  content: "\e947";
 }

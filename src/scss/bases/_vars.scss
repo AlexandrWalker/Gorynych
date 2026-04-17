@@ -14,7 +14,7 @@
   --container-width: 37.2rem;
   --header-height: 7.6rem;
   --wrapper-padding: 9.1rem;
-  --panel-height: 6.7rem;
+  --panel-height: 6.6rem;
   --safe-area-top: env(safe-area-inset-top, 0px);
 
   // base
@@ -25,9 +25,9 @@
   // global
   --tags-color: #FFFFFF;
   --tags-top: #00D0C5;
-  --tags-hot: #D51216;
-  --tags-vega: #25D366;
-  --tags-chef: #FF9F5F;
+  --tags-hot: #D93128;
+  --tags-vega: #2DC520;
+  --tags-chef: #E95322;
   --tags-business: #37AEE2;
   --rating-bg-color: #D51216;
   --rating-color: #F9FAF8;
@@ -107,6 +107,9 @@
   --layout-history-date-color: rgba(136, 138, 135, 0.5);
   --layout-history-title-color: #D51216;
   --layout-history-body-color: #888A87;
+
+  --layout-null-text-color: #888A87;
+  --layout-null-link-color: #D71920;
 
   --contacts-layout-block-title-color: #D51216;
   --contacts-layout-block-text-color: #8B8C8B;
@@ -226,6 +229,11 @@
   --form-results-color: #888A87;
   --form-input-btn-color: #888A87;
   --form-input-active-btn-color: #D51216;
+
+  --form-tabs-label-bg-color: #3838384D;
+  --form-tabs-label-color: #D51216;
+  --form-tabs-label-checked-bg-color: #D51216;
+  --form-tabs-label-checked-color: #FFFFFF;
 
   // dropdown
   --dropdown-selected-active-border-color: #D51216;

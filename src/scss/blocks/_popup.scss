@@ -66,6 +66,18 @@
     }
   }
 
+  &-null {
+
+    .layout__head,
+    .layout__body {
+      display: none;
+    }
+
+    .layout__null {
+      display: flex;
+    }
+  }
+
   &__wrap {
     display: flex;
     flex-direction: column;

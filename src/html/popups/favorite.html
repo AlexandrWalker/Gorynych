@@ -1,6 +1,6 @@
 <div id="favorite" class="favorite popup" data-lenis-prevent>
   <div class="popup__wrap">
-        <div class="popup__area" data-popup-head>
+    <div class="popup__area" data-popup-head>
       <div class="popup__close">
         <i class="icon-close"></i>
       </div>
@@ -20,11 +20,10 @@
             </div>
             <div class="layout__body">
               <div class="layout__block">
-
                 <div class="layout">
                   <div class="layout__inner">
                     <div class="layout__head">
-                      <div class="layout__nav">
+                      <!-- <div class="layout__nav">
                         <button class="layout__nav-item active" type="button" data-nav="favorites-hot">
                           Горячее
                         </button>
@@ -37,32 +36,24 @@
                         <button class="layout__nav-item" type="button" data-nav="favorites-soups">
                           Супы
                         </button>
-                      </div>
+                      </div> -->
                     </div>
                     <div class="layout__items">
-                      @@loop('./../elements/card-item-osnovnoe.html', './data/card-items-osnovnoe-favorites.json')
+                      <!-- @@loop('./../elements/card-item-osnovnoe.html', './data/card-items-osnovnoe-favorites.json') -->
                     </div>
-                    <button class="layout__btn btn btn--accent">
-                      Вызвать официанта
-                    </button>
                   </div>
                 </div>
-
-                <!-- <div class="layout layout--carousel">
-                  <div class="layout__inner">
-                    <div class="layout__head">
-                      <div class="layout__title">
-                        <h2>
-                          Вам понравится
-                        </h2>
-                      </div>
-                    </div>
-                    <div class="layout__items">
-                      @@loop('./../elements/card-item.html', './data/card-items.json')
-                    </div>
-                  </div>
-                </div> -->
-
+              </div>
+            </div>
+            <div class="layout__null">
+              <div class="layout__null-cover">
+                <img src="./../../images/icon/null.svg" alt="">
+              </div>
+              <div class="layout__null-text">
+                <p>
+                  Пока в данном разделе ничего нет, <a href="javascript: void(0)" data-close-all-popups>перейдите</a> в
+                  меню что бы изучить ассортимент
+                </p>
               </div>
             </div>
 

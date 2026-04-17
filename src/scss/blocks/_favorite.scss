@@ -9,20 +9,8 @@
       font-size: 2.2rem;
 
       &::before {
-        content: "\e934";
+        content: "\e935";
       }
     }
-  }
-
-  .layout__btn {
-    width: auto;
-
-    font-weight: 700;
-
-    position: fixed;
-    bottom: 10rem;
-    right: var(--container-padding);
-    left: var(--container-padding);
-    z-index: 10;
   }
 }
