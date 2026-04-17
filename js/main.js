@@ -441,6 +441,20 @@ document.addEventListener('DOMContentLoaded', () => {
       // Блокируем открытие пока идёт анимация закрытия
       if (isAnimating) return;
 
+      // Проверка для попапа с id="favorite"
+      if (popup.id === 'favorite') {
+        const layoutItems = popup.querySelector('.layout__items');
+        const hasCard = layoutItems && layoutItems.querySelector('.card');
+
+        if (!hasCard) {
+          // Если нет блока card, добавляем класс popup-null
+          popup.classList.add('popup-null');
+        } else {
+          // Если блок card есть, убеждаемся, что класс popup-null удалён
+          popup.classList.remove('popup-null');
+        }
+      }
+
       // Блокируем скролл только при самом первом открытом попапе
       if (!stack.length) lockBodyScroll();
 
@@ -897,26 +911,26 @@ document.addEventListener('DOMContentLoaded', () => {
      * subtree: false - следим только за прямыми детьми layout__items, не глубже.
      * Это исключает лишние срабатывания при изменениях внутри карточек.
      */
-    const favoritePopup = document.getElementById('favorite');
+    // const favoritePopup = document.getElementById('favorite');
 
-    if (favoritePopup) {
-      const favoriteItems = favoritePopup.querySelector('.layout__items');
+    // if (favoritePopup) {
+    //   const favoriteItems = favoritePopup.querySelector('.layout__items');
 
-      if (favoriteItems) {
-        const favoriteObserver = new MutationObserver(() => {
-          // Проверяем что попап открыт и список реально пуст
-          // trim() на textContent страхует от случая когда остались пустые текстовые узлы
-          // const isEmpty = favoriteItems.children.length === 0;
-          const isEmpty = favoriteItems.querySelectorAll('.card').length === 0;
+    //   if (favoriteItems) {
+    //     const favoriteObserver = new MutationObserver(() => {
+    //       // Проверяем что попап открыт и список реально пуст
+    //       // trim() на textContent страхует от случая когда остались пустые текстовые узлы
+    //       // const isEmpty = favoriteItems.children.length === 0;
+    //       const isEmpty = favoriteItems.querySelectorAll('.card').length === 0;
 
-          if (isEmpty && stack.includes(favoritePopup)) {
-            closePopup(favoritePopup);
-          }
-        });
+    //       if (isEmpty && stack.includes(favoritePopup)) {
+    //         closePopup(favoritePopup);
+    //       }
+    //     });
 
-        favoriteObserver.observe(favoriteItems, { childList: true });
-      }
-    }
+    //     favoriteObserver.observe(favoriteItems, { childList: true });
+    //   }
+    // }
 
     const dishPopups = document.querySelectorAll('.dish');
 
@@ -1638,12 +1652,12 @@ document.addEventListener('DOMContentLoaded', () => {
   /**
    * ИКОНКА ПАНЕЛИ ПРИ ОТКРЫТИИ ПОПАПА                              
    *    
-   * Добавляет/убирает класс is-flipped у .panel__btn               
+   * Добавляет/убирает класс is-flipped у .scrollup__btn               
    * когда изменяется наличие popup-open у <html>.                  
    */
   (function () {
     const html = document.documentElement;
-    const button = document.querySelector('.panel__btn');
+    const button = document.querySelector('.scrollup__btn');
     if (!button) return; // Кнопка отсутствует - выходим
 
     /**
@@ -3012,6 +3026,31 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 })();
+
+// (function () {
+//   const welcome = document.getElementById('welcome');
+//   const languagePopup = document.getElementById('language');
+
+//   if (welcome && !welcome.classList.contains('is-hidden')) {
+//     document.body.classList.add('no-scroll');
+//   }
+
+//   welcome.querySelectorAll('button').forEach(btn => {
+//     btn.addEventListener('click', () => {
+//       if (btn.classList.contains('welcome__lang-btn')) {
+//         if (languagePopup) languagePopup.style.zIndex = '1001';
+//         return;
+//       }
+
+//       welcome.classList.add('is-hidden');
+//       document.body.classList.remove('no-scroll');
+
+//       welcome.addEventListener('transitionend', () => {
+//         welcome.remove();
+//       }, { once: true });
+//     });
+//   });
+// })();
 
 //
 // Вызывается из HTML: onclick="checkCookies()"
