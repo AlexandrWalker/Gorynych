@@ -11,7 +11,7 @@
 
   .layout__block-text {
     gap: 1.6rem;
-
+    
     a {
       margin-left: unset;
 
@@ -20,5 +20,9 @@
       color: inherit;
       text-decoration: none;
     }
+  }
+
+  li {
+    font-size: 1.4rem;
   }
 }

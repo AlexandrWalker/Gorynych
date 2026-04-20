@@ -2,13 +2,21 @@
 
 .scrollup {
   pointer-events: all;
-  transition: opacity 0.4s ease, visibility 0.4s ease;
-  opacity: 1;
-  visibility: visible;
+  transition: opacity 0.4s ease, visibility 0.4s ease !important;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 
   position: absolute;
   left: 1rem;
   bottom: 11.1rem;
+
+  .popup-open &,
+  &-visible {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+  }
 
   @include domd {
     display: none;

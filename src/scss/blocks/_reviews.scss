@@ -13,6 +13,22 @@
         height: 26.8rem;
         margin-left: calc(var(--container-padding) * -1);
       }
+
+      &-title {
+        font-family: var(--third-family);
+        text-transform: uppercase;
+
+        * {
+          font-size: 3rem;
+        }
+      }
+    }
+
+    &__content {
+
+      &-name {
+        font-size: 2rem;
+      }
     }
 
     &__btn {

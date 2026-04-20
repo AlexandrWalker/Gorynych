@@ -1,0 +1,8 @@
+@use './../mixins' as *;
+
+.search {
+
+  .form-input {
+    border-radius: 1.2rem;
+  }
+}

@@ -13,6 +13,8 @@
       &-title {
 
         * {
+          font-weight: 900;
+          color: var(--profile-layout-head-title-color);
 
           .login & {
             font-size: 2rem;
@@ -25,8 +27,26 @@
 
 #profileCard {
 
-  .layout__body {
-    padding-top: 1rem;
+  .layout {
+
+    &__body {
+      padding-top: 1rem;
+    }
+
+    &__block {
+
+      &-text {
+        color: var(--profilecard-layout-body-text-color);
+      }
+
+      &-link {
+        color: var(--profilecard-layout-body-link-color);
+        text-decoration-style: dotted;
+        text-decoration-color: var(--profilecard-layout-body-link-color);
+        text-decoration-line: underline;
+        text-decoration-skip-ink: none;
+      }
+    }
   }
 }
 

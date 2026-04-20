@@ -973,13 +973,19 @@ document.addEventListener('DOMContentLoaded', () => {
         let isSticky = false;
 
         function onDishScroll() {
-          const raw = Math.min(1, scrollEl.scrollTop / SCROLL_RANGE);
+          const raw = Math.max(0, Math.min(1, scrollEl.scrollTop / SCROLL_RANGE));
 
           const progress = PROGRESS_FROM + (PROGRESS_TO - PROGRESS_FROM) * raw;
           const height = HEIGHT_FROM + (HEIGHT_TO - HEIGHT_FROM) * raw;
 
           setProgress(progress);
           setHeight(height);
+
+          if (raw > 0) {
+            innerEl.classList.add('is-change-moment');
+          } else {
+            innerEl.classList.remove('is-change-moment');
+          }
 
           if (raw >= 1 && !isSticky) {
             innerEl.classList.add(className);
@@ -995,13 +1001,20 @@ document.addEventListener('DOMContentLoaded', () => {
           setProgress(PROGRESS_FROM);
           setHeight(HEIGHT_FROM);
           innerEl.classList.remove(className);
+          innerEl.classList.remove('is-change-moment');
           isSticky = false;
 
           requestAnimationFrame(getAspectRatio);
         }
 
-        dishPopup.addEventListener('popup:open', reset);
-        scrollEl.addEventListener('scroll', onDishScroll, { passive: true });
+        dishPopup.addEventListener('popup:open', () => {
+          reset();
+          scrollEl.addEventListener('scroll', onDishScroll, { passive: true });
+        });
+
+        dishPopup.addEventListener('popup:close', () => {
+          scrollEl.removeEventListener('scroll', onDishScroll);
+        });
       }
     });
 
@@ -1631,6 +1644,7 @@ document.addEventListener('DOMContentLoaded', () => {
         radio.addEventListener('change', () => {
           if (!radio.checked) return;
 
+          const dataValue = radio.dataset.city;
           const value = radio.value;
 
           if (selectedLabelJs) selectedLabelJs.textContent = value;
@@ -1639,7 +1653,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
           // Только для dropdown с городами
           if (isCityDropdown) {
-            html.setAttribute('data-city', value);
+            // html.setAttribute('data-city', dataValue);
+
+            const contacts = document.getElementById('contacts');
+            const layoutBody = contacts.querySelector('.layout__body');
+
+            // Находим все блоки внутри layoutBody
+            const allBlocks = layoutBody.querySelectorAll('.layout__block');
+
+            // Скрываем все блоки
+            allBlocks.forEach(block => {
+              block.style.display = 'none';
+            });
+
+            // Находим нужный блок по data-city
+            const thisLayoutBlock = layoutBody.querySelector(`[data-city="${dataValue}"]`);
+
+            if (thisLayoutBlock) {
+              layoutBody.classList.add('checked');
+              thisLayoutBlock.style.display = 'flex';
+            }
           }
 
           dropdown.classList.remove('is-active');
@@ -1657,8 +1690,23 @@ document.addEventListener('DOMContentLoaded', () => {
    */
   (function () {
     const html = document.documentElement;
+    const scrollup = document.querySelector('.scrollup');
     const button = document.querySelector('.scrollup__btn');
     if (!button) return; // Кнопка отсутствует - выходим
+
+    const shouldShow = () => {
+      // Показываем при popup-open всегда
+      if (html.classList.contains('popup-open')) return true;
+      // Иначе показываем только если прокрутили вниз
+      return window.scrollY > 0 || document.documentElement.scrollTop > 0;
+    };
+
+    const render = () => {
+      scrollup.classList.toggle('scrollup-visible', shouldShow());
+    };
+
+    window.addEventListener('scroll', render, { passive: true });
+    render();
 
     /**
      * MutationObserver слушает изменения атрибута class у <html>.
@@ -2359,7 +2407,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function updateItemsVisualState() {
       requestAnimationFrame(function () {
-        const listContainer = document.querySelector('.afisha__items');
+        const listContainer = document.querySelector('.stories-items');
         if (!listContainer) return;
 
         items.forEach(function (el, i) {

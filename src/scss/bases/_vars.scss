@@ -71,14 +71,15 @@
   --layout-block-value-color: #888A87;
   --layout-block-address-color: #8B8C8B;
   --layout-block-address-link-color: #EEF0ED;
+  --layout-block-ps-color: #D51216;
   --layout-time-bg-color: transparent;
   --layout-time-border-color: #313330;
   --layout-time-i-color: #D51216;
   --layout-head-psevdoelement: #1A1A1A;
   --layout-head-change-color: #D51216;
   --layout-card-block-bg-color: #D51216;
-  --layout-card-guerss-bg-color: #EEF0ED;
-  --layout-card-guerss-color: #0A2533;
+  --layout-card-guess-bg-color: #323232;
+  --layout-card-guess-color: #FFFFFF;
   --layout-head-content-link-color: #888A87;
   --layout-foot-inner-bg-color: transparent;
   --layout-nav-item-bg-color: #292929;
@@ -107,35 +108,19 @@
   --layout-history-date-color: rgba(136, 138, 135, 0.5);
   --layout-history-title-color: #D51216;
   --layout-history-body-color: #888A87;
-
   --layout-null-text-color: #888A87;
   --layout-null-link-color: #D71920;
-
-  --contacts-layout-block-title-color: #D51216;
-  --contacts-layout-block-text-color: #8B8C8B;
-  --contacts-layout-block-link-color: #8B8C8B;
-  --contacts-layout-block-mode-color: #8B8C8B80;
+  --layout-first-btn-bg-color: #292929;
+  --layout-first-btn-i-bg-color: #1A1A1A;
+  --layout-first-btn-i-color: #D71920;
+  --layout-first-btn-text-span-color: #D71920;
 
   // welcome
   --welcome-bg-color: #EEF0ED;
   --welcome-text-color: #000000;
 
-
-  // branch
-  --branch-layout-block-title-color: #D51216;
-  --branch-layout-block-text-span-color: #8B8C8B80;
-
-  // branchSelect
-  --branchselect-layout-block-btn-color: #EEF0ED;
-
-  // branchSelect
-  --loyalty-layout-block-text-span-color: #8B8C8B80;
-
-  // reviews
-  --reviews-item-rating-icon-color: #E95322;
-  --reviews-item-name-color: #D51216;
-  --reviews-item-date-color: #888A87;
-  --reviews-item-text-color: #888A87;
+  // banners
+  --banners-link-title-color: #ffffff;
 
   //stories
   --stories-overlay-bg-color: #1A1A1A;
@@ -198,9 +183,6 @@
   --plate-content-btn-bg-color: #D51216;
   --plate-content-btn-color: #EEF0ED;
 
-  // profile
-  --porfile-menu-item-title-color: #EEF0ED;
-
   // form
   --form-input-border-color: #2F2F2E;
   --form-input-color: #D51216;
@@ -229,7 +211,6 @@
   --form-results-color: #888A87;
   --form-input-btn-color: #888A87;
   --form-input-active-btn-color: #D51216;
-
   --form-tabs-label-bg-color: #3838384D;
   --form-tabs-label-color: #D51216;
   --form-tabs-label-checked-bg-color: #D51216;
@@ -252,11 +233,48 @@
   // filter
   --filter-check-bg-color: #353332;
   --filter-check-before-color: #D51216;
+  --filter-item-text-color: #888A87;
+  --filter-item-text-checked-color: #EEF0ED;
 
   // libs
   --swiper-pagination-bg-color: transparent;
   --swiper-pagination-color: rgba(255, 255, 255, 0.5);
   --swiper-pagination-active-color: #FFFFFF;
+
+  // contacts
+  --contacts-layout-block-title-color: #D51216;
+  --contacts-layout-block-text-color: #8B8C8B;
+  --contacts-layout-block-link-color: #8B8C8B;
+  --contacts-layout-block-mode-color: #8B8C8B80;
+
+  // branch
+  --branch-layout-block-title-color: #D51216;
+  --branch-layout-block-text-span-color: #8B8C8B80;
+
+  // branchSelect
+  --branchselect-layout-block-btn-color: #EEF0ED;
+
+  // loyalty
+  --loyalty-layout-block-text-span-color: #8B8C8B80;
+
+  // reviews
+  --reviews-item-rating-icon-color: #E95322;
+  --reviews-item-name-color: #D51216;
+  --reviews-item-date-color: #888A87;
+  --reviews-item-text-color: #888A87;
+
+  // profile
+  --profile-layout-head-title-color: #888A87;
+  --profile-menu-item-title-color: #EEF0ED;
+  --profilecard-layout-body-text-color: #888A87;
+  --profilecard-layout-body-link-color: #D51216;
+
+  // offers
+  --offers-layout-block-text-color: #888A87;
+
+  // rassadka
+  --rassadka-layout-block-title-color: #D51216;
+  --rassadka-layout-block-text-span-color: #8B8C8B80;
 
   // colors
   --popup-bg: #1A1A1A;

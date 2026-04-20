@@ -1,6 +1,39 @@
 @use './../mixins' as *;
 
 .banner {
+  --progress: 0;
+
+  scroll-snap-align: start;
+  isolation: isolate;
+
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: -0.3rem;
+    border-radius: calc(1.6rem + 0.3rem);
+    border: 0.2rem solid var(--afisha-item-border-color);
+    pointer-events: none;
+
+    --start: 45deg;
+    --spread: calc(var(--progress) * 180deg);
+
+    -webkit-mask-image: conic-gradient(from var(--start),
+        white 0deg,
+        white var(--spread),
+        transparent var(--spread),
+        transparent calc(360deg - var(--spread)),
+        white calc(360deg - var(--spread)),
+        white 360deg);
+    mask-image: conic-gradient(from var(--start),
+        white 0deg,
+        white var(--spread),
+        transparent var(--spread),
+        transparent calc(360deg - var(--spread)),
+        white calc(360deg - var(--spread)),
+        white 360deg);
+  }
 
   &__link {
     display: block;

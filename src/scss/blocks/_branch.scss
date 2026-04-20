@@ -4,6 +4,10 @@
 
   .layout {
 
+    &__inner {
+      gap: 3rem;
+    }
+
     &__block {
 
       &-title {

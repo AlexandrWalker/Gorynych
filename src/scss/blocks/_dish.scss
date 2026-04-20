@@ -25,6 +25,13 @@
           }
         }
 
+        &.is-change-moment {
+
+          .layout__head-tags {
+            opacity: 0;
+          }
+        }
+
         .layout__head {
           position: sticky;
           top: 0;
@@ -80,9 +87,10 @@
       }
 
       &-tags {
-        // transform: scale(var(--dish-head-progress));
-        // transform-origin: top left;
+        transform: scale(var(--dish-head-progress));
+        transform-origin: top left;
         will-change: transform, top;
+        transition: opacity 0.4s ease;
 
         top: calc(1rem * var(--dish-head-progress));
       }

@@ -10,6 +10,13 @@
 
     &__body {
       gap: 3rem;
+
+      &.checked {
+
+        .layout__block {
+          display: none;
+        }
+      }
     }
 
     &__block {

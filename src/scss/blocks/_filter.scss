@@ -47,12 +47,18 @@
         &+.filter__check::before {
           opacity: 1;
         }
+
+        &+.filter__check+.filter__item-text {
+          color: var(--filter-item-text-checked-color);
+        }
       }
     }
 
     &-text {
       font-weight: 500;
       font-size: 1.4rem;
+      color: var(--filter-item-text-color);
+      transition: color 0.4s ease;
     }
   }
 
@@ -80,6 +86,7 @@
       -webkit-transform: translate(-50%, -50%);
       -ms-transform: translate(-50%, -50%);
       transform: translate(-50%, -50%);
+      transition: opacity 0.4s ease;
     }
   }
 }

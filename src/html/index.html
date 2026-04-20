@@ -5,7 +5,7 @@
 <body>
   <!-- Прелоадер -->
   @@include('./blocks/preloader.html')
-   <!-- Welcome-screen -->
+  <!-- Welcome-screen -->
   @@include('./blocks/welcome.html')
   <div class="bg"></div>
   <!-- main -->
@@ -25,6 +25,8 @@
     @@include('./popups/filter.html')
     <!-- Филиал -->
     @@include('./popups/branch.html')
+    <!-- Изменение филиала -->
+    @@include('./popups/branch-change.html')
     <!-- Отзывы -->
     @@include('./popups/reviews.html')
     <!-- Написать отзыв -->
@@ -43,8 +45,12 @@
     @@include('./popups/contacts.html')
     <!-- Персональные предложения -->
     @@include('./popups/offers.html')
-    <!-- Персональные предложения - деталка -->
-    @@include('./popups/offers-inner.html')
+    <!-- Персональные предложения - деталка 1 -->
+    @@include('./popups/offers-inner-1.html')
+    <!-- Персональные предложения - деталка 2 -->
+    @@include('./popups/offers-inner-2.html')
+    <!-- Персональные предложения - деталка 3 -->
+    @@include('./popups/offers-inner-3.html')
     <!-- Акции -->
     @@include('./popups/shares.html')
     <!-- Профиль -->
@@ -122,16 +128,12 @@
       <section class="layout layout--first">
         <div class="container">
           <div class="layout__inner">
-            <!-- <button class="btn btn--beige btn--arrow" data-popup-target="branch">
-              <div class="btn__text btn__text--logout">
-                Пройдите <a href="javascript: void(0)" data-popup-target="auth">авторизицию</a> или <a
-                  href="javascript: void(0)" data-popup-target="reg">зарегистрируйтесь</a>
-              </div>
-              <div class="btn__text btn__text--login">
-                ​Советская улица, 33
+            <button class="btn btn--beige btn--arrow" data-popup-target="branch">
+              <div class="btn__text">
+                г. Новосибирск, Кирова, 50  <span>Изменить</span>
               </div>
               <i class="icon-chevron-right"></i>
-            </button> -->
+            </button>
             <div class="layout__search">
               <div class="form-group">
                 <div class="layout__search-icon">
@@ -261,25 +263,65 @@
           </div>
         </div>
       </section>
-      <!-- Баннеры -->
+      <!-- Акции -->
       <section class="banners">
         <div class="container">
           <div class="banners__inner">
-            <div class="banners__links">
-              <div class="banners__link" data-popup-target="offersInner">
-                <img src="./../images/temp/hero-banner-1.png" alt="">
+            <div class="banners__links stories-items">
+              <div class="banners__link stories-item banner" data-story-index="0" data-banners='[
+                {"img":"./images/temp/stories-cover-1.png"}
+              ]'>
+                <div class="banners__link-img">
+                  <!-- <img src="./../images/temp/hero-banner-1.png" alt=""> -->
+                  <video autoplay muted playsinline loop disablepictureinpicture>
+                    <source src="./video/akcii-1.mp4">
+                  </video>
+                </div>
+                <div class="banners__link-content">
+                  <div class="banners__link-title">
+                    Дополнение от&nbsp;Горыныча
+                  </div>
+                  <div class="banners__link-text">
+                    Три блюда с огня - одно&nbsp;дополняет кухня
+                  </div>
+                </div>
               </div>
-              <div class="banners__link" data-popup-target="offersInner">
-                <img src="./../images/temp/hero-banner-2.png" alt="">
+              <div class="banners__link stories-item banner" data-story-index="1" data-banners='[
+                {"img":"./images/temp/stories-cover-2.png"}
+              ]'>
+                <div class="banners__link-img">
+                  <img src="./../images/temp/hero-banner-2.png" alt="">
+                </div>
+                <div class="banners__link-content">
+                  <div class="banners__link-title">
+                    Пир собирается
+                  </div>
+                  <div class="banners__link-text">
+                    Чем больше заказ — тем больше бонусов
+                  </div>
+                </div>
               </div>
-              <div class="banners__link" data-popup-target="offersInner">
-                <img src="./../images/temp/hero-banner-3.png" alt="">
+              <div class="banners__link stories-item banner" data-story-index="2" data-banners='[
+                {"img":"./images/temp/stories-cover-3.png"}
+              ]'>
+                <div class="banners__link-img">
+                  <img src="./../images/temp/hero-banner-3.png" alt="">
+                </div>
+                <div class="banners__link-content">
+                  <div class="banners__link-title">
+                    Теплый стол
+                  </div>
+                  <div class="banners__link-text">
+                    К горячему блюду BELUGA в подарок
+                  </div>
+                </div>
               </div>
+              <div class="trigger-line"></div>
             </div>
           </div>
         </div>
       </section>
-      <!-- Новости -->
+      <!-- Афиша -->
       <section class="layout">
         <div class="container">
           <div class="layout__inner">
@@ -287,17 +329,13 @@
             <div class="layout__head">
               <div class="layout__title">
                 <h2>
-                  Новости
+                  Афиша
                 </h2>
               </div>
             </div>
 
-            <div class="afisha__items stories-items">
-              <div class="afisha__item stories-item banner" data-story-index="0" data-banners='[
-                {"img":"./images/temp/stories-cover-1.png"},
-                {"img":"./images/temp/stories-cover-2.png"},
-                {"img":"./images/temp/stories-cover-3.png"}
-              ]'>
+            <div class="afisha__items">
+              <div class="afisha__item" data-popup-target="offersInner1">
                 <div class="afisha__item-img">
                   <img src="./../images/temp/new-afisha-1.png" alt="">
                 </div>
@@ -306,9 +344,7 @@
                 </div>
                 <i class="icon-chevron-right"></i>
               </div>
-              <div class="afisha__item stories-item banner" data-story-index="1" data-banners='[
-                {"img":"./images/temp/stories-cover.jpg"}
-              ]'>
+              <div class="afisha__item" data-popup-target="offersInner2">
                 <div class="afisha__item-img">
                   <img src="./../images/temp/new-afisha-2.png" alt="">
                 </div>
@@ -317,21 +353,16 @@
                 </div>
                 <i class="icon-chevron-right"></i>
               </div>
-              <!-- <div class="afisha__item stories-item banner" data-story-index="2" data-banners='[
-                {"img":"./images/temp/stories-cover.jpg"},
-                {"img":"./images/temp/stories-cover.jpg"}
-              ]'>
+              <div class="afisha__item" data-popup-target="offersInner3">
                 <div class="afisha__item-img">
-                  <video autoplay muted playsinline loop disablepictureinpicture>
-                    <source src="./video/reviews-banner.mp4">
-                  </video>
+                  <img src="./../images/temp/new-afisha-3.png" alt="">
                 </div>
                 <div class="afisha__item-date">
                   13.03.2026
                 </div>
                 <i class="icon-chevron-right"></i>
-              </div> -->
-              <div class="trigger-line"></div>
+              </div>
+
             </div>
 
           </div>
@@ -476,6 +507,129 @@
           </div>
         </div>
       </section>
+      <!-- Бизнес-ланч -->
+      <section class="layout" id="business-lunch">
+        <div class="container">
+          <div class="layout__inner">
+
+            <div class="layout__head">
+              <div class="layout__title">
+                <h2>
+                  Бизнес-ланч
+                </h2>
+              </div>
+            </div>
+
+            <div class="layout__items">
+              @@loop('./elements/card-item-business-lunch.html', './data/card-items-business-lunch.json')
+            </div>
+
+          </div>
+        </div>
+      </section>
+      <!-- Салаты -->
+      <section class="layout" id="salads">
+        <div class="container">
+          <div class="layout__inner">
+
+            <div class="layout__head">
+              <div class="layout__title">
+                <h2>
+                  Салаты
+                </h2>
+              </div>
+            </div>
+
+            <div class="layout__items">
+              @@loop('./elements/card-item-salads.html', './data/card-items-salads.json')
+            </div>
+
+          </div>
+        </div>
+      </section>
+      <!-- Роллы -->
+      <section class="layout" id="rolls">
+        <div class="container">
+          <div class="layout__inner">
+
+            <div class="layout__head">
+              <div class="layout__title">
+                <h2>
+                  Роллы
+                </h2>
+              </div>
+            </div>
+
+            <div class="layout__items">
+              @@loop('./elements/card-item-salads.html', './data/card-items-salads.json')
+            </div>
+
+          </div>
+        </div>
+      </section>
+      <!-- Закуски -->
+      <section class="layout" id="zakuski">
+        <div class="container">
+          <div class="layout__inner">
+
+            <div class="layout__head">
+              <div class="layout__title">
+                <h2>
+                  Закуски
+                </h2>
+              </div>
+            </div>
+
+            <div class="layout__items">
+              @@loop('./elements/card-item-zakuski.html', './data/card-items-zakuski.json')
+            </div>
+
+          </div>
+        </div>
+      </section>
+      <!-- Десерты -->
+      <section class="layout" id="deserty">
+        <div class="container">
+          <div class="layout__inner">
+
+            <div class="layout__head">
+              <div class="layout__title">
+                <h2>
+                  Десерты
+                </h2>
+              </div>
+            </div>
+
+            <div class="layout__items">
+              @@loop('./elements/card-item-zakuski.html', './data/card-items-zakuski.json')
+            </div>
+
+          </div>
+        </div>
+      </section>
+      <!-- Напитки -->
+      <section class="layout" id="napitki">
+        <div class="container">
+          <div class="layout__inner">
+
+            <div class="layout__head">
+              <div class="layout__title">
+                <h2>
+                  Напитки
+                </h2>
+              </div>
+            </div>
+
+            <div class="layout__items">
+              @@loop('./elements/card-item-cocktails.html', './data/card-items-cocktails.json')
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+
+
       <!-- Stories Overlay -->
       <div class="stories-overlay" id="storiesOverlay">
         <div class="stories-container">
