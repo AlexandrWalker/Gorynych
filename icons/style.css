@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'GorynychIconFont';
-  src:  url('fonts/GorynychIconFont.eot?vkxque');
-  src:  url('fonts/GorynychIconFont.eot?vkxque#iefix') format('embedded-opentype'),
-    url('fonts/GorynychIconFont.ttf?vkxque') format('truetype'),
-    url('fonts/GorynychIconFont.woff?vkxque') format('woff'),
-    url('fonts/GorynychIconFont.svg?vkxque#GorynychIconFont') format('svg');
+  src:  url('fonts/GorynychIconFont.eot?an8wa5');
+  src:  url('fonts/GorynychIconFont.eot?an8wa5#iefix') format('embedded-opentype'),
+    url('fonts/GorynychIconFont.ttf?an8wa5') format('truetype'),
+    url('fonts/GorynychIconFont.woff?an8wa5') format('woff'),
+    url('fonts/GorynychIconFont.svg?an8wa5#GorynychIconFont') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -25,219 +25,222 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-call:before {
+.icon-vk:before {
   content: "\e900";
 }
-.icon-chef:before {
+.icon-call:before {
   content: "\e901";
 }
-.icon-vega:before {
+.icon-chef:before {
   content: "\e902";
 }
-.icon-hot:before {
+.icon-vega:before {
   content: "\e903";
 }
-.icon-top:before {
+.icon-hot:before {
   content: "\e904";
 }
-.icon-napitki:before {
+.icon-top:before {
   content: "\e905";
 }
-.icon-deserty:before {
+.icon-napitki:before {
   content: "\e906";
 }
-.icon-zakuski:before {
+.icon-deserty:before {
   content: "\e907";
 }
-.icon-rolls:before {
+.icon-zakuski:before {
   content: "\e908";
 }
-.icon-salads:before {
+.icon-rolls:before {
   content: "\e909";
 }
-.icon-business-lunch:before {
+.icon-salads:before {
   content: "\e90a";
 }
-.icon-null:before {
+.icon-business-lunch:before {
   content: "\e90b";
 }
-.icon-reviews:before {
+.icon-null:before {
   content: "\e90c";
 }
-.icon-notification:before {
+.icon-reviews:before {
   content: "\e90d";
 }
-.icon-callback:before {
+.icon-notification:before {
   content: "\e90e";
 }
-.icon-wa:before {
+.icon-callback:before {
   content: "\e90f";
 }
-.icon-max:before {
+.icon-wa:before {
   content: "\e910";
 }
-.icon-tg:before {
+.icon-max:before {
   content: "\e911";
 }
-.icon-agreement:before {
+.icon-tg:before {
   content: "\e912";
 }
-.icon-privacy:before {
+.icon-agreement:before {
   content: "\e913";
 }
-.icon-client-services:before {
+.icon-privacy:before {
   content: "\e914";
 }
-.icon-history:before {
+.icon-client-services:before {
   content: "\e915";
 }
-.icon-time:before {
+.icon-history:before {
   content: "\e916";
 }
-.icon-sale:before {
+.icon-time:before {
   content: "\e917";
 }
-.icon-kuvshin:before {
+.icon-sale:before {
   content: "\e918";
 }
-.icon-cup:before {
+.icon-kuvshin:before {
   content: "\e919";
 }
-.icon-stars:before {
+.icon-cup:before {
   content: "\e91a";
 }
-.icon-search:before {
+.icon-stars:before {
   content: "\e91b";
 }
-.icon-zavtrak:before {
+.icon-search:before {
   content: "\e91c";
 }
-.icon-bar:before {
+.icon-zavtrak:before {
   content: "\e91d";
 }
-.icon-grill:before {
+.icon-bar:before {
   content: "\e91e";
 }
-.icon-goryachee:before {
+.icon-grill:before {
   content: "\e91f";
 }
-.icon-menu-catering:before {
+.icon-goryachee:before {
   content: "\e920";
 }
-.icon-add:before {
+.icon-menu-catering:before {
   content: "\e921";
 }
-.icon-share-2:before {
+.icon-add:before {
   content: "\e922";
 }
-.icon-butylka:before {
+.icon-share-2:before {
   content: "\e923";
 }
-.icon-bokal:before {
+.icon-butylka:before {
   content: "\e924";
 }
-.icon-language:before {
+.icon-bokal:before {
   content: "\e925";
 }
-.icon-home:before {
+.icon-language:before {
   content: "\e926";
 }
-.icon-menu-slang:before {
+.icon-home:before {
   content: "\e927";
 }
-.icon-menu-reviews:before {
+.icon-menu-slang:before {
   content: "\e928";
 }
-.icon-trash:before {
+.icon-menu-reviews:before {
   content: "\e929";
 }
-.icon-menu-rassadka:before {
+.icon-trash:before {
   content: "\e92a";
 }
-.icon-qr:before {
+.icon-menu-rassadka:before {
   content: "\e92b";
 }
-.icon-points:before {
+.icon-qr:before {
   content: "\e92c";
 }
-.icon-menu-meatballs:before {
+.icon-points:before {
   content: "\e92d";
 }
-.icon-clock:before {
+.icon-menu-meatballs:before {
   content: "\e92e";
 }
-.icon-menu-personal-offers:before {
+.icon-clock:before {
   content: "\e92f";
 }
-.icon-star:before {
+.icon-menu-personal-offers:before {
   content: "\e930";
 }
-.icon-menu-user:before {
+.icon-star:before {
   content: "\e931";
 }
-.icon-menu-like:before {
+.icon-menu-user:before {
   content: "\e932";
 }
-.icon-menu-geo:before {
+.icon-menu-like:before {
   content: "\e933";
 }
-.icon-menu-card:before {
+.icon-menu-geo:before {
   content: "\e934";
 }
-.icon-close:before {
+.icon-menu-card:before {
   content: "\e935";
 }
-.icon-user:before {
+.icon-close:before {
   content: "\e936";
 }
-.icon-question-mark:before {
+.icon-user:before {
   content: "\e937";
 }
-.icon-menu-contacts:before {
+.icon-question-mark:before {
   content: "\e938";
 }
-.icon-menu-loyalty-system:before {
+.icon-menu-contacts:before {
   content: "\e939";
 }
-.icon-menu-list:before {
+.icon-menu-loyalty-system:before {
   content: "\e93a";
 }
-.icon-menu-microphone:before {
+.icon-menu-list:before {
   content: "\e93b";
 }
-.icon-meatballs:before {
+.icon-menu-microphone:before {
   content: "\e93c";
 }
-.icon-login:before {
+.icon-meatballs:before {
   content: "\e93d";
 }
-.icon-filter:before {
+.icon-login:before {
   content: "\e93e";
 }
-.icon-up:before {
+.icon-filter:before {
   content: "\e93f";
 }
-.icon-carbohydrates:before {
+.icon-up:before {
   content: "\e940";
 }
-.icon-protein:before {
+.icon-carbohydrates:before {
   content: "\e941";
 }
-.icon-calories:before {
+.icon-protein:before {
   content: "\e942";
 }
-.icon-fat:before {
+.icon-calories:before {
   content: "\e943";
 }
-.icon-share:before {
+.icon-fat:before {
   content: "\e944";
 }
+.icon-share:before {
+  content: "\e945";
+}
 .icon-star-fill:before {
-  content: "\e945" !important;
+  content: "\e946" !important;
 }
 .icon-like:before {
-  content: "\e946";
+  content: "\e947";
 }
 .icon-chevron-right:before {
-  content: "\e947";
+  content: "\e948";
 }
