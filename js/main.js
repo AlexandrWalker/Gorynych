@@ -844,7 +844,11 @@ document.addEventListener('DOMContentLoaded', () => {
         popup.style.top = `\${delta}px`;
 
         // Оверлей темнеет -- светлеет пропорционально смещению (от 1 до 0)
-        overlay.style.opacity = 1 - Math.min(delta / popup.offsetHeight, 1);
+        // overlay.style.opacity = 1 - Math.min(delta / popup.offsetHeight, 1);
+
+        if (delta > 0) {
+          overlay.style.opacity = 1 - Math.min(delta / popup.offsetHeight, 1);
+        }
 
         lastY = currentY;
       }
@@ -1017,6 +1021,21 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       }
     });
+
+    const overlayEls = document.querySelectorAll('#popup-overlay-base, #popup-overlay');
+    let scrollBlurTimer = null;
+
+    document.addEventListener('scroll', e => {
+      const scrollable = e.target.closest('[data-popup-scroll]');
+      if (!scrollable) return;
+
+      overlayEls.forEach(o => o.classList.add('is-scrolling'));
+
+      clearTimeout(scrollBlurTimer);
+      scrollBlurTimer = setTimeout(() => {
+        overlayEls.forEach(o => o.classList.remove('is-scrolling'));
+      }, 150);
+    }, { passive: true, capture: true });
 
   })();
 
@@ -1968,11 +1987,19 @@ document.addEventListener('DOMContentLoaded', () => {
       const currentImg = getActiveImg();
 
       nextImg.classList.remove('is-visible');
+      // Скрываем через visibility чтобы элемент не влиял на layout
+      // пока новое изображение ещё не загружено и не имеет финальных размеров.
+      // opacity/is-visible не достаточно - браузер всё равно резервирует место
+      // под изменяющиеся натуральные размеры img тега.
+      nextImg.style.visibility = 'hidden';
       nextImg.src = story.img;
 
       function onLoaded() {
         nextImg.removeEventListener('load', onLoaded);
         nextImg.removeEventListener('error', onLoaded);
+        // Возвращаем visibility только после того как изображение
+        // полностью загружено и имеет финальные размеры - прыжка не будет.
+        nextImg.style.visibility = '';
         nextImg.classList.add('is-visible');
         currentImg.classList.remove('is-visible');
         activeBuffer = activeBuffer === 'A' ? 'B' : 'A';
