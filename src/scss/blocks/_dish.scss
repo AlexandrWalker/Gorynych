@@ -132,6 +132,17 @@
         }
       }
     }
+
+    &__banner {
+
+      &-link {
+
+        i {
+          background-color: var(--dish-layout-banner-link-i-bg-color);
+          color: var(--dish-layout-banner-link-i-color);
+        }
+      }
+    }
   }
 
   .btn {

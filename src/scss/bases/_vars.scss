@@ -14,7 +14,8 @@
   --container-width: 37.2rem;
   --header-height: 7.6rem;
   --wrapper-padding: 9.1rem;
-  --panel-height: 6.6rem;
+  --panel-btn-height: 6.6rem;
+  --panel-height: 8rem;
   --safe-area-top: env(safe-area-inset-top, 0px);
 
   // base
@@ -72,6 +73,8 @@
   --layout-block-address-color: #8B8C8B;
   --layout-block-address-link-color: #EEF0ED;
   --layout-block-ps-color: #D51216;
+  --layout-block-social-bg-color: #2F2F2E;
+  --layout-block-social-color: #D51216;
   --layout-time-bg-color: transparent;
   --layout-time-border-color: #313330;
   --layout-time-i-color: #D51216;
@@ -278,6 +281,10 @@
   // rassadka
   --rassadka-layout-block-title-color: #D51216;
   --rassadka-layout-block-text-span-color: #8B8C8B80;
+
+  // dish
+  --dish-layout-banner-link-i-bg-color: #FDF6EC;
+  --dish-layout-banner-link-i-color: #D71920;
 
   // colors
   --popup-bg: #1A1A1A;

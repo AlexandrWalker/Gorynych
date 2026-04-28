@@ -49,6 +49,7 @@
     background-size: 100%;
     background-color: var(--panel-inner-bg-color);
     padding: 0 var(--container-padding);
+    ;
     padding-bottom: env(safe-area-inset-bottom);
     height: var(--panel-height);
     pointer-events: all;
@@ -58,7 +59,9 @@
   &__btns {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    // justify-content: space-between;
+    justify-content: center;
+    gap: 2.4rem;
     height: 100%;
   }
 
@@ -70,7 +73,7 @@
     gap: 0.3rem;
     width: auto;
     min-width: 4rem;
-    height: var(--panel-height);
+    height: var(--panel-btn-height);
     padding: 0.8em 0 1.2rem;
 
     position: relative;

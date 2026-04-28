@@ -1026,6 +1026,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let scrollBlurTimer = null;
 
     document.addEventListener('scroll', e => {
+      if (!(e.target instanceof Element)) return; 
       const scrollable = e.target.closest('[data-popup-scroll]');
       if (!scrollable) return;
 
@@ -3064,6 +3065,301 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       startOverlayPreloader();
     }
+  })();
+
+  /**
+   * Анимация набора текста
+   */
+  (function () {
+
+    const groupMap = new Map();
+
+    document.querySelectorAll('.typewriter').forEach(container => {
+      const group = container.dataset.syncGroup;
+
+      if (group) {
+        if (!groupMap.has(group)) groupMap.set(group, []);
+        groupMap.get(group).push(container);
+      } else {
+        initTypewriter(container);
+      }
+    });
+
+    groupMap.forEach(containers => {
+      initSyncGroup(containers);
+    });
+
+    function initSyncGroup(containers) {
+
+      const first = containers[0];
+      const TYPE_SPEED = parseFloat(first.dataset.typeSpeed ?? 0.07);
+      const TYPE_VARIANCE = parseFloat(first.dataset.typeVariance ?? 0.04);
+      const DELETE_SPEED = parseFloat(first.dataset.deleteSpeed ?? 0.04);
+      const PAUSE_AFTER_TYPE = parseFloat(first.dataset.pauseAfterType ?? 2.0);
+      const PAUSE_AFTER_DEL = parseFloat(first.dataset.pauseAfterDelete ?? 0.5);
+
+      // Флаг: анимация уже отыграла один раз, больше не запускать
+      let done = false;
+      // Флаг: сейчас идёт анимация
+      let running = false;
+
+      const instances = containers.map(container =>
+        initTypewriter(container, { externalControl: true })
+      );
+
+      const phraseCount = instances[0]?.phraseCount ?? 0;
+      if (phraseCount === 0) return;
+
+      // Вешаем слушатели на все input-ы группы
+      const inputEl = document.querySelector('.typewriter__input');
+      if (inputEl) {
+        inputEl.addEventListener('focus', () => {
+          if (done || running) return;
+          runOnce();
+        });
+      }
+
+      function getTypeDelay() {
+        return TYPE_SPEED + (Math.random() * 2 - 1) * TYPE_VARIANCE;
+      }
+
+      function sleep(seconds) {
+        return new Promise(resolve => setTimeout(resolve, seconds * 1000));
+      }
+
+      async function typeAll(phraseIndex) {
+        const steps = Math.max(...instances.map(inst => inst.getStepCount(phraseIndex)));
+
+        for (let i = 0; i < steps; i++) {
+          instances.forEach(inst => inst.typeStep(phraseIndex, i));
+          await sleep(getTypeDelay());
+        }
+      }
+
+      async function deleteAll(phraseIndex) {
+        const steps = Math.max(...instances.map(inst => inst.getStepCount(phraseIndex)));
+
+        for (let i = 0; i < steps; i++) {
+          instances.forEach(inst => inst.deleteStep());
+          await sleep(DELETE_SPEED);
+        }
+      }
+
+      function applyAll(phraseIndex) {
+        instances.forEach(inst => inst.applyPhrase(phraseIndex));
+      }
+
+      function clearAll() {
+        instances.forEach(inst => inst.clearSlots());
+      }
+
+      async function typeStopAll() {
+        await Promise.all(instances.map(inst => inst.typeStopText()));
+      }
+
+      // Показываем stop-text сразу при инициализации
+      async function showInitial() {
+        await typeStopAll();
+      }
+
+      // Один прогон всех фраз, потом возврат к stop-text
+      async function runOnce() {
+        running = true;
+
+        // Убираем stop-text
+        instances.forEach(inst => inst.clearSlots());
+
+        for (let index = 0; index < phraseCount; index++) {
+          clearAll();
+          applyAll(index);
+
+          await typeAll(index);
+          await sleep(PAUSE_AFTER_TYPE);
+          await deleteAll(index);
+          await sleep(PAUSE_AFTER_DEL);
+        }
+
+        // Возвращаем stop-text
+        clearAll();
+        await typeStopAll();
+
+        running = false;
+        done = true;
+      }
+
+      showInitial();
+    }
+
+    function initTypewriter(container, options = {}) {
+
+      const TYPE_SPEED = parseFloat(container.dataset.typeSpeed ?? 0.07);
+      const TYPE_VARIANCE = parseFloat(container.dataset.typeVariance ?? 0.04);
+      const DELETE_SPEED = parseFloat(container.dataset.deleteSpeed ?? 0.04);
+      const PAUSE_AFTER_TYPE = parseFloat(container.dataset.pauseAfterType ?? 2.0);
+      const PAUSE_AFTER_DEL = parseFloat(container.dataset.pauseAfterDelete ?? 0.5);
+
+      const STOP_TEXT = container.dataset.stopText ?? null;
+      const inputSelector = container.dataset.input ?? null;
+
+      const inputEl = inputSelector ? document.querySelector(inputSelector) : null;
+
+      const slots = Array.from(container.querySelectorAll('.typewriter__word')).map(el => ({
+        el,
+        words: el.dataset.words.split('|'),
+      }));
+
+      const phraseCount = slots[0]?.words.length ?? 0;
+      if (phraseCount === 0) return null;
+
+      // Флаг: анимация уже отыграла один раз, больше не запускать
+      let done = false;
+      // Флаг: сейчас идёт анимация
+      let running = false;
+
+      function getTypeDelay() {
+        return TYPE_SPEED + (Math.random() * 2 - 1) * TYPE_VARIANCE;
+      }
+
+      function sleep(seconds) {
+        return new Promise(resolve => setTimeout(resolve, seconds * 1000));
+      }
+
+      function clearSlots() {
+        slots.forEach(slot => {
+          slot.el.querySelectorAll('span').forEach(s => s.remove());
+        });
+      }
+
+      function applyPhrase(phraseIndex) {
+        slots.forEach(slot => {
+          slot.el.dataset.word = slot.words[phraseIndex] ?? '';
+        });
+      }
+
+      function getStepCount(phraseIndex) {
+        return Math.max(...slots.map(slot => (slot.words[phraseIndex] ?? '').length));
+      }
+
+      function prepareCursor(phraseIndex) {
+        const lastActive = [...slots].reverse().find(slot => slot.words[phraseIndex ?? 0]);
+        if (lastActive) moveCursorTo(lastActive.el);
+      }
+
+      function typeStep(phraseIndex, i) {
+        slots.forEach(slot => {
+          const word = slot.words[phraseIndex] ?? '';
+          if (i >= word.length) return;
+
+          const char = word[i];
+          const span = document.createElement('span');
+          span.innerHTML = char === ' ' ? '&nbsp;' : char;
+          slot.el.appendChild(span);
+        });
+      }
+
+      function deleteStep() {
+        slots.forEach(slot => {
+          const spans = slot.el.querySelectorAll('span');
+          if (spans.length === 0) return;
+          spans[spans.length - 1].remove();
+        });
+      }
+
+      async function typeStopText() {
+        if (!STOP_TEXT) return;
+
+        clearSlots();
+
+        for (const char of STOP_TEXT) {
+          const span = document.createElement('span');
+          span.innerHTML = char === ' ' ? '&nbsp;' : char;
+          slots[0].el.appendChild(span);
+
+          await sleep(getTypeDelay());
+        }
+      }
+
+      // Одиночный экземпляр без внешнего управления
+      if (!options.externalControl) {
+
+        async function typePhrase(phraseIndex) {
+          for (const slot of slots) {
+            const word = slot.words[phraseIndex] ?? '';
+            if (!word) continue;
+
+            for (let i = 0; i < word.length; i++) {
+              const char = word[i];
+              const span = document.createElement('span');
+              span.innerHTML = char === ' ' ? '&nbsp;' : char;
+              slot.el.appendChild(span);
+
+              await sleep(getTypeDelay());
+            }
+          }
+        }
+
+        async function deletePhrase(phraseIndex) {
+          for (const slot of [...slots].reverse()) {
+            const word = slot.words[phraseIndex] ?? '';
+            if (!word) continue;
+
+            const spans = Array.from(
+              slot.el.querySelectorAll('span')
+            ).reverse();
+
+            for (const span of spans) {
+              span.remove();
+              await sleep(DELETE_SPEED);
+            }
+          }
+        }
+
+        // Один прогон всех фраз, потом возврат к stop-text
+        async function runOnce() {
+          running = true;
+          clearSlots();
+          restoreCursor();
+
+          for (let index = 0; index < phraseCount; index++) {
+            clearSlots();
+            applyPhrase(index);
+
+            await typePhrase(index);
+            await sleep(PAUSE_AFTER_TYPE);
+            await deletePhrase(index);
+            await sleep(PAUSE_AFTER_DEL);
+          }
+
+          clearSlots();
+          await typeStopText();
+
+          running = false;
+          done = true;
+        }
+
+        // Показываем stop-text сразу при инициализации
+        typeStopText();
+
+        if (inputEl) {
+          inputEl.addEventListener('focus', () => {
+            if (done || running) return;
+            runOnce();
+          });
+        }
+      }
+
+      return {
+        phraseCount,
+        getStepCount,
+        prepareCursor,
+        typeStep,
+        deleteStep,
+        applyPhrase,
+        clearSlots,
+        typeStopText,
+      };
+    }
+
   })();
 
   /**

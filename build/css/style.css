@@ -184,18 +184,18 @@ li:last-child {
 }
 
 @font-face {
-  font-family: Inter;
-  font-display: swap;
-  src: url("../fonts/Inter-Thin.woff2") format("woff2"), url("../fonts/Inter-Thin.woff") format("woff");
-  font-weight: 100;
-  font-style: normal;
-}
-
-@font-face {
   font-family: Lobster;
   font-display: swap;
   src: url("../fonts/Lobster-Regular.woff2") format("woff2"), url("../fonts/Lobster-Regular.woff") format("woff");
   font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Inter;
+  font-display: swap;
+  src: url("../fonts/Inter-Thin.woff2") format("woff2"), url("../fonts/Inter-Thin.woff") format("woff");
+  font-weight: 100;
   font-style: normal;
 }
 
@@ -210,16 +210,16 @@ li:last-child {
 @font-face {
   font-family: PlayfairDisplay;
   font-display: swap;
-  src: url("../fonts/PlayfairDisplay-Bold.woff2") format("woff2"), url("../fonts/PlayfairDisplay-Bold.woff") format("woff");
-  font-weight: 700;
+  src: url("../fonts/PlayfairDisplay-ExtraBold.woff2") format("woff2"), url("../fonts/PlayfairDisplay-ExtraBold.woff") format("woff");
+  font-weight: 800;
   font-style: normal;
 }
 
 @font-face {
   font-family: PlayfairDisplay;
   font-display: swap;
-  src: url("../fonts/PlayfairDisplay-ExtraBold.woff2") format("woff2"), url("../fonts/PlayfairDisplay-ExtraBold.woff") format("woff");
-  font-weight: 800;
+  src: url("../fonts/PlayfairDisplay-Bold.woff2") format("woff2"), url("../fonts/PlayfairDisplay-Bold.woff") format("woff");
+  font-weight: 700;
   font-style: normal;
 }
 
@@ -234,16 +234,16 @@ li:last-child {
 @font-face {
   font-family: PlayfairDisplay;
   font-display: swap;
-  src: url("../fonts/PlayfairDisplay-SemiBold.woff2") format("woff2"), url("../fonts/PlayfairDisplay-SemiBold.woff") format("woff");
-  font-weight: 600;
+  src: url("../fonts/PlayfairDisplay-Regular.woff2") format("woff2"), url("../fonts/PlayfairDisplay-Regular.woff") format("woff");
+  font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: PlayfairDisplay;
   font-display: swap;
-  src: url("../fonts/PlayfairDisplay-Regular.woff2") format("woff2"), url("../fonts/PlayfairDisplay-Regular.woff") format("woff");
-  font-weight: 400;
+  src: url("../fonts/PlayfairDisplay-SemiBold.woff2") format("woff2"), url("../fonts/PlayfairDisplay-SemiBold.woff") format("woff");
+  font-weight: 600;
   font-style: normal;
 }
 
@@ -258,16 +258,16 @@ li:last-child {
 @font-face {
   font-family: Poppins;
   font-display: swap;
-  src: url("../fonts/Poppins-Bold.woff2") format("woff2"), url("../fonts/Poppins-Bold.woff") format("woff");
-  font-weight: 700;
+  src: url("../fonts/Poppins-ExtraBold.woff2") format("woff2"), url("../fonts/Poppins-ExtraBold.woff") format("woff");
+  font-weight: 800;
   font-style: normal;
 }
 
 @font-face {
   font-family: Poppins;
   font-display: swap;
-  src: url("../fonts/Poppins-ExtraBold.woff2") format("woff2"), url("../fonts/Poppins-ExtraBold.woff") format("woff");
-  font-weight: 800;
+  src: url("../fonts/Poppins-Bold.woff2") format("woff2"), url("../fonts/Poppins-Bold.woff") format("woff");
+  font-weight: 700;
   font-style: normal;
 }
 
@@ -322,16 +322,16 @@ li:last-child {
 @font-face {
   font-family: SFPro;
   font-display: swap;
-  src: url("../fonts/SFPro-Black.woff2") format("woff2"), url("../fonts/SFPro-Black.woff") format("woff");
-  font-weight: 900;
+  src: url("../fonts/SFPro-Bold.woff2") format("woff2"), url("../fonts/SFPro-Bold.woff") format("woff");
+  font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
   font-family: SFPro;
   font-display: swap;
-  src: url("../fonts/SFPro-Bold.woff2") format("woff2"), url("../fonts/SFPro-Bold.woff") format("woff");
-  font-weight: 700;
+  src: url("../fonts/SFPro-Black.woff2") format("woff2"), url("../fonts/SFPro-Black.woff") format("woff");
+  font-weight: 900;
   font-style: normal;
 }
 
@@ -354,16 +354,16 @@ li:last-child {
 @font-face {
   font-family: SFPro;
   font-display: swap;
-  src: url("../fonts/SFPro-Medium.woff2") format("woff2"), url("../fonts/SFPro-Medium.woff") format("woff");
-  font-weight: 500;
+  src: url("../fonts/SFPro-Regular.woff2") format("woff2"), url("../fonts/SFPro-Regular.woff") format("woff");
+  font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: SFPro;
   font-display: swap;
-  src: url("../fonts/SFPro-Regular.woff2") format("woff2"), url("../fonts/SFPro-Regular.woff") format("woff");
-  font-weight: 400;
+  src: url("../fonts/SFPro-Medium.woff2") format("woff2"), url("../fonts/SFPro-Medium.woff") format("woff");
+  font-weight: 500;
   font-style: normal;
 }
 
@@ -662,7 +662,8 @@ body {
   --container-width: 37.2rem;
   --header-height: 7.6rem;
   --wrapper-padding: 9.1rem;
-  --panel-height: 6.6rem;
+  --panel-btn-height: 6.6rem;
+  --panel-height: 8rem;
   --safe-area-top: env(safe-area-inset-top, 0px);
   --base-bg: #1A1A1A;
   --base-color: #EEF0ED;
@@ -712,6 +713,8 @@ body {
   --layout-block-address-color: #8B8C8B;
   --layout-block-address-link-color: #EEF0ED;
   --layout-block-ps-color: #D51216;
+  --layout-block-social-bg-color: #2F2F2E;
+  --layout-block-social-color: #D51216;
   --layout-time-bg-color: transparent;
   --layout-time-border-color: #313330;
   --layout-time-i-color: #D51216;
@@ -872,6 +875,8 @@ body {
   --offers-layout-block-text-color: #888A87;
   --rassadka-layout-block-title-color: #D51216;
   --rassadka-layout-block-text-span-color: #8B8C8B80;
+  --dish-layout-banner-link-i-bg-color: #FDF6EC;
+  --dish-layout-banner-link-i-color: #D71920;
   --popup-bg: #1A1A1A;
   --accent: #D51216;
   --white: #FFFFFF;
@@ -1846,6 +1851,23 @@ body {
   padding: 0 3.5rem 0 4.8rem;
 }
 
+.layout__search .form-input.filled + .form-label {
+  opacity: 0;
+}
+
+.layout__search .form-label {
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: auto;
+  height: 100%;
+  -webkit-transition: 0.1s;
+  transition: 0.1s;
+  position: absolute;
+  top: 0;
+  left: 4.8rem;
+}
+
 .layout__inner {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1860,11 +1882,10 @@ body {
 
 .layout__title {
   font-family: var(--third-family);
-  color: var(--layout-title-color);
 }
 
 .layout__title * {
-  font-size: 3.2rem;
+  font-size: 3.7rem;
   line-height: 100%;
 }
 
@@ -2210,7 +2231,7 @@ body {
   right: 0;
   left: 0;
   z-index: 10;
-  height: 15rem;
+  height: 17rem;
   -webkit-transform: translateY(100%);
   -ms-transform: translateY(100%);
   transform: translateY(100%);
@@ -2551,6 +2572,47 @@ html[lang=en] .layout__block-item[data-lang=en] {
   color: var(--layout-block-ps-color);
 }
 
+.layout__block-social {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.layout__block-social a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  background-color: var(--layout-block-social-bg-color);
+  overflow: hidden;
+  color: var(--layout-block-social-color);
+}
+
+.layout__block-social i {
+  font-size: 6rem;
+}
+
+.layout__block-social i.icon-vk {
+  font-size: 5rem;
+}
+
 .layout__list {
   opacity: 0.5;
 }
@@ -2778,6 +2840,10 @@ html[lang=en] .layout__block-item[data-lang=en] {
   position: absolute;
   bottom: 2rem;
   left: 2rem;
+}
+
+.layout__banner-link img {
+  height: 100%;
 }
 
 .layout__form {
@@ -3613,7 +3679,7 @@ html.popup-open .scrollup__btn--hidden {
 
 .stories-img {
   width: 100%;
-  height: auto;
+  height: 100%;
   -o-object-fit: contain;
   object-fit: contain;
   display: block;
@@ -3622,7 +3688,6 @@ html.popup-open .scrollup__btn--hidden {
   transition: opacity 0.3s ease;
   position: absolute;
   inset: 0;
-  margin: auto;
 }
 
 .stories-img.is-visible {
@@ -3893,6 +3958,11 @@ p {
 
 .call--success .layout__head {
   padding-top: 3rem;
+}
+
+.call--success .layout__head-title {
+  max-width: 32rem;
+  margin: 0 auto;
 }
 
 .call--success .layout__block {
@@ -4447,6 +4517,11 @@ p {
   gap: 1.5rem;
 }
 
+.dish .layout__banner-link i {
+  background-color: var(--dish-layout-banner-link-i-bg-color);
+  color: var(--dish-layout-banner-link-i-color);
+}
+
 .dish .btn {
   font-weight: 700;
 }
@@ -4457,7 +4532,7 @@ p {
 }
 
 .favorite .card__like i::before {
-  content: "\e935";
+  content: "\e936";
 }
 
 .filter .layout__inner {
@@ -4918,16 +4993,12 @@ p {
   text-align: center;
 }
 
-.offers .layout__banner-link {
-  grid-column: 1/3;
-}
-
-.offers .layout__banner-link:nth-child(1) {
-  grid-column: 1/2;
-}
-
-.offers .layout__banner-link:nth-child(2) {
-  grid-column: 2/3;
+.offers .layout__head-cover img {
+  width: 100%;
+  height: auto;
+  min-height: 100%;
+  -o-object-fit: contain;
+  object-fit: contain;
 }
 
 .offers .layout__block-text {
@@ -4943,6 +5014,18 @@ p {
   font-weight: 400;
   font-size: 3rem;
   line-height: 140%;
+}
+
+.offers .layout__banner-link {
+  grid-column: 1/3;
+}
+
+.offers .layout__banner-link:nth-child(1) {
+  grid-column: 1/2;
+}
+
+.offers .layout__banner-link:nth-child(2) {
+  grid-column: 2/3;
 }
 
 .panel {
@@ -5013,9 +5096,10 @@ p {
   -webkit-box-direction: normal;
   -ms-flex-direction: row;
   flex-direction: row;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  gap: 2.4rem;
   height: 100%;
 }
 
@@ -5036,7 +5120,7 @@ p {
   gap: 0.3rem;
   width: auto;
   min-width: 4rem;
-  height: var(--panel-height);
+  height: var(--panel-btn-height);
   padding: 0.8em 0 1.2rem;
   position: relative;
   color: var(--black);

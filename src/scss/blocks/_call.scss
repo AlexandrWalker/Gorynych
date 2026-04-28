@@ -44,6 +44,11 @@
 
       &__head {
         padding-top: 3rem;
+
+        &-title {
+          max-width: 32rem;
+          margin: 0 auto;
+        }
       }
 
       &__block {
