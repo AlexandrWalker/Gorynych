@@ -165,7 +165,7 @@
   height: 100vh;
   height: 100dvh;
   background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(10.2px);
+  // backdrop-filter: blur(10.2px);
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.3s ease;
@@ -173,6 +173,19 @@
   position: fixed;
   top: 0;
   left: 0;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    backdrop-filter: blur(10.2px);
+    transition: opacity 0.3s ease;
+    opacity: 1;
+  }
+
+  &.is-scrolling::before {
+    opacity: 0;
+  }
 }
 
 #popup-overlay-base {
