@@ -11,21 +11,21 @@
   left: 1rem;
   bottom: 11.1rem;
 
-  .popup-open &,
+  @include domd {
+    display: none;
+  }
+
   &-visible {
     opacity: 1;
     visibility: visible;
     pointer-events: all;
   }
 
-  @include domd {
-    display: none;
+  .popup-open & {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
   }
-
-  // .popup-open & {
-  //   opacity: 0;
-  //   visibility: hidden;
-  // }
 
   &__btn {
     display: flex;
