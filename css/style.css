@@ -184,18 +184,18 @@ li:last-child {
 }
 
 @font-face {
-  font-family: Lobster;
-  font-display: swap;
-  src: url("../fonts/Lobster-Regular.woff2") format("woff2"), url("../fonts/Lobster-Regular.woff") format("woff");
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
   font-family: Inter;
   font-display: swap;
   src: url("../fonts/Inter-Thin.woff2") format("woff2"), url("../fonts/Inter-Thin.woff") format("woff");
   font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Lobster;
+  font-display: swap;
+  src: url("../fonts/Lobster-Regular.woff2") format("woff2"), url("../fonts/Lobster-Regular.woff") format("woff");
+  font-weight: 400;
   font-style: normal;
 }
 
@@ -210,16 +210,16 @@ li:last-child {
 @font-face {
   font-family: PlayfairDisplay;
   font-display: swap;
-  src: url("../fonts/PlayfairDisplay-ExtraBold.woff2") format("woff2"), url("../fonts/PlayfairDisplay-ExtraBold.woff") format("woff");
-  font-weight: 800;
+  src: url("../fonts/PlayfairDisplay-Bold.woff2") format("woff2"), url("../fonts/PlayfairDisplay-Bold.woff") format("woff");
+  font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
   font-family: PlayfairDisplay;
   font-display: swap;
-  src: url("../fonts/PlayfairDisplay-Bold.woff2") format("woff2"), url("../fonts/PlayfairDisplay-Bold.woff") format("woff");
-  font-weight: 700;
+  src: url("../fonts/PlayfairDisplay-ExtraBold.woff2") format("woff2"), url("../fonts/PlayfairDisplay-ExtraBold.woff") format("woff");
+  font-weight: 800;
   font-style: normal;
 }
 
@@ -258,16 +258,16 @@ li:last-child {
 @font-face {
   font-family: Poppins;
   font-display: swap;
-  src: url("../fonts/Poppins-ExtraBold.woff2") format("woff2"), url("../fonts/Poppins-ExtraBold.woff") format("woff");
-  font-weight: 800;
+  src: url("../fonts/Poppins-Bold.woff2") format("woff2"), url("../fonts/Poppins-Bold.woff") format("woff");
+  font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
   font-family: Poppins;
   font-display: swap;
-  src: url("../fonts/Poppins-Bold.woff2") format("woff2"), url("../fonts/Poppins-Bold.woff") format("woff");
-  font-weight: 700;
+  src: url("../fonts/Poppins-ExtraBold.woff2") format("woff2"), url("../fonts/Poppins-ExtraBold.woff") format("woff");
+  font-weight: 800;
   font-style: normal;
 }
 
@@ -322,16 +322,16 @@ li:last-child {
 @font-face {
   font-family: SFPro;
   font-display: swap;
-  src: url("../fonts/SFPro-Bold.woff2") format("woff2"), url("../fonts/SFPro-Bold.woff") format("woff");
-  font-weight: 700;
+  src: url("../fonts/SFPro-Black.woff2") format("woff2"), url("../fonts/SFPro-Black.woff") format("woff");
+  font-weight: 900;
   font-style: normal;
 }
 
 @font-face {
   font-family: SFPro;
   font-display: swap;
-  src: url("../fonts/SFPro-Black.woff2") format("woff2"), url("../fonts/SFPro-Black.woff") format("woff");
-  font-weight: 900;
+  src: url("../fonts/SFPro-Bold.woff2") format("woff2"), url("../fonts/SFPro-Bold.woff") format("woff");
+  font-weight: 700;
   font-style: normal;
 }
 
@@ -354,16 +354,16 @@ li:last-child {
 @font-face {
   font-family: SFPro;
   font-display: swap;
-  src: url("../fonts/SFPro-Regular.woff2") format("woff2"), url("../fonts/SFPro-Regular.woff") format("woff");
-  font-weight: 400;
+  src: url("../fonts/SFPro-Medium.woff2") format("woff2"), url("../fonts/SFPro-Medium.woff") format("woff");
+  font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
   font-family: SFPro;
   font-display: swap;
-  src: url("../fonts/SFPro-Medium.woff2") format("woff2"), url("../fonts/SFPro-Medium.woff") format("woff");
-  font-weight: 500;
+  src: url("../fonts/SFPro-Regular.woff2") format("woff2"), url("../fonts/SFPro-Regular.woff") format("woff");
+  font-weight: 400;
   font-style: normal;
 }
 
@@ -1865,7 +1865,7 @@ body {
   transition: 0.1s;
   position: absolute;
   top: 0;
-  left: 4.8rem;
+  left: 5rem;
 }
 
 .layout__inner {
@@ -4386,6 +4386,11 @@ p {
   color: var(--contacts-layout-block-mode-color);
 }
 
+.contacts .dropdown__selected,
+.contacts .dropdown__content {
+  border-radius: 1.2rem;
+}
+
 .dish {
   --dish-head-progress: 0;
   --dish-head-height-from: 24.8rem;
@@ -5329,7 +5334,7 @@ p {
   -webkit-box-flex: 1;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
-  padding-bottom: 10rem;
+  padding-bottom: 11rem;
   overflow-y: auto;
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -5528,11 +5533,10 @@ p {
   -webkit-transition: opacity 0.3s ease;
   transition: opacity 0.3s ease;
   opacity: 1;
-}
-
-#popup-overlay-base.is-scrolling::before,
-#popup-overlay.is-scrolling::before {
-  opacity: 0;
+  pointer-events: none;
+  will-change: opacity;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
 }
 
 #popup-overlay-base {
