@@ -346,35 +346,35 @@ document.addEventListener('DOMContentLoaded', () => {
         const topZ = parseInt(stack[stack.length - 1].style.zIndex);
 
         // Базовый оверлей — всегда под первым попапом, появляется сразу
-        overlayBase.style.transition = `opacity \${duration}s ease`;
+        overlayBase.style.transition = `opacity ${duration}s ease`;
         overlayBase.style.zIndex = firstZ - 1;
         overlayBase.style.opacity = '1';
 
         if (stack.length > 1) {
           // Второй оверлей — плавно перемещаем под верхний
           // z-index меняем мгновенно пока opacity = 0
-          overlay.style.transition = 'none';
+          // overlay.style.transition = 'none';
           overlay.style.opacity = '0';
           overlay.style.zIndex = topZ - 1;
 
           pendingOverlayRaf = requestAnimationFrame(() => {
             pendingOverlayRaf = requestAnimationFrame(() => {
               pendingOverlayRaf = null;
-              overlay.style.transition = `opacity \${duration}s ease`;
+              overlay.style.transition = `opacity ${duration}s ease`;
               overlay.style.opacity = '1';
             });
           });
         } else {
-          overlay.style.transition = `opacity \${duration}s ease`;
+          overlay.style.transition = `opacity ${duration}s ease`;
           overlay.style.opacity = '0';
         }
 
       } else {
-        overlay.style.transition = `opacity \${duration}s ease`;
+        overlay.style.transition = `opacity ${duration}s ease`;
         overlay.style.opacity = '0';
         overlay.style.pointerEvents = 'none';
 
-        overlayBase.style.transition = `opacity \${duration}s ease`;
+        overlayBase.style.transition = `opacity ${duration}s ease`;
         overlayBase.style.opacity = '0';
         overlayBase.style.pointerEvents = 'none';
       }
@@ -465,7 +465,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // rAF гарантирует, что visibility:visible уже применена браузером
       // до начала CSS transition (иначе анимация "съедается" в Safari/FF)
       requestAnimationFrame(() => {
-        popup.style.transition = `top \${POPUP_ANIM_DURATION}s ease, opacity \${POPUP_ANIM_DURATION}s ease`;
+        popup.style.transition = `top ${POPUP_ANIM_DURATION}s ease, opacity ${POPUP_ANIM_DURATION}s ease`;
         popup.style.top = '0';
         popup.style.opacity = '1';
         updateOverlay(true, POPUP_ANIM_DURATION);
@@ -519,13 +519,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Фаза 1: попап быстро уходит чуть вверх
       const upDuration = 0.12;
-      popup.style.transition = `top \${upDuration}s ease`;
+      popup.style.transition = `top ${upDuration}s ease`;
       popup.style.top = '-2rem';
 
       setTimeout(() => {
         // Фаза 2: возвращается на место - как будто только что открылся
         const downDuration = 0.2;
-        popup.style.transition = `top \${downDuration}s ease`;
+        popup.style.transition = `top ${downDuration}s ease`;
         popup.style.top = '0';
 
         setTimeout(() => {
@@ -559,7 +559,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // Линейная интерполяция времени анимации по скорости свайпа
       const duration = Math.max(0.2, Math.min(0.6, POPUP_ANIM_DURATION - velocity));
 
-      popup.style.transition = `top \${duration}s ease, opacity \${duration}s ease`;
+      popup.style.transition = `top ${duration}s ease, opacity ${duration}s ease`;
       popup.style.top = '100%';
       popup.style.opacity = '0';
 
@@ -608,7 +608,7 @@ document.addEventListener('DOMContentLoaded', () => {
       stack.splice(idx, 1);
 
       const duration = POPUP_ANIM_DURATION;
-      popup.style.transition = `top \${duration}s ease, opacity \${duration}s ease`;
+      popup.style.transition = `top ${duration}s ease, opacity ${duration}s ease`;
       popup.style.top = '100%';
       popup.style.opacity = '0';
 
@@ -645,7 +645,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const toClose = stack.splice(0);
 
       toClose.forEach(popup => {
-        popup.style.transition = `top \${POPUP_ANIM_DURATION}s ease, opacity \${POPUP_ANIM_DURATION}s ease`;
+        popup.style.transition = `top ${POPUP_ANIM_DURATION}s ease, opacity ${POPUP_ANIM_DURATION}s ease`;
         popup.style.top = '100%';
         popup.style.opacity = '0';
 
@@ -841,7 +841,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Отключаем transition во время тяги - попап должен следовать мгновенно
         popup.style.transition = 'none';
-        popup.style.top = `\${delta}px`;
+        popup.style.top = `${delta}px`;
 
         // Оверлей темнеет -- светлеет пропорционально смещению (от 1 до 0)
         // overlay.style.opacity = 1 - Math.min(delta / popup.offsetHeight, 1);
@@ -880,7 +880,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
           // Недостаточный свайп -- пружина: возвращаем попап на место
           const d = 0.3;
-          popup.style.transition = `top \${d}s ease, opacity \${d}s ease`;
+          popup.style.transition = `top ${d}s ease, opacity ${d}s ease`;
           popup.style.top = '0';
           updateOverlay(true, d);
         }
@@ -1026,7 +1026,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let scrollBlurTimer = null;
 
     document.addEventListener('scroll', e => {
-      if (!(e.target instanceof Element)) return; 
+      if (!(e.target instanceof Element)) return;
       const scrollable = e.target.closest('[data-popup-scroll]');
       if (!scrollable) return;
 
@@ -1667,32 +1667,58 @@ document.addEventListener('DOMContentLoaded', () => {
           const dataValue = radio.dataset.city;
           const value = radio.value;
 
+          // Обновляем UI в текущем dropdown
           if (selectedLabelJs) selectedLabelJs.textContent = value;
           if (selectedInputJs) selectedInputJs.value = value;
           if (dropdownValue) dropdownValue.value = value;
 
           // Только для dropdown с городами
           if (isCityDropdown) {
-            // html.setAttribute('data-city', dataValue);
+            // 1) Синхронизируем ВСЕ js-city-dropdown:
+            // меняем текст и input, а также отмечаем нужную радиокнопку в каждом dropdown
+            const allCityDropdowns = document.querySelectorAll('.dropdown--js.js-city-dropdown');
 
-            const contacts = document.getElementById('contacts');
-            const layoutBody = contacts.querySelector('.layout__body');
+            allCityDropdowns.forEach(cityDropdown => {
+              const label = cityDropdown.querySelector('.dropdown__selected-label--js');
+              const input = cityDropdown.querySelector('.dropdown__selected-input--js');
+              const hiddenValue = cityDropdown.querySelector('.dropdown__value');
 
-            // Находим все блоки внутри layoutBody
-            const allBlocks = layoutBody.querySelectorAll('.layout__block');
+              if (label) label.textContent = value;
+              if (input) input.value = value;
+              if (hiddenValue) hiddenValue.value = value;
 
-            // Скрываем все блоки
-            allBlocks.forEach(block => {
-              block.style.display = 'none';
+              // Отмечаем нужную радиокнопку в каждом dropdown по data-city
+              const cityRadios = cityDropdown.querySelectorAll('.dropdown__radio');
+              cityRadios.forEach(r => {
+                // dataset.city хранит код города, который мы и используем для синхронизации
+                if (r.dataset.city === dataValue) {
+                  r.checked = true;
+                }
+              });
             });
 
-            // Находим нужный блок по data-city
-            const thisLayoutBlock = layoutBody.querySelector(`[data-city="${dataValue}"]`);
+            // 2) Обновляем лэйауты по data-city
+            const dataDropdowns = document.querySelectorAll('[data-dropdown]');
+            dataDropdowns.forEach(dataDropdown => {
+              const layoutBody = dataDropdown.querySelector('.layout__body');
+              if (!layoutBody) return;
 
-            if (thisLayoutBlock) {
-              layoutBody.classList.add('checked');
-              thisLayoutBlock.style.display = 'flex';
-            }
+              // Находим все блоки внутри layoutBody
+              const allBlocks = layoutBody.querySelectorAll('.layout__block');
+
+              // Скрываем все блоки
+              allBlocks.forEach(block => {
+                block.style.display = 'none';
+              });
+
+              // Находим нужный блок по data-city
+              const thisLayoutBlock = layoutBody.querySelector(`[data-city="${dataValue}"]`);
+
+              if (thisLayoutBlock) {
+                layoutBody.classList.add('checked');
+                thisLayoutBlock.style.display = 'flex';
+              }
+            });
           }
 
           dropdown.classList.remove('is-active');
@@ -3434,7 +3460,7 @@ document.addEventListener('DOMContentLoaded', () => {
  */
 function checkCookies() {
   const expires = new Date(Date.now() + 86400e3 * 365).toUTCString();
-  document.cookie = `COOKIE_ACCEPT=1;path=/;expires=\${expires}`;
+  document.cookie = `COOKIE_ACCEPT=1;path=/;expires=${expires}`;
 
   const plate = document.getElementById('plate-cookie');
   if (!plate) return;

@@ -8,7 +8,7 @@
 
 [data-popup-scroll] {
   flex: 1 1 auto;
-  padding-bottom: 10rem;
+  padding-bottom: 11rem;
 
   overflow-y: auto;
   scrollbar-width: none;
@@ -181,10 +181,15 @@
     backdrop-filter: blur(10.2px);
     transition: opacity 0.3s ease;
     opacity: 1;
+    pointer-events: none;
+
+    will-change: opacity;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
   }
 
   &.is-scrolling::before {
-    opacity: 0;
+    // opacity: 0;
   }
 }
 
