@@ -3098,6 +3098,50 @@ document.addEventListener('DOMContentLoaded', () => {
    */
   (function () {
 
+    // Возвращает Promise который резолвится только когда одновременно:
+    // 1. #welcome отсутствует в DOM
+    // 2. <html> не имеет класса popup-open
+    // Если оба условия выполнены сразу — резолвится немедленно.
+    function waitForReadyToType() {
+      return new Promise(resolve => {
+
+        function isReady() {
+          const noWelcome = !document.getElementById('welcome');
+          const noPopup = !document.documentElement.classList.contains('popup-open');
+          return noWelcome && noPopup;
+        }
+
+        // Уже готово — резолвимся сразу
+        if (isReady()) {
+          resolve();
+          return;
+        }
+
+        // Следим за удалением #welcome из DOM (childList)
+        // и за изменением классов на <html> (attributes)
+        // через один общий observer
+        const observer = new MutationObserver(() => {
+          if (isReady()) {
+            observer.disconnect();
+            resolve();
+          }
+        });
+
+        // subtree: true — ловим удаление #welcome на любой глубине
+        observer.observe(document.body, {
+          childList: true,
+          subtree: true,
+        });
+
+        // Отдельно следим за атрибутом class на <html>
+        // потому что <html> не является потомком document.body
+        observer.observe(document.documentElement, {
+          attributes: true,
+          attributeFilter: ['class'],
+        });
+      });
+    }
+
     const groupMap = new Map();
 
     document.querySelectorAll('.typewriter').forEach(container => {
@@ -3137,13 +3181,21 @@ document.addEventListener('DOMContentLoaded', () => {
       if (phraseCount === 0) return;
 
       // Вешаем слушатели на все input-ы группы
-      const inputEl = document.querySelector('.typewriter__input');
-      if (inputEl) {
-        inputEl.addEventListener('focus', () => {
+      // const inputEl = document.querySelector('.typewriter__input');
+      // if (inputEl) {
+      //   inputEl.addEventListener('focus', () => {
+      //     if (done || running) return;
+      //     runOnce();
+      //   });
+      // }
+      const START_DELAY = parseFloat(first.dataset.startDelay ?? 3) * 1000;
+
+      waitForReadyToType().then(() => {
+        setTimeout(() => {
           if (done || running) return;
           runOnce();
-        });
-      }
+        }, START_DELAY);
+      });
 
       function getTypeDelay() {
         return TYPE_SPEED + (Math.random() * 2 - 1) * TYPE_VARIANCE;
@@ -3366,12 +3418,20 @@ document.addEventListener('DOMContentLoaded', () => {
         // Показываем stop-text сразу при инициализации
         typeStopText();
 
-        if (inputEl) {
-          inputEl.addEventListener('focus', () => {
+        // if (inputEl) {
+        //   inputEl.addEventListener('focus', () => {
+        //     if (done || running) return;
+        //     runOnce();
+        //   });
+        // }
+        const START_DELAY = parseFloat(container.dataset.startDelay ?? 3) * 1000;
+
+        waitForReadyToType().then(() => {
+          setTimeout(() => {
             if (done || running) return;
             runOnce();
-          });
-        }
+          }, START_DELAY);
+        });
       }
 
       return {
