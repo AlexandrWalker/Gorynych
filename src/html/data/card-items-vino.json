@@ -1,7 +1,7 @@
 [
   {
     "dish": "togo-cocktail",
-    "tags": "<div class=\"card__tags-item card__tags-top\"><i class=\"icon-top\"></i>Топчик</div>",
+    "tags": "<div class=\"card__tags-item card__tags-top\"><i class=\"icon-top\"></i>Топ</div>",
     "img": "./../../images/temp/vino.png",
     "rating": "4.8",
     "name": "Вино красное полусухое Besini alazani valley, Грузия",
@@ -14,7 +14,7 @@
   },
   {
     "dish": "togo-cocktail",
-    "tags": "<div class=\"card__tags-item card__tags-top\"><i class=\"icon-top\"></i>Топчик</div>",
+    "tags": "<div class=\"card__tags-item card__tags-top\"><i class=\"icon-top\"></i>Топ</div>",
     "img": "./../../images/temp/vino.png",
     "rating": "4.8",
     "name": "Вино красное полусухое Besini alazani valley, Грузия",

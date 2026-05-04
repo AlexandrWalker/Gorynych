@@ -10,7 +10,7 @@
   },
   {
     "dish": "aclo-cocktail",
-    "tags": "<div class=\"card__tags-item card__tags-top\"><i class=\"icon-top\"></i>Топчик</div>",
+    "tags": "<div class=\"card__tags-item card__tags-top\"><i class=\"icon-top\"></i>Топ</div>",
     "img": "./../../images/temp/cocktails-2.png",
     "rating": "4.8",
     "name": "Название фабричного напитка",
@@ -19,7 +19,7 @@
   },
   {
     "dish": "fabric-cocktail",
-    "tags": "<div class=\"card__tags-item card__tags-top\"><i class=\"icon-top\"></i>Топчик</div>",
+    "tags": "<div class=\"card__tags-item card__tags-top\"><i class=\"icon-top\"></i>Топ</div>",
     "img": "./../../images/temp/cocktails-3.png",
     "rating": "4.8",
     "name": "Название фабричного напитка",

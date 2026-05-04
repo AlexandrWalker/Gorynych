@@ -3098,10 +3098,6 @@ document.addEventListener('DOMContentLoaded', () => {
    */
   (function () {
 
-    // Возвращает Promise который резолвится только когда одновременно:
-    // 1. #welcome отсутствует в DOM
-    // 2. <html> не имеет класса popup-open
-    // Если оба условия выполнены сразу — резолвится немедленно.
     function waitForReadyToType() {
       return new Promise(resolve => {
 
@@ -3111,15 +3107,11 @@ document.addEventListener('DOMContentLoaded', () => {
           return noWelcome && noPopup;
         }
 
-        // Уже готово — резолвимся сразу
         if (isReady()) {
           resolve();
           return;
         }
 
-        // Следим за удалением #welcome из DOM (childList)
-        // и за изменением классов на <html> (attributes)
-        // через один общий observer
         const observer = new MutationObserver(() => {
           if (isReady()) {
             observer.disconnect();
@@ -3127,14 +3119,11 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         });
 
-        // subtree: true — ловим удаление #welcome на любой глубине
         observer.observe(document.body, {
           childList: true,
           subtree: true,
         });
 
-        // Отдельно следим за атрибутом class на <html>
-        // потому что <html> не является потомком document.body
         observer.observe(document.documentElement, {
           attributes: true,
           attributeFilter: ['class'],
@@ -3142,7 +3131,38 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
+    function waitForPopupShowed() {
+      return new Promise(resolve => {
+        function isShowed() {
+          return document.documentElement.classList.contains('popup-showed');
+        }
+
+        if (isShowed()) {
+          resolve();
+          return;
+        }
+
+        const observer = new MutationObserver(() => {
+          if (isShowed()) {
+            observer.disconnect();
+            resolve();
+          }
+        });
+
+        observer.observe(document.documentElement, {
+          attributes: true,
+          attributeFilter: ['class'],
+        });
+      });
+    }
+
+    function isInsideSearchPopup(container) {
+      if (!container) return false;
+      return !!container.closest('#search');
+    }
+
     const groupMap = new Map();
+    const startedPopupContainers = new WeakSet();
 
     document.querySelectorAll('.typewriter').forEach(container => {
       const group = container.dataset.syncGroup;
@@ -3151,15 +3171,20 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!groupMap.has(group)) groupMap.set(group, []);
         groupMap.get(group).push(container);
       } else {
-        initTypewriter(container);
+        initTypewriter(container, { externalControl: false });
       }
     });
 
     groupMap.forEach(containers => {
-      initSyncGroup(containers);
+      const first = containers[0];
+      const groupIsInPopup = isInsideSearchPopup(first);
+
+      initSyncGroup(containers, {
+        startInPopupOnly: groupIsInPopup,
+      });
     });
 
-    function initSyncGroup(containers) {
+    function initSyncGroup(containers, options = {}) {
 
       const first = containers[0];
       const TYPE_SPEED = parseFloat(first.dataset.typeSpeed ?? 0.07);
@@ -3168,9 +3193,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const PAUSE_AFTER_TYPE = parseFloat(first.dataset.pauseAfterType ?? 2.0);
       const PAUSE_AFTER_DEL = parseFloat(first.dataset.pauseAfterDelete ?? 0.5);
 
-      // Флаг: анимация уже отыграла один раз, больше не запускать
       let done = false;
-      // Флаг: сейчас идёт анимация
       let running = false;
 
       const instances = containers.map(container =>
@@ -3180,22 +3203,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const phraseCount = instances[0]?.phraseCount ?? 0;
       if (phraseCount === 0) return;
 
-      // Вешаем слушатели на все input-ы группы
-      // const inputEl = document.querySelector('.typewriter__input');
-      // if (inputEl) {
-      //   inputEl.addEventListener('focus', () => {
-      //     if (done || running) return;
-      //     runOnce();
-      //   });
-      // }
       const START_DELAY = parseFloat(first.dataset.startDelay ?? 3) * 1000;
-
-      waitForReadyToType().then(() => {
-        setTimeout(() => {
-          if (done || running) return;
-          runOnce();
-        }, START_DELAY);
-      });
 
       function getTypeDelay() {
         return TYPE_SPEED + (Math.random() * 2 - 1) * TYPE_VARIANCE;
@@ -3235,16 +3243,13 @@ document.addEventListener('DOMContentLoaded', () => {
         await Promise.all(instances.map(inst => inst.typeStopText()));
       }
 
-      // Показываем stop-text сразу при инициализации
       async function showInitial() {
         await typeStopAll();
       }
 
-      // Один прогон всех фраз, потом возврат к stop-text
       async function runOnce() {
         running = true;
 
-        // Убираем stop-text
         instances.forEach(inst => inst.clearSlots());
 
         for (let index = 0; index < phraseCount; index++) {
@@ -3257,7 +3262,6 @@ document.addEventListener('DOMContentLoaded', () => {
           await sleep(PAUSE_AFTER_DEL);
         }
 
-        // Возвращаем stop-text
         clearAll();
         await typeStopAll();
 
@@ -3266,6 +3270,28 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       showInitial();
+
+      function getStartPromise() {
+        if (options.startInPopupOnly) {
+          return waitForPopupShowed().then(() => {
+            if (startedPopupContainers.has(first)) return null;
+            startedPopupContainers.add(first);
+            return true;
+          });
+        }
+
+        return waitForReadyToType().then(() => true);
+      }
+
+      getStartPromise().then(canStart => {
+        if (!canStart) return;
+        if (done || running) return;
+
+        setTimeout(() => {
+          if (done || running) return;
+          runOnce();
+        }, START_DELAY);
+      });
     }
 
     function initTypewriter(container, options = {}) {
@@ -3289,9 +3315,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const phraseCount = slots[0]?.words.length ?? 0;
       if (phraseCount === 0) return null;
 
-      // Флаг: анимация уже отыграла один раз, больше не запускать
       let done = false;
-      // Флаг: сейчас идёт анимация
       let running = false;
 
       function getTypeDelay() {
@@ -3320,7 +3344,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
       function prepareCursor(phraseIndex) {
         const lastActive = [...slots].reverse().find(slot => slot.words[phraseIndex ?? 0]);
-        if (lastActive) moveCursorTo(lastActive.el);
+        // if (lastActive) moveCursorTo(lastActive.el);
+        if (lastActive && typeof moveCursorTo === 'function') moveCursorTo(lastActive.el);
       }
 
       function typeStep(phraseIndex, i) {
@@ -3357,7 +3382,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
 
-      // Одиночный экземпляр без внешнего управления
       if (!options.externalControl) {
 
         async function typePhrase(phraseIndex) {
@@ -3392,11 +3416,10 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         }
 
-        // Один прогон всех фраз, потом возврат к stop-text
         async function runOnce() {
           running = true;
           clearSlots();
-          restoreCursor();
+          if (typeof restoreCursor === 'function') restoreCursor();
 
           for (let index = 0; index < phraseCount; index++) {
             clearSlots();
@@ -3418,20 +3441,72 @@ document.addEventListener('DOMContentLoaded', () => {
         // Показываем stop-text сразу при инициализации
         typeStopText();
 
-        // if (inputEl) {
-        //   inputEl.addEventListener('focus', () => {
-        //     if (done || running) return;
-        //     runOnce();
-        //   });
-        // }
         const START_DELAY = parseFloat(container.dataset.startDelay ?? 3) * 1000;
+        const isInSearchPopup = isInsideSearchPopup(container);
 
-        waitForReadyToType().then(() => {
+        function tryStartOnce() {
+          if (!isInSearchPopup) return;
+          if (startedPopupContainers.has(container)) return;
+
+          startedPopupContainers.add(container);
+
           setTimeout(() => {
             if (done || running) return;
             runOnce();
           }, START_DELAY);
-        });
+        }
+
+        if (isInSearchPopup) {
+
+          // ВАЖНО: #search может появляться позже.
+          // Поэтому не делаем return, если элемента ещё нет.
+          function setupSearchObserver(searchPopup) {
+            if (!searchPopup) return;
+
+            if (searchPopup.classList.contains('popup-showed')) {
+              tryStartOnce();
+              return;
+            }
+
+            const mo = new MutationObserver(() => {
+              if (searchPopup.classList.contains('popup-showed')) {
+                tryStartOnce();
+                mo.disconnect();
+              }
+            });
+
+            mo.observe(searchPopup, {
+              attributes: true,
+              attributeFilter: ['class'],
+            });
+          }
+
+          const existingSearchPopup = document.getElementById('search');
+          if (existingSearchPopup) {
+            setupSearchObserver(existingSearchPopup);
+          } else {
+            const moExist = new MutationObserver(() => {
+              const sp = document.getElementById('search');
+              if (sp) {
+                moExist.disconnect();
+                setupSearchObserver(sp);
+              }
+            });
+
+            moExist.observe(document.body, {
+              childList: true,
+              subtree: true,
+            });
+          }
+
+        } else {
+          waitForReadyToType().then(() => {
+            setTimeout(() => {
+              if (done || running) return;
+              runOnce();
+            }, START_DELAY);
+          });
+        }
       }
 
       return {

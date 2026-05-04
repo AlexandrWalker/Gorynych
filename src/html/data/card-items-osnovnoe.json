@@ -2,7 +2,7 @@
   {
     "dish": "hot",
     "img": "./../../images/temp/salads-1.png",
-    "tags": "<div class=\"card__tags-item card__tags-top\"><i class=\"icon-top\"></i>Топчик</div><div class=\"card__tags-item card__tags-hot\"><i class=\"icon-hot\"></i>Островато</div><div class=\"card__tags-item card__tags-vega\"><i class=\"icon-vega\"></i>Вега</div><div class=\"card__tags-item card__tags-chef\"><i class=\"icon-chef\"></i>Любовь шефа</div>",
+    "tags": "<div class=\"card__tags-item card__tags-top\"><i class=\"icon-top\"></i>Топ</div><div class=\"card__tags-item card__tags-hot\"><i class=\"icon-hot\"></i>Остро</div><div class=\"card__tags-item card__tags-vega\"><i class=\"icon-vega\"></i>Вега</div><div class=\"card__tags-item card__tags-chef\"><i class=\"icon-chef\"></i>Любовь шефа</div>",
     "rating": "4.8",
     "name": "Домашний омлет с моцареллой и чоризо",
     "weight": "380/30 г",
@@ -16,7 +16,7 @@
   {
     "dish": "hot",
     "img": "./../../images/temp/salads-2.png",
-    "tags": "<div class=\"card__tags-item card__tags-hot\"><i class=\"icon-hot\"></i>Островато</div>",
+    "tags": "<div class=\"card__tags-item card__tags-hot\"><i class=\"icon-hot\"></i>Остро</div>",
     "rating": "4.8",
     "name": "Домашний омлет с моцареллой и чоризо",
     "weight": "380/30 г",
@@ -30,7 +30,7 @@
   {
     "dish": "pasta",
     "img": "./../../images/temp/salads-3.png",
-    "tags": "<div class=\"card__tags-item card__tags-top\"><i class=\"icon-top\"></i>Топчик</div>",
+    "tags": "<div class=\"card__tags-item card__tags-top\"><i class=\"icon-top\"></i>Топ</div>",
     "rating": "4.8",
     "name": "Домашний омлет с моцареллой и чоризо",
     "weight": "380/30 г",
@@ -44,7 +44,7 @@
   {
     "dish": "pasta",
     "img": "./../../images/temp/salads-4.png",
-    "tags": "<div class=\"card__tags-item card__tags-top\"><i class=\"icon-top\"></i>Топчик</div>",
+    "tags": "<div class=\"card__tags-item card__tags-top\"><i class=\"icon-top\"></i>Топ</div>",
     "rating": "4.8",
     "name": "Домашний омлет с моцареллой и чоризо",
     "weight": "380/30 г",
@@ -58,7 +58,7 @@
   {
     "dish": "sides",
     "img": "./../../images/temp/salads-1.png",
-    "tags": "<div class=\"card__tags-item card__tags-top\"><i class=\"icon-top\"></i>Топчик</div>",
+    "tags": "<div class=\"card__tags-item card__tags-top\"><i class=\"icon-top\"></i>Топ</div>",
     "rating": "4.8",
     "name": "Домашний омлет с моцареллой и чоризо",
     "weight": "380/30 г",
@@ -72,7 +72,7 @@
   {
     "dish": "sides",
     "img": "./../../images/temp/salads-2.png",
-    "tags": "<div class=\"card__tags-item card__tags-top\"><i class=\"icon-top\"></i>Топчик</div>",
+    "tags": "<div class=\"card__tags-item card__tags-top\"><i class=\"icon-top\"></i>Топ</div>",
     "rating": "4.8",
     "name": "Домашний омлет с моцареллой и чоризо",
     "weight": "380/30 г",
@@ -86,7 +86,7 @@
   {
     "dish": "soups",
     "img": "./../../images/temp/salads-3.png",
-    "tags": "<div class=\"card__tags-item card__tags-top\"><i class=\"icon-top\"></i>Топчик</div>",
+    "tags": "<div class=\"card__tags-item card__tags-top\"><i class=\"icon-top\"></i>Топ</div>",
     "rating": "4.8",
     "name": "Домашний омлет с моцареллой и чоризо",
     "weight": "380/30 г",
@@ -100,7 +100,7 @@
   {
     "dish": "soups",
     "img": "./../../images/temp/salads-4.png",
-    "tags": "<div class=\"card__tags-item card__tags-hot\"><i class=\"icon-hot\"></i>Островато</div>",
+    "tags": "<div class=\"card__tags-item card__tags-hot\"><i class=\"icon-hot\"></i>Остро</div>",
     "rating": "4.8",
     "name": "Домашний омлет с моцареллой и чоризо",
     "weight": "380/30 г",

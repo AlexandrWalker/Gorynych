@@ -1,7 +1,7 @@
 [
   {
     "img": "./../../images/temp/business-lunch-1.png",
-    "tags": "<div class=\"card__tags-item card__tags-top\"><i class=\"icon-top\"></i>Топчик</div>",
+    "tags": "<div class=\"card__tags-item card__tags-top\"><i class=\"icon-top\"></i>Топ</div>",
     "rating": "4.8",
     "name": "Домашний омлет с моцареллой и чоризо",
     "weight": "380/30 г",
@@ -14,7 +14,7 @@
   },
   {
     "img": "./../../images/temp/business-lunch-2.png",
-    "tags": "<div class=\"card__tags-item card__tags-top\"><i class=\"icon-top\"></i>Топчик</div>",
+    "tags": "<div class=\"card__tags-item card__tags-top\"><i class=\"icon-top\"></i>Топ</div>",
     "rating": "4.8",
     "name": "Домашний омлет с моцареллой и чоризо",
     "weight": "380/30 г",
@@ -27,7 +27,7 @@
   },
   {
     "img": "./../../images/temp/business-lunch-3.png",
-    "tags": "<div class=\"card__tags-item card__tags-top\"><i class=\"icon-top\"></i>Топчик</div>",
+    "tags": "<div class=\"card__tags-item card__tags-top\"><i class=\"icon-top\"></i>Топ</div>",
     "rating": "4.8",
     "name": "Домашний омлет с моцареллой и чоризо",
     "weight": "380/30 г",
@@ -40,7 +40,7 @@
   },
   {
     "img": "./../../images/temp/business-lunch-4.png",
-    "tags": "<div class=\"card__tags-item card__tags-top\"><i class=\"icon-top\"></i>Топчик</div>",
+    "tags": "<div class=\"card__tags-item card__tags-top\"><i class=\"icon-top\"></i>Топ</div>",
     "rating": "4.8",
     "name": "Домашний омлет с моцареллой и чоризо",
     "weight": "380/30 г",
