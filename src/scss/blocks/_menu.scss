@@ -2,8 +2,16 @@
 
 .menu {
 
-  .layout__inner {
-    gap: 1.5rem;
+  .layout {
+    padding-bottom: 17rem;
+
+    &__inner {
+      gap: 1.5rem;
+    }
+
+    &__body {
+      z-index: 2;
+    }
   }
 
   &__items {

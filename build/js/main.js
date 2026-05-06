@@ -3524,6 +3524,29 @@ document.addEventListener('DOMContentLoaded', () => {
   })();
 
   /**
+   * Функция для отслеживания оринетации смартфона
+   */
+  (function () {
+    const warningEl = document.getElementById('orientation-warning');
+    if (!warningEl) return;
+
+    const update = () => {
+      const isLandscape = window.innerHeight < window.innerWidth; // высота меньше ширины
+      warningEl.style.display = isLandscape ? 'flex' : 'none';
+      document.documentElement.classList.toggle('orientation--show', isLandscape);
+    };
+
+    // При загрузке сразу, в самом начале выполнения
+    update();
+
+    // При автоповороте смартфона
+    window.addEventListener('orientationchange', update);
+
+    // На случай, если orientationchange срабатывает не всегда (iOS/вебвью иногда)
+    window.addEventListener('resize', update, { passive: true });
+  })();
+
+  /**
    * УВЕДОМЛЕНИЕ О COOKIE (.plate-cookie)                           
    *    
    * Показывает плашку если cookie COOKIE_ACCEPT ≠ '1'.            
@@ -3548,9 +3571,16 @@ document.addEventListener('DOMContentLoaded', () => {
 (function () {
   const welcome = document.getElementById('welcome');
 
+  if (welcome) {
+    document.documentElement.classList.add('welcome--open');
+  } else {
+    document.documentElement.classList.remove('welcome--open');
+  }
+
   welcome.querySelectorAll('button').forEach(btn => {
     btn.addEventListener('click', () => {
       welcome.classList.add('is-hidden');
+      document.documentElement.classList.remove('welcome--open');
 
       welcome.addEventListener('transitionend', () => {
         welcome.remove();
