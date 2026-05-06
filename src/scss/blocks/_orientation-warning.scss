@@ -46,3 +46,12 @@
     display: flex;
   }
 }
+
+.orientation--show {
+
+  body {
+    overflow: hidden !important;
+    overscroll-behavior-y: none;
+    max-height: 100vh;
+  }
+}

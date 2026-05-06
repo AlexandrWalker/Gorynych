@@ -108,8 +108,11 @@
     }
 
     .btn--count {
-      top: 0.5rem;
-      right: 1rem;
+      background-color: var(--beige);
+      flex-shrink: 0;
+
+      top: 0.4rem;
+      right: -0.1rem;
     }
 
     &--mid {

@@ -677,13 +677,21 @@
       }
 
       &--icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--layout-block-item-icon-i-bg-color);
+        border-radius: 50%;
+        width: 5rem;
+        height: 5rem;
 
         i {
-          background-color: var(--layout-block-item-icon-i-bg-color);
-          border-radius: 50%;
-
-          font-size: 5rem;
+          font-size: 4rem;
           color: var(--layout-block-item-icon-i-color);
+
+          &.icon-menu-telephone {
+            font-size: 5rem;
+          }
         }
       }
 
