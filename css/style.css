@@ -146,6 +146,14 @@ li:last-child {
 @font-face {
   font-family: Inter;
   font-display: swap;
+  src: url("../fonts/Inter-ExtraLight.woff2") format("woff2"), url("../fonts/Inter-ExtraLight.woff") format("woff");
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Inter;
+  font-display: swap;
   src: url("../fonts/Inter-Light.woff2") format("woff2"), url("../fonts/Inter-Light.woff") format("woff");
   font-weight: 300;
   font-style: normal;
@@ -162,16 +170,24 @@ li:last-child {
 @font-face {
   font-family: Inter;
   font-display: swap;
-  src: url("../fonts/Inter-ExtraLight.woff2") format("woff2"), url("../fonts/Inter-ExtraLight.woff") format("woff");
-  font-weight: 200;
+  src: url("../fonts/Inter-Regular.woff2") format("woff2"), url("../fonts/Inter-Regular.woff") format("woff");
+  font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: Inter;
   font-display: swap;
-  src: url("../fonts/Inter-Regular.woff2") format("woff2"), url("../fonts/Inter-Regular.woff") format("woff");
-  font-weight: 400;
+  src: url("../fonts/Inter-SemiBold.woff2") format("woff2"), url("../fonts/Inter-SemiBold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Inter;
+  font-display: swap;
+  src: url("../fonts/Inter-Thin.woff2") format("woff2"), url("../fonts/Inter-Thin.woff") format("woff");
+  font-weight: 100;
   font-style: normal;
 }
 
@@ -192,10 +208,10 @@ li:last-child {
 }
 
 @font-face {
-  font-family: Inter;
+  font-family: PlayfairDisplay;
   font-display: swap;
-  src: url("../fonts/Inter-Thin.woff2") format("woff2"), url("../fonts/Inter-Thin.woff") format("woff");
-  font-weight: 100;
+  src: url("../fonts/PlayfairDisplay-Bold.woff2") format("woff2"), url("../fonts/PlayfairDisplay-Bold.woff") format("woff");
+  font-weight: 700;
   font-style: normal;
 }
 
@@ -204,22 +220,6 @@ li:last-child {
   font-display: swap;
   src: url("../fonts/PlayfairDisplay-ExtraBold.woff2") format("woff2"), url("../fonts/PlayfairDisplay-ExtraBold.woff") format("woff");
   font-weight: 800;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: Inter;
-  font-display: swap;
-  src: url("../fonts/Inter-SemiBold.woff2") format("woff2"), url("../fonts/Inter-SemiBold.woff") format("woff");
-  font-weight: 600;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: PlayfairDisplay;
-  font-display: swap;
-  src: url("../fonts/PlayfairDisplay-Bold.woff2") format("woff2"), url("../fonts/PlayfairDisplay-Bold.woff") format("woff");
-  font-weight: 700;
   font-style: normal;
 }
 
@@ -274,30 +274,6 @@ li:last-child {
 @font-face {
   font-family: Poppins;
   font-display: swap;
-  src: url("../fonts/Poppins-Regular.woff2") format("woff2"), url("../fonts/Poppins-Regular.woff") format("woff");
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: Poppins;
-  font-display: swap;
-  src: url("../fonts/Poppins-Medium.woff2") format("woff2"), url("../fonts/Poppins-Medium.woff") format("woff");
-  font-weight: 500;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: Poppins;
-  font-display: swap;
-  src: url("../fonts/Poppins-SemiBold.woff2") format("woff2"), url("../fonts/Poppins-SemiBold.woff") format("woff");
-  font-weight: 600;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: Poppins;
-  font-display: swap;
   src: url("../fonts/Poppins-ExtraLight.woff2") format("woff2"), url("../fonts/Poppins-ExtraLight.woff") format("woff");
   font-weight: 200;
   font-style: normal;
@@ -308,6 +284,14 @@ li:last-child {
   font-display: swap;
   src: url("../fonts/Poppins-Light.woff2") format("woff2"), url("../fonts/Poppins-Light.woff") format("woff");
   font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Poppins;
+  font-display: swap;
+  src: url("../fonts/Poppins-SemiBold.woff2") format("woff2"), url("../fonts/Poppins-SemiBold.woff") format("woff");
+  font-weight: 600;
   font-style: normal;
 }
 
@@ -402,6 +386,14 @@ li:last-child {
 @font-face {
   font-family: TTTrailersTrial;
   font-display: swap;
+  src: url("../fonts/TTTrailersTrial-Bold.woff2") format("woff2"), url("../fonts/TTTrailersTrial-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: TTTrailersTrial;
+  font-display: swap;
   src: url("../fonts/TTTrailersTrial-DemiBold.woff2") format("woff2"), url("../fonts/TTTrailersTrial-DemiBold.woff") format("woff");
   font-weight: 600;
   font-style: normal;
@@ -456,10 +448,18 @@ li:last-child {
 }
 
 @font-face {
-  font-family: TTTrailersTrial;
+  font-family: Poppins;
   font-display: swap;
-  src: url("../fonts/TTTrailersTrial-Bold.woff2") format("woff2"), url("../fonts/TTTrailersTrial-Bold.woff") format("woff");
-  font-weight: 700;
+  src: url("../fonts/Poppins-Medium.woff2") format("woff2"), url("../fonts/Poppins-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Poppins;
+  font-display: swap;
+  src: url("../fonts/Poppins-Regular.woff2") format("woff2"), url("../fonts/Poppins-Regular.woff") format("woff");
+  font-weight: 400;
   font-style: normal;
 }
 
@@ -708,7 +708,7 @@ body {
   --layout-block-item-status-color: #8B8C8B;
   --layout-block-item-i-bg-color: rgba(255, 255, 255, 0.1);
   --layout-block-item-i-color: #8B8C8B;
-  --layout-block-item-icon-i-bg-color: #8B8C8B;
+  --layout-block-item-icon-i-bg-color: #494747;
   --layout-block-item-icon-i-color: #ffffff;
   --layout-block-value-bg-color: #FFFFFF1A;
   --layout-block-value-i-color: #A9ADA5;
@@ -2522,11 +2522,29 @@ html[lang=en] .layout__block-item[data-lang=en] {
   border-color: var(--layout-block-item-active-border-color);
 }
 
-.layout__block-item--icon i {
+.layout__block-item--icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   background-color: var(--layout-block-item-icon-i-bg-color);
   border-radius: 50%;
-  font-size: 5rem;
+  width: 5rem;
+  height: 5rem;
+}
+
+.layout__block-item--icon i {
+  font-size: 4rem;
   color: var(--layout-block-item-icon-i-color);
+}
+
+.layout__block-item--icon i.icon-menu-telephone {
+  font-size: 5rem;
 }
 
 .layout__block-item--img {
@@ -5127,6 +5145,12 @@ p {
   font-size: 1.4rem;
 }
 
+.orientation--show body {
+  overflow: hidden !important;
+  overscroll-behavior-y: none;
+  max-height: 100vh;
+}
+
 .panel {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -5253,8 +5277,11 @@ p {
 }
 
 .panel__btn .btn--count {
-  top: 0.5rem;
-  right: 1rem;
+  background-color: var(--beige);
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  top: 0.4rem;
+  right: -0.1rem;
 }
 
 .panel__btn--mid .panel__btn-icon i {
