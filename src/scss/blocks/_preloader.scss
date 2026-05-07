@@ -2,28 +2,16 @@
 
 .preloader {
   display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
   background: var(--header-bg-color);
+  padding: 4rem 0;
   transform-origin: top center;
 
   position: fixed;
   inset: 0;
   z-index: 9999;
-}
-
-.foodbook {
-
-  &__img {
-    width: 16rem;
-    height: auto;
-    object-fit: contain;
-
-    position: absolute;
-    left: 50%;
-    bottom: 4rem;
-    transform: translateX(-50%);
-  }
 }
 
 canvas {
@@ -32,4 +20,5 @@ canvas {
   height: 6rem;
   flex-shrink: 0;
   transition: opacity 0.3s ease, visibility 0.3s ease;
+  margin: auto 0;
 }
