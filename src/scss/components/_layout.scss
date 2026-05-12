@@ -680,14 +680,16 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: var(--layout-block-item-icon-i-bg-color);
+        // background-color: var(--layout-block-item-icon-i-bg-color);
+        background-color: var(--layout-block-social-bg-color);
         border-radius: 50%;
         width: 5rem;
         height: 5rem;
 
         i {
           font-size: 4rem;
-          color: var(--layout-block-item-icon-i-color);
+          // color: var(--layout-block-item-icon-i-color);
+          color: var(--layout-block-social-color);
 
           &.icon-menu-telephone {
             font-size: 5rem;
