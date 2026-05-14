@@ -14,8 +14,9 @@
       }
 
       &-inner {
+        border-radius: 0;
         flex-direction: column;
-        background-color: unset;
+        background-color: #292929;
       }
     }
   }
