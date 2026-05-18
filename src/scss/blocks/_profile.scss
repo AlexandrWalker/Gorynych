@@ -83,6 +83,7 @@
       &-inner {
         flex-direction: column;
         padding: 1.5rem 1.5rem 11rem 1.5rem;
+        padding: 1.5rem 1.5rem calc(11rem + env(safe-area-inset-bottom)) 1.5rem;
       }
     }
   }

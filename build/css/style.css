@@ -427,14 +427,6 @@ li:last-child {
 @font-face {
   font-family: TTTrailersTrial;
   font-display: swap;
-  src: url("../fonts/TTTrailersTrial-Light.woff2") format("woff2"), url("../fonts/TTTrailersTrial-Light.woff") format("woff");
-  font-weight: 300;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: TTTrailersTrial;
-  font-display: swap;
   src: url("../fonts/TTTrailersTrial-ExtraLight.woff2") format("woff2"), url("../fonts/TTTrailersTrial-ExtraLight.woff") format("woff");
   font-weight: 200;
   font-style: normal;
@@ -443,8 +435,8 @@ li:last-child {
 @font-face {
   font-family: TTTrailersTrial;
   font-display: swap;
-  src: url("../fonts/TTTrailersTrial-Regular.woff2") format("woff2"), url("../fonts/TTTrailersTrial-Regular.woff") format("woff");
-  font-weight: 400;
+  src: url("../fonts/TTTrailersTrial-Light.woff2") format("woff2"), url("../fonts/TTTrailersTrial-Light.woff") format("woff");
+  font-weight: 300;
   font-style: normal;
 }
 
@@ -453,6 +445,14 @@ li:last-child {
   font-display: swap;
   src: url("../fonts/TTTrailersTrial-Medium.woff2") format("woff2"), url("../fonts/TTTrailersTrial-Medium.woff") format("woff");
   font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: TTTrailersTrial;
+  font-display: swap;
+  src: url("../fonts/TTTrailersTrial-Regular.woff2") format("woff2"), url("../fonts/TTTrailersTrial-Regular.woff") format("woff");
+  font-weight: 400;
   font-style: normal;
 }
 
@@ -667,6 +667,7 @@ body {
   --panel-btn-height: 6.6rem;
   --panel-height: 8rem;
   --safe-area-top: env(safe-area-inset-top, 0px);
+  --safe-area-bottom: env(safe-area-inset-bottom, 0px);
   --base-bg: #1A1A1A;
   --base-color: #EEF0ED;
   --base-list-dot-color: #888A87;
@@ -5883,6 +5884,7 @@ canvas {
   -ms-flex-direction: column;
   flex-direction: column;
   padding: 1.5rem 1.5rem 11rem 1.5rem;
+  padding: 1.5rem 1.5rem calc(11rem + env(safe-area-inset-bottom)) 1.5rem;
 }
 
 .profile .menu__item {
