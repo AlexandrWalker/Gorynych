@@ -291,16 +291,16 @@ li:last-child {
 @font-face {
   font-family: Poppins;
   font-display: swap;
-  src: url("../fonts/Poppins-Regular.woff2") format("woff2"), url("../fonts/Poppins-Regular.woff") format("woff");
-  font-weight: 400;
+  src: url("../fonts/Poppins-Medium.woff2") format("woff2"), url("../fonts/Poppins-Medium.woff") format("woff");
+  font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
   font-family: Poppins;
   font-display: swap;
-  src: url("../fonts/Poppins-Medium.woff2") format("woff2"), url("../fonts/Poppins-Medium.woff") format("woff");
-  font-weight: 500;
+  src: url("../fonts/Poppins-Regular.woff2") format("woff2"), url("../fonts/Poppins-Regular.woff") format("woff");
+  font-weight: 400;
   font-style: normal;
 }
 
@@ -730,7 +730,7 @@ body {
   --layout-card-guess-bg-color: #323232;
   --layout-card-guess-color: #FFFFFF;
   --layout-head-content-link-color: #888A87;
-  --layout-foot-inner-bg-color: transparent;
+  --layout-foot-inner-bg-color: #292929;
   --layout-nav-item-bg-color: #292929;
   --layout-nav-item-color: #FFFFFF;
   --layout-nav-item-active-bg-color: #D51216;
@@ -763,6 +763,9 @@ body {
   --layout-first-btn-i-bg-color: #1A1A1A;
   --layout-first-btn-i-color: #D71920;
   --layout-first-btn-text-span-color: #D71920;
+  --layout-platform-block-text-color: rgba(238, 240, 237, 0.5);
+  --layout-platform-block-text-accent-color: #D71920;
+  --layout-platform-block-text-a-color: rgba(238, 240, 237, 0.5);
   --welcome-bg-color: #EEF0ED;
   --welcome-text-color: #000000;
   --banners-link-title-color: #ffffff;
@@ -2303,7 +2306,6 @@ body {
   flex-direction: row;
   gap: 0.8rem;
   padding: 1.5rem;
-  border-radius: 1.6rem 1.6rem 0 0;
   background-color: var(--layout-foot-inner-bg-color);
   height: 100%;
 }
@@ -4657,7 +4659,6 @@ p {
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
-  background-color: #292929;
 }
 
 .filter .btn--remove {
@@ -5507,12 +5508,44 @@ p {
 .platform .layout__head-cover {
   width: 100%;
   height: auto;
-  border-radius: 0;
 }
 
 .platform .layout__head-cover img {
   width: 100%;
   height: auto;
+}
+
+.platform .layout__block-wrap p {
+  font-size: 1.2rem;
+}
+
+.platform .layout__block-text {
+  color: var(--layout-platform-block-text-color);
+}
+
+.platform .layout__block-text--accent {
+  color: var(--layout-platform-block-text-accent-color);
+}
+
+.platform .layout__block-text--accent * {
+  font-weight: 700;
+}
+
+.platform .layout__block-text--italic {
+  font-style: italic;
+}
+
+.platform .layout__block-text a {
+  font-weight: 700;
+  color: var(--layout-platform-block-text-a-color);
+}
+
+.platform .layout__block-text a:hover {
+  color: var(--layout-platform-block-text-accent-color);
+}
+
+.platform .layout__list li {
+  margin-bottom: 0;
 }
 
 .points-history .layout__inner {
