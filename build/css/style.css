@@ -1099,15 +1099,12 @@ body {
 .dropdown__label {
   display: block;
   width: 100%;
-  font-weight: 500;
+  font-weight: 400;
   font-size: 1.4rem;
   line-height: 120%;
   color: var(--dropdown-label-color);
   white-space: nowrap;
   cursor: pointer;
-  overflow: hidden;
-  -o-text-overflow: ellipsis;
-     text-overflow: ellipsis;
 }
 
 .dropdown__container {
@@ -1184,29 +1181,34 @@ body {
   -webkit-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
-  font-weight: 500;
+  font-weight: 400;
   font-size: 1.4rem;
   line-height: 120%;
   color: var(--form-input-color);
 }
 
 .form-input::-webkit-input-placeholder {
+  font-weight: 400;
   color: var(--form-input-ph-color);
 }
 
 .form-input::-moz-placeholder {
+  font-weight: 400;
   color: var(--form-input-ph-color);
 }
 
 .form-input:-ms-input-placeholder {
+  font-weight: 400;
   color: var(--form-input-ph-color);
 }
 
 .form-input::-ms-input-placeholder {
+  font-weight: 400;
   color: var(--form-input-ph-color);
 }
 
 .form-input::placeholder {
+  font-weight: 400;
   color: var(--form-input-ph-color);
 }
 
@@ -5113,11 +5115,12 @@ p {
   height: 8.7rem;
   border-radius: 3rem;
   background-color: var(--nav-item-bg-color);
-  -webkit-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-  transition: all 0.5s ease;
+  -webkit-transition: background-color 0.5s ease, color 0.5s ease;
+  -o-transition: background-color 0.5s ease, color 0.5s ease;
+  transition: background-color 0.5s ease, color 0.5s ease;
   -ms-flex-negative: 0;
   flex-shrink: 0;
+  will-change: background-color, color;
   font-size: 5rem;
   color: var(--nav-item-icon-color);
 }
