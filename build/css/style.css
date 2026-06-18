@@ -1695,7 +1695,8 @@ body {
   scrollbar-width: none;
   -ms-overflow-style: none;
   -ms-scroll-snap-type: x mandatory;
-  scroll-snap-type: x mandatory;
+  -webkit-scroll-snap-type: x mandatory;
+          scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
 }
 
@@ -1783,7 +1784,8 @@ body {
   scrollbar-width: none;
   -ms-overflow-style: none;
   -ms-scroll-snap-type: x mandatory;
-  scroll-snap-type: x mandatory;
+  -webkit-scroll-snap-type: x mandatory;
+          scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
   padding: 0 var(--container-padding);
   margin-left: calc(var(--container-padding) * -1);
@@ -2752,7 +2754,8 @@ html[lang=en] .layout__block-item[data-lang=en] {
   scrollbar-width: none;
   -ms-overflow-style: none;
   -ms-scroll-snap-type: x mandatory;
-  scroll-snap-type: x mandatory;
+  -webkit-scroll-snap-type: x mandatory;
+          scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
   background-color: var(--base-bg);
   padding: 0.5rem var(--container-padding);
@@ -4987,6 +4990,17 @@ p {
   color: var(--loyalty-layout-block-text-span-color);
 }
 
+.menu [data-popup-scroll] {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  gap: 2rem;
+}
+
 .menu .layout__inner {
   gap: 1.5rem;
 }
@@ -5275,15 +5289,15 @@ p {
   content: "";
   width: 100%;
   height: 13rem;
-  background: -o-linear-gradient(270.91deg, #000000 45.48%, rgba(0, 0, 0, 0) 86.33%);
-  background: linear-gradient(179.09deg, #000000 45.48%, rgba(0, 0, 0, 0) 86.33%);
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(45.48%, #000000), color-stop(86.33%, rgba(0, 0, 0, 0)));
+  background: -o-linear-gradient(bottom, #000000 45.48%, rgba(0, 0, 0, 0) 86.33%);
+  background: linear-gradient(0deg, #000000 45.48%, rgba(0, 0, 0, 0) 86.33%);
   pointer-events: none;
-  -webkit-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-  transition: all 0.5s ease;
-  -webkit-transform: matrix(1, 0, 0, -1, 0, 0);
-  -ms-transform: matrix(1, 0, 0, -1, 0, 0);
-  transform: matrix(1, 0, 0, -1, 0, 0);
+  -webkit-transition: height 0.5s ease, opacity 0.5s ease, visibility 0.5s ease, -webkit-transform 0.5s ease;
+  transition: height 0.5s ease, opacity 0.5s ease, visibility 0.5s ease, -webkit-transform 0.5s ease;
+  -o-transition: height 0.5s ease, transform 0.5s ease, opacity 0.5s ease, visibility 0.5s ease;
+  transition: height 0.5s ease, transform 0.5s ease, opacity 0.5s ease, visibility 0.5s ease;
+  transition: height 0.5s ease, transform 0.5s ease, opacity 0.5s ease, visibility 0.5s ease, -webkit-transform 0.5s ease;
   position: absolute;
   top: auto;
   right: 0;
@@ -5293,6 +5307,14 @@ p {
 
 .popup-open .panel::before {
   height: 8.5rem;
+}
+
+.scroll-active .panel::before {
+  -webkit-transform: translateY(150%);
+  -ms-transform: translateY(150%);
+  transform: translateY(150%);
+  opacity: 0;
+  visibility: hidden;
 }
 
 .panel__inner {
@@ -5305,6 +5327,19 @@ p {
   height: var(--panel-height);
   pointer-events: all;
   border-radius: 2.4rem 2.4rem 0 0;
+  -webkit-transition: opacity 0.5s ease, visibility 0.5s ease, -webkit-transform 0.5s ease;
+  transition: opacity 0.5s ease, visibility 0.5s ease, -webkit-transform 0.5s ease;
+  -o-transition: transform 0.5s ease, opacity 0.5s ease, visibility 0.5s ease;
+  transition: transform 0.5s ease, opacity 0.5s ease, visibility 0.5s ease;
+  transition: transform 0.5s ease, opacity 0.5s ease, visibility 0.5s ease, -webkit-transform 0.5s ease;
+}
+
+.scroll-active .panel__inner {
+  -webkit-transform: translateY(150%);
+  -ms-transform: translateY(150%);
+  transform: translateY(150%);
+  opacity: 0;
+  visibility: hidden;
 }
 
 .panel__btns {
@@ -5505,9 +5540,31 @@ p {
   color: var(--plate-content-btn-color);
 }
 
+.platform .popup__area {
+  -webkit-transition: background-color 0.3s ease;
+  -o-transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease;
+  z-index: 2;
+}
+
+.platform .popup__area.popup__area--active {
+  background-color: var(--base-bg);
+}
+
+.platform .popup__inner {
+  margin-top: -3.6rem;
+  z-index: 1;
+}
+
+.platform .layout__inner {
+  gap: 2rem;
+}
+
 .platform .layout__head-cover {
-  width: 100%;
   height: auto;
+  width: calc(100% + var(--container-padding) * 2);
+  margin-left: calc(var(--container-padding) * -1);
+  border-radius: 0;
 }
 
 .platform .layout__head-cover img {
@@ -5515,11 +5572,16 @@ p {
   height: auto;
 }
 
+.platform .layout__block {
+  gap: 2rem;
+}
+
 .platform .layout__block-wrap p {
   font-size: 1.2rem;
 }
 
 .platform .layout__block-text {
+  max-width: 100%;
   color: var(--layout-platform-block-text-color);
 }
 
@@ -5535,13 +5597,44 @@ p {
   font-style: italic;
 }
 
-.platform .layout__block-text a {
+.platform .layout__block-text--contacts p:nth-child(1) a {
   font-weight: 700;
+}
+
+.platform .layout__block-text--contacts a {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-left: 0;
+  font-weight: 400;
+  font-size: 1.2rem;
+  text-decoration: underline;
   color: var(--layout-platform-block-text-a-color);
 }
 
-.platform .layout__block-text a:hover {
+.platform .layout__block-text--contacts a:hover {
   color: var(--layout-platform-block-text-accent-color);
+}
+
+.platform .layout__block-text p a {
+  margin-left: 0;
+  font-weight: 400;
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: var(--layout-platform-block-text-a-color);
+}
+
+.platform .layout__block-text p a:hover {
+  color: var(--layout-platform-block-text-accent-color);
+}
+
+.platform .layout__block-social {
+  margin-top: 0;
+  gap: 1rem;
+}
+
+.platform .layout__block-social a:last-child i {
+  font-size: 3rem;
 }
 
 .platform .layout__list li {
@@ -6376,7 +6469,8 @@ canvas {
   scrollbar-width: none;
   -ms-overflow-style: none;
   -ms-scroll-snap-type: x mandatory;
-  scroll-snap-type: x mandatory;
+  -webkit-scroll-snap-type: x mandatory;
+          scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
   scroll-padding-left: var(--container-padding);
   padding: 0.3rem var(--container-padding);
@@ -6499,7 +6593,8 @@ canvas {
   scrollbar-width: none;
   -ms-overflow-style: none;
   -ms-scroll-snap-type: x mandatory;
-  scroll-snap-type: x mandatory;
+  -webkit-scroll-snap-type: x mandatory;
+          scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
   padding: 0.3rem var(--container-padding);
   margin-left: calc(var(--container-padding) * -1);
@@ -6622,7 +6717,8 @@ canvas {
   -ms-overflow-style: none;
   scroll-behavior: smooth;
   -ms-scroll-snap-type: x mandatory;
-  scroll-snap-type: x mandatory;
+  -webkit-scroll-snap-type: x mandatory;
+          scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
   padding: 0 var(--container-padding);
   margin-left: calc(var(--container-padding) * -1);
