@@ -5,6 +5,7 @@
   align-items: flex-end;
   width: 100vw;
   width: 100dvw;
+  height: 0;
   pointer-events: none;
   transition: bottom 0.5s ease, opacity 0.5s ease, visibility 0.5s ease;
 
@@ -16,14 +17,14 @@
 
   position: sticky;
   bottom: 0;
-
-  height: 0;
+  opacity: 1;
+  visibility: visible;
 
   z-index: 500;
   z-index: 998;
 
   .scroll-active & {
-    bottom: calc(var(--panel-height) * 2 * -1);
+    bottom: calc((var(--panel-height) * 2) * -1);
     opacity: 0;
     visibility: hidden;
   }
