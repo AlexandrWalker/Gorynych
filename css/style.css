@@ -131,16 +131,16 @@ li:last-child {
 @font-face {
   font-family: Inter;
   font-display: swap;
-  src: url("../fonts/Inter-Bold.woff2") format("woff2"), url("../fonts/Inter-Bold.woff") format("woff");
-  font-weight: 700;
+  src: url("../fonts/Inter-ExtraBold.woff2") format("woff2"), url("../fonts/Inter-ExtraBold.woff") format("woff");
+  font-weight: 800;
   font-style: normal;
 }
 
 @font-face {
   font-family: Inter;
   font-display: swap;
-  src: url("../fonts/Inter-ExtraBold.woff2") format("woff2"), url("../fonts/Inter-ExtraBold.woff") format("woff");
-  font-weight: 800;
+  src: url("../fonts/Inter-Bold.woff2") format("woff2"), url("../fonts/Inter-Bold.woff") format("woff");
+  font-weight: 700;
   font-style: normal;
 }
 
@@ -435,16 +435,16 @@ li:last-child {
 @font-face {
   font-family: TTTrailersTrial;
   font-display: swap;
-  src: url("../fonts/TTTrailersTrial-Light.woff2") format("woff2"), url("../fonts/TTTrailersTrial-Light.woff") format("woff");
-  font-weight: 300;
+  src: url("../fonts/TTTrailersTrial-Medium.woff2") format("woff2"), url("../fonts/TTTrailersTrial-Medium.woff") format("woff");
+  font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
   font-family: TTTrailersTrial;
   font-display: swap;
-  src: url("../fonts/TTTrailersTrial-Medium.woff2") format("woff2"), url("../fonts/TTTrailersTrial-Medium.woff") format("woff");
-  font-weight: 500;
+  src: url("../fonts/TTTrailersTrial-Light.woff2") format("woff2"), url("../fonts/TTTrailersTrial-Light.woff") format("woff");
+  font-weight: 300;
   font-style: normal;
 }
 
@@ -5271,13 +5271,21 @@ p {
   width: 100vw;
   width: 100dvw;
   pointer-events: none;
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
+  -webkit-transition: bottom 0.5s ease, opacity 0.5s ease, visibility 0.5s ease;
+  -o-transition: bottom 0.5s ease, opacity 0.5s ease, visibility 0.5s ease;
+  transition: bottom 0.5s ease, opacity 0.5s ease, visibility 0.5s ease;
+  position: -webkit-sticky;
+  position: sticky;
   bottom: 0;
+  height: 0;
   z-index: 500;
   z-index: 998;
+}
+
+.scroll-active .panel {
+  bottom: calc(var(--panel-height) * 2 * -1);
+  opacity: 0;
+  visibility: hidden;
 }
 
 .panel * {
@@ -5312,14 +5320,6 @@ p {
   height: 8.5rem;
 }
 
-.scroll-active .panel::before {
-  -webkit-transform: translateY(150%);
-  -ms-transform: translateY(150%);
-  transform: translateY(150%);
-  opacity: 0;
-  visibility: hidden;
-}
-
 .panel__inner {
   width: 100%;
   background-repeat: no-repeat;
@@ -5335,14 +5335,6 @@ p {
   -o-transition: transform 0.5s ease, opacity 0.5s ease, visibility 0.5s ease;
   transition: transform 0.5s ease, opacity 0.5s ease, visibility 0.5s ease;
   transition: transform 0.5s ease, opacity 0.5s ease, visibility 0.5s ease, -webkit-transform 0.5s ease;
-}
-
-.scroll-active .panel__inner {
-  -webkit-transform: translateY(150%);
-  -ms-transform: translateY(150%);
-  transform: translateY(150%);
-  opacity: 0;
-  visibility: hidden;
 }
 
 .panel__btns {
