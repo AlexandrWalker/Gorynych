@@ -131,14 +131,6 @@ li:last-child {
 @font-face {
   font-family: Inter;
   font-display: swap;
-  src: url("../fonts/Inter-Bold.woff2") format("woff2"), url("../fonts/Inter-Bold.woff") format("woff");
-  font-weight: 700;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: Inter;
-  font-display: swap;
   src: url("../fonts/Inter-ExtraBold.woff2") format("woff2"), url("../fonts/Inter-ExtraBold.woff") format("woff");
   font-weight: 800;
   font-style: normal;
@@ -147,8 +139,8 @@ li:last-child {
 @font-face {
   font-family: Inter;
   font-display: swap;
-  src: url("../fonts/Inter-ExtraLight.woff2") format("woff2"), url("../fonts/Inter-ExtraLight.woff") format("woff");
-  font-weight: 200;
+  src: url("../fonts/Inter-Bold.woff2") format("woff2"), url("../fonts/Inter-Bold.woff") format("woff");
+  font-weight: 700;
   font-style: normal;
 }
 
@@ -157,6 +149,14 @@ li:last-child {
   font-display: swap;
   src: url("../fonts/Inter-Light.woff2") format("woff2"), url("../fonts/Inter-Light.woff") format("woff");
   font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Inter;
+  font-display: swap;
+  src: url("../fonts/Inter-ExtraLight.woff2") format("woff2"), url("../fonts/Inter-ExtraLight.woff") format("woff");
+  font-weight: 200;
   font-style: normal;
 }
 
@@ -259,14 +259,6 @@ li:last-child {
 @font-face {
   font-family: Poppins;
   font-display: swap;
-  src: url("../fonts/Poppins-ExtraBold.woff2") format("woff2"), url("../fonts/Poppins-ExtraBold.woff") format("woff");
-  font-weight: 800;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: Poppins;
-  font-display: swap;
   src: url("../fonts/Poppins-Bold.woff2") format("woff2"), url("../fonts/Poppins-Bold.woff") format("woff");
   font-weight: 700;
   font-style: normal;
@@ -275,16 +267,8 @@ li:last-child {
 @font-face {
   font-family: Poppins;
   font-display: swap;
-  src: url("../fonts/Poppins-Light.woff2") format("woff2"), url("../fonts/Poppins-Light.woff") format("woff");
-  font-weight: 300;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: Poppins;
-  font-display: swap;
-  src: url("../fonts/Poppins-Regular.woff2") format("woff2"), url("../fonts/Poppins-Regular.woff") format("woff");
-  font-weight: 400;
+  src: url("../fonts/Poppins-ExtraBold.woff2") format("woff2"), url("../fonts/Poppins-ExtraBold.woff") format("woff");
+  font-weight: 800;
   font-style: normal;
 }
 
@@ -299,8 +283,24 @@ li:last-child {
 @font-face {
   font-family: Poppins;
   font-display: swap;
+  src: url("../fonts/Poppins-Light.woff2") format("woff2"), url("../fonts/Poppins-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Poppins;
+  font-display: swap;
   src: url("../fonts/Poppins-Medium.woff2") format("woff2"), url("../fonts/Poppins-Medium.woff") format("woff");
   font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Poppins;
+  font-display: swap;
+  src: url("../fonts/Poppins-Regular.woff2") format("woff2"), url("../fonts/Poppins-Regular.woff") format("woff");
+  font-weight: 400;
   font-style: normal;
 }
 
@@ -323,16 +323,16 @@ li:last-child {
 @font-face {
   font-family: SFPro;
   font-display: swap;
-  src: url("../fonts/SFPro-Bold.woff2") format("woff2"), url("../fonts/SFPro-Bold.woff") format("woff");
-  font-weight: 700;
+  src: url("../fonts/SFPro-Black.woff2") format("woff2"), url("../fonts/SFPro-Black.woff") format("woff");
+  font-weight: 900;
   font-style: normal;
 }
 
 @font-face {
   font-family: SFPro;
   font-display: swap;
-  src: url("../fonts/SFPro-Black.woff2") format("woff2"), url("../fonts/SFPro-Black.woff") format("woff");
-  font-weight: 900;
+  src: url("../fonts/SFPro-Bold.woff2") format("woff2"), url("../fonts/SFPro-Bold.woff") format("woff");
+  font-weight: 700;
   font-style: normal;
 }
 
@@ -347,16 +347,16 @@ li:last-child {
 @font-face {
   font-family: SFPro;
   font-display: swap;
-  src: url("../fonts/SFPro-Light.woff2") format("woff2"), url("../fonts/SFPro-Light.woff") format("woff");
-  font-weight: 300;
+  src: url("../fonts/SFPro-Medium.woff2") format("woff2"), url("../fonts/SFPro-Medium.woff") format("woff");
+  font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
   font-family: SFPro;
   font-display: swap;
-  src: url("../fonts/SFPro-Medium.woff2") format("woff2"), url("../fonts/SFPro-Medium.woff") format("woff");
-  font-weight: 500;
+  src: url("../fonts/SFPro-Light.woff2") format("woff2"), url("../fonts/SFPro-Light.woff") format("woff");
+  font-weight: 300;
   font-style: normal;
 }
 
@@ -385,18 +385,18 @@ li:last-child {
 }
 
 @font-face {
-  font-family: SFPro;
-  font-display: swap;
-  src: url("../fonts/SFPro-UltraLight.woff2") format("woff2"), url("../fonts/SFPro-UltraLight.woff") format("woff");
-  font-weight: 200;
-  font-style: normal;
-}
-
-@font-face {
   font-family: TTTrailersTrial;
   font-display: swap;
   src: url("../fonts/TTTrailersTrial-Black.woff2") format("woff2"), url("../fonts/TTTrailersTrial-Black.woff") format("woff");
   font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: SFPro;
+  font-display: swap;
+  src: url("../fonts/SFPro-UltraLight.woff2") format("woff2"), url("../fonts/SFPro-UltraLight.woff") format("woff");
+  font-weight: 200;
   font-style: normal;
 }
 
@@ -3509,22 +3509,22 @@ html[lang=en] .layout__block-item[data-lang=en] {
 }
 
 .scrollup {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  gap: 0.8rem;
   pointer-events: all;
-  -webkit-transition: opacity 0.4s ease, visibility 0.4s ease !important;
-  -o-transition: opacity 0.4s ease, visibility 0.4s ease !important;
-  transition: opacity 0.4s ease, visibility 0.4s ease !important;
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  position: absolute;
+  -webkit-transition: opacity 0.4s ease, visibility 0.4s ease;
+  -o-transition: opacity 0.4s ease, visibility 0.4s ease;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+  position: fixed;
   left: 1rem;
   bottom: 11.1rem;
-}
-
-.scrollup-visible {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: all;
+  z-index: 997;
 }
 
 .popup-open .scrollup {
@@ -3555,48 +3555,29 @@ html[lang=en] .layout__block-item[data-lang=en] {
   color: var(--accent);
 }
 
-.scrollup__btn > .scrollup__btn {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-  transform-style: preserve-3d;
-  -webkit-transform-style: preserve-3d;
-  inset: 0;
-  -webkit-transition: -webkit-transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
-  transition: -webkit-transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
-  -o-transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
-  transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
-  transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1), -webkit-transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
-  position: absolute;
+.scrollup__btn--call {
+  background-color: var(--accent);
+  -webkit-box-shadow: 0px 0px 8.3px 3px rgba(215, 25, 32, 0.5);
+  box-shadow: 0px 0px 8.3px 3px rgba(215, 25, 32, 0.5);
 }
 
-.scrollup__btn--visible {
-  -webkit-transform: rotateY(0deg);
-  transform: rotateY(0deg);
-  z-index: 2;
+.scrollup__btn--call i {
+  color: var(--white);
 }
 
-html.popup-open .scrollup__btn--visible {
-  -webkit-transform: rotateY(180deg);
-  transform: rotateY(180deg);
+.scrollup__btn--up {
+  -webkit-transition: opacity 0.4s ease, visibility 0.4s ease;
+  -o-transition: opacity 0.4s ease, visibility 0.4s ease;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
 
-.scrollup__btn--hidden {
-  -webkit-transform: rotateY(180deg);
-  transform: rotateY(180deg);
-}
-
-html.popup-open .scrollup__btn--hidden {
-  -webkit-transform: rotateY(0deg);
-  transform: rotateY(0deg);
+.scrollup__btn--up.scrollup-visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
 }
 
 .stories-item video {
@@ -3624,7 +3605,7 @@ html.popup-open .scrollup__btn--hidden {
   position: fixed;
   inset: 0;
   background: var(--stories-overlay-bg-color);
-  z-index: 999;
+  z-index: 1100;
 }
 
 .stories-overlay.is-active {
@@ -3636,8 +3617,8 @@ html.popup-open .scrollup__btn--hidden {
   position: relative;
   width: 100%;
   max-width: 100%;
-  height: calc(100vh - var(--wrapper-padding));
-  height: calc(100dvh - var(--wrapper-padding));
+  height: 100vh;
+  height: 100dvh;
   overflow: hidden;
   background: #000;
   -webkit-user-select: none;
@@ -3776,7 +3757,7 @@ html.popup-open .scrollup__btn--hidden {
 
 .stories-img {
   width: 100%;
-  height: 100%;
+  height: auto;
   -o-object-fit: contain;
   object-fit: contain;
   display: block;
@@ -3785,7 +3766,10 @@ html.popup-open .scrollup__btn--hidden {
   -o-transition: opacity 0.3s ease;
   transition: opacity 0.3s ease;
   position: absolute;
-  inset: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }
 
 .stories-img.is-visible {
@@ -4643,7 +4627,7 @@ p {
 }
 
 .favorite .card__like i::before {
-  content: "\e93e";
+  content: "\e942";
 }
 
 .filter .layout__inner {
@@ -5181,16 +5165,8 @@ p {
   grid-column: 1/3;
 }
 
-.offers .layout__banner-link:nth-child(1) {
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 1;
-  grid-column: 1/2;
-}
-
-.offers .layout__banner-link:nth-child(2) {
-  -ms-grid-column: 2;
-  -ms-grid-column-span: 1;
-  grid-column: 2/3;
+.offers .layout__banner-link i {
+  display: none;
 }
 
 .warning {
@@ -5995,8 +5971,12 @@ canvas {
   display: none;
 }
 
-.logout .profile .layout__foot {
+.profile .layout__foot {
   height: 23rem;
+}
+
+.login .profile .layout__foot {
+  height: 17rem;
 }
 
 .profile .layout__foot-inner {
@@ -6330,7 +6310,6 @@ canvas {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  gap: 4rem;
   margin: auto 0;
   -ms-grid-row: 1;
   -ms-grid-row-span: 1;
@@ -6340,6 +6319,7 @@ canvas {
 .welcome__logo {
   width: auto;
   height: 17.7rem;
+  margin-bottom: 4rem;
 }
 
 .welcome__logo img {
@@ -6351,6 +6331,7 @@ canvas {
 
 .welcome__text {
   text-align: center;
+  margin-bottom: 3rem;
 }
 
 .welcome__btns {
@@ -6364,11 +6345,46 @@ canvas {
   gap: 0.8rem;
   max-width: 21.2rem;
   width: 100%;
+  margin-bottom: 2.5rem;
 }
 
 .welcome__btn {
   width: 100%;
+  -webkit-transform: translateX(-5rem);
+  -ms-transform: translateX(-5rem);
+  transform: translateX(-5rem);
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  transition: all 0.4s ease;
   font-weight: 700;
+}
+
+.welcome--open body:not(body.no-scroll) .welcome__btn {
+  -webkit-transform: translateX(0);
+  -ms-transform: translateX(0);
+  transform: translateX(0);
+  opacity: 1;
+  visibility: visible;
+}
+
+.welcome__btn:nth-child(1) {
+  -webkit-transition-delay: 0s;
+  -o-transition-delay: 0s;
+     transition-delay: 0s;
+}
+
+.welcome__btn:nth-child(2) {
+  -webkit-transition-delay: 0.2s;
+  -o-transition-delay: 0.2s;
+     transition-delay: 0.2s;
+}
+
+.welcome__btn:nth-child(3) {
+  -webkit-transition-delay: 0.4s;
+  -o-transition-delay: 0.4s;
+     transition-delay: 0.4s;
 }
 
 .welcome__lang {
@@ -6435,6 +6451,14 @@ canvas {
   width: 1.2rem;
   height: 1rem;
   font-size: 2rem;
+}
+
+.welcome__link {
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: 140%;
+  text-align: center;
+  color: var(--accent);
 }
 
 .welcome .foodbook__img {

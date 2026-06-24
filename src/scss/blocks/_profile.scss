@@ -78,9 +78,10 @@
     }
 
     &__foot {
+      height: calc(17rem + 6rem);
 
-      .logout & {
-        height: calc(17rem + 6rem);
+      .login & {
+        height: 17rem;
       }
 
       &-inner {

@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Переменные для отслеживания истинного скролла пальцем
     let touchStartY = 0;
     let isRealScrollActive = false;
-    const SCROLL_THRESHOLD = 5; // Порог в пикселях: игнорируем движения меньше этого значения
+    const SCROLL_THRESHOLD = 1; // Порог в пикселях: игнорируем движения меньше этого значения
 
     try {
       const testOptions = Object.defineProperty({}, 'passive', {
@@ -1807,36 +1807,23 @@ document.addEventListener('DOMContentLoaded', () => {
    * когда изменяется наличие popup-open у <html>.                  
    */
   (function () {
-    const html = document.documentElement;
     const scrollup = document.querySelector('.scrollup');
-    const button = document.querySelector('.scrollup__btn');
-    if (!button) return; // Кнопка отсутствует - выходим
 
-    const shouldShow = () => {
-      // Показываем при popup-open всегда
-      if (html.classList.contains('popup-open')) return true;
-      // Иначе показываем только если прокрутили вниз
-      return window.scrollY > 0 || document.documentElement.scrollTop > 0;
-    };
+    if (!scrollup) return;
+
+    const upButton = scrollup.querySelector('.scrollup__btn--up');
 
     const render = () => {
-      scrollup.classList.toggle('scrollup-visible', shouldShow());
+      // Проверяем, ушел ли скролл с самого верха страницы
+      const isScrolled = window.scrollY > 0 || document.documentElement.scrollTop > 0;
+      upButton.classList.toggle('scrollup-visible', isScrolled);
     };
 
+    // Оптимальный слушатель скролла
     window.addEventListener('scroll', render, { passive: true });
-    render();
 
-    /**
-     * MutationObserver слушает изменения атрибута class у <html>.
-     * Это надёжнее чем подписываться на произвольные события -
-     * отражает реальное состояние DOM независимо от источника изменения.
-     */
-    new MutationObserver(() => {
-      button.classList.toggle('is-flipped', html.classList.contains('popup-open'));
-    }).observe(html, {
-      attributes: true,
-      attributeFilter: ['class']
-    });
+    // Запускаем проверку при первой загрузке страницы
+    render();
   })();
 
   /**
@@ -2162,7 +2149,8 @@ document.addEventListener('DOMContentLoaded', () => {
         'position:absolute',
         'inset:0',
         'width:100%',
-        'height:100%',
+        // 'height:100%',
+        'height:auto',
         'object-fit:contain',
         'display:block'
       ].join(';');
