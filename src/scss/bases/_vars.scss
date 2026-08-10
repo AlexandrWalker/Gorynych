@@ -125,6 +125,13 @@
   --layout-platform-block-text-accent-color: #D71920;
   --layout-platform-block-text-a-color: rgba(238, 240, 237, 0.5);
 
+  --layout-calc-bg: #FFFFFF1A;
+  --layout-calc-head-bg: rgba(236, 241, 232, 0.1);
+  --layout-calc-btn-bg: transparent;
+  --layout-calc-btn-active-color: var(--white);
+  --layout-calc-btn-mask-bg: var(--accent);
+  --layout-calc-unit-color: var(--white-10);
+
   // welcome
   --welcome-bg-color: #EEF0ED;
   --welcome-text-color: #000000;

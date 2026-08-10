@@ -52,10 +52,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const htmlEl = document.documentElement;
     let passiveSupported = false;
 
-    // Переменные для отслеживания истинного скролла пальцем
     let touchStartY = 0;
     let isRealScrollActive = false;
-    const SCROLL_THRESHOLD = 1; // Порог в пикселях: игнорируем движения меньше этого значения
+    const SCROLL_THRESHOLD = 3;
 
     try {
       const testOptions = Object.defineProperty({}, 'passive', {
@@ -77,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function removeScrollActive() {
       htmlEl.classList.remove('scroll-active');
-      isRealScrollActive = false; // Сбрасываем статус при удалении класса
+      isRealScrollActive = false;
     }
 
     function easeInOutCubic(t) {
@@ -138,33 +137,26 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    // Запоминаем, где пользователь коснулся экрана
     function handleTouchStart(e) {
       cancelActiveScroll();
       const touch = e.touches ? e.touches[0] : e;
       touchStartY = touch.clientY;
     }
 
-    // Проверяем, сдвинулся ли палец достаточно далеко
     function handleTouchMove(e) {
+      if (isRealScrollActive) return;
       cancelActiveScroll();
-
-      if (isRealScrollActive) return; // Если уже активировали скролл, больше не считаем
 
       const touch = e.touches ? e.touches[0] : e;
       const currentY = touch.clientY;
       const moveDistance = Math.abs(currentY - touchStartY);
 
-      // Если палец сместился больше чем на порог — это осознанный скролл
       if (moveDistance > SCROLL_THRESHOLD) {
         isRealScrollActive = true;
       }
     }
 
-    // Обработчик события scroll
     function handleUserScroll() {
-      // Если скролл вызван микро-дрожанием пальца (не прошел порог), ничего не делаем
-      // Проверка activeScrollRAF нужна, чтобы не ломать программный скролл по ссылкам
       if (!isRealScrollActive && activeScrollRAF === null) {
         return;
       }
@@ -182,35 +174,37 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 100);
     }
 
-    // Слушатели для мыши и колесика (они сразу активируют статус скролла)
     window.addEventListener('wheel', function () {
       isRealScrollActive = true;
       cancelActiveScroll();
     }, passiveOption);
 
-    // Слушатели тача с фильтрацией микро-движений
-    window.addEventListener('touchstart', handleTouchStart, passiveOption);
+    if (window.PointerEvent) {
+      window.addEventListener('pointerdown', handleTouchStart, passiveOption);
+    } else {
+      window.addEventListener('touchstart', handleTouchStart, passiveOption);
+    }
     window.addEventListener('touchmove', handleTouchMove, passiveOption);
-    window.addEventListener('pointerdown', handleTouchStart, passiveOption);
 
     window.addEventListener('scroll', handleUserScroll, passiveOption);
 
-    document.querySelectorAll('a[href^="#"]').forEach(function (link) {
-      link.addEventListener('click', function (e) {
-        e.preventDefault();
+    document.addEventListener('click', function (e) {
+      const link = e.target.closest('a[href^="#"]');
+      if (!link) return;
 
-        const href = link.getAttribute('href');
-        if (!href || href === '#') return;
+      const href = link.getAttribute('href');
+      if (!href || href === '#') return;
 
-        const targetEl = document.getElementById(href.slice(1));
-        if (!targetEl) return;
+      const targetEl = document.getElementById(href.slice(1));
+      if (!targetEl) return;
 
-        const targetY = targetEl.getBoundingClientRect().top
-          + (window.scrollY || window.pageYOffset || 0)
-          - NAV_HEIGHT_REM * getRootFontSize();
+      e.preventDefault();
 
-        smoothScrollTo(targetY, SCROLL_DURATION);
-      });
+      const targetY = targetEl.getBoundingClientRect().top
+        + (window.scrollY || window.pageYOffset || 0)
+        - NAV_HEIGHT_REM * getRootFontSize();
+
+      smoothScrollTo(targetY, SCROLL_DURATION);
     });
   })();
 
@@ -3639,6 +3633,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   })();
 
+  /**
+   * Функция для презентации
+   */
   (function () {
     const pdfUrl = '/Gorynych/docs/Presentation.pdf';
     pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
@@ -3683,6 +3680,100 @@ document.addEventListener('DOMContentLoaded', () => {
     }).catch(error => {
       console.error('Ошибка при обработке PDF:', error);
       container.innerHTML = '<p style="color:red; text-align:center;">Не удалось загрузить презентацию.</p>';
+    });
+  })();
+
+  /**
+   * Код для активации кбжу
+   */
+  (function () {
+    document.addEventListener('click', (event) => {
+      // Проверяем, что кликнули именно по кнопке переключателя
+      const btn = event.target.closest('.layout__calc-btn');
+      if (!btn) return;
+
+      // Находим главный контейнер именно этого калькулятора
+      const calcContainer = btn.closest('.layout__calc');
+      if (!calcContainer) return;
+
+      const type = btn.getAttribute('data-type');
+
+      // Меняем атрибут у главного контейнера
+      calcContainer.setAttribute('data-calc', type);
+
+      // Переключаем класс активности у кнопок внутри этого калькулятора
+      calcContainer.querySelectorAll('.layout__calc-btn').forEach(b => {
+        b.classList.toggle('layout__calc-btn--active', b === btn);
+      });
+
+      // Переключаем класс calc-active у спанов внутри этого калькулятора
+      calcContainer.querySelectorAll('.layout__calc-count span').forEach(span => {
+        const isCurrentType = span.getAttribute('data-count') === type;
+        span.classList.toggle('calc-active', isCurrentType);
+      });
+    });
+
+    // Проставляем классы для дефолтных значений (делаем это один раз для всей страницы)
+    document.querySelectorAll('.layout__calc').forEach(calcContainer => {
+      const type = calcContainer.getAttribute('data-calc') || 'portion';
+      calcContainer.querySelectorAll('.layout__calc-count span').forEach(span => {
+        if (span.getAttribute('data-count') === type) {
+          span.classList.add('calc-active');
+        }
+      });
+    });
+
+  })();
+
+  /**
+   * Плейсхолдер для инпута даты и врмемени для мобильных устройств
+   */
+  (function () {
+    const isMobile = () => {
+      if (navigator.userAgentData?.mobile) return true;
+      const ua = navigator.userAgent;
+      if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(ua)) return true;
+      if (/Macintosh/i.test(ua) && navigator.maxTouchPoints > 1) return true;
+      return false;
+    };
+
+    if (!isMobile()) return;
+
+    const processGroup = (group) => {
+      if (group.querySelector('.form-placeholder')) {
+        group.classList.add('no-mask');
+      }
+    };
+
+    const initialGroups = document.querySelectorAll('.form-group');
+    for (let i = 0; i < initialGroups.length; i++) {
+      processGroup(initialGroups[i]);
+    }
+
+    const observer = new MutationObserver((mutations) => {
+      for (let i = 0; i < mutations.length; i++) {
+        const addedNodes = mutations[i].addedNodes;
+
+        for (let j = 0; j < addedNodes.length; j++) {
+          const node = addedNodes[j];
+
+          if (node.nodeType === 1) {
+            if (node.classList.contains('form-group')) {
+              processGroup(node);
+            } else {
+              const nestedGroups = node.querySelectorAll('.form-group');
+              for (let k = 0; k < nestedGroups.length; k++) {
+                processGroup(nestedGroups[k]);
+              }
+            }
+          }
+        }
+      }
+    });
+
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true
     });
   })();
 
