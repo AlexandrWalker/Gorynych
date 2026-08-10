@@ -19,7 +19,10 @@
   transition: opacity 0.3s ease, visibility 0.3s ease;
 
   position: fixed;
-  inset: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   // background: rgba(0, 0, 0, 0.95);
   background: var(--stories-overlay-bg-color);
   // z-index: 999;
@@ -149,7 +152,6 @@
   opacity: 0;
   transition: opacity 0.3s ease;
   position: absolute;
-  // inset: 0;
   top: 0;
   right: 0;
   bottom: 0;
